@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcnsetuccyqpc"]
+
+[ext_resource type="Texture2D" uid="uid://dfj0ds5r02vg2" path="res://Assets/Pool_Table_Type_1_NO_BG Wide.png" id="1_uoqrn"]
+
+[node name="Pool_Tabel" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -89.0
+offset_right = 62.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uoqrn")
