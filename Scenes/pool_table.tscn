@@ -49,28 +49,28 @@ polygon = PackedVector2Array(191, 812, 224, 784, 961, 779, 972, 789, 971, 811, 9
 build_mode = 1
 polygon = PackedVector2Array(130, 181, 170, 208, 170, 744, 130, 764, -212, 764, -212, 181)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Pockets" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(-31.5, 1)
 shape = SubResource("RectangleShape2D_7kf5v")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(2048, 15.5)
 shape = SubResource("RectangleShape2D_7kf5v")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(-28, 932)
 shape = SubResource("RectangleShape2D_7kf5v")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(2052, 927)
 shape = SubResource("RectangleShape2D_7kf5v")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(1019, -5)
 shape = SubResource("RectangleShape2D_11c0r")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(1018, 943.5)
 shape = SubResource("RectangleShape2D_k5s4b")
