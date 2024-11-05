@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://yfcfr7i0n7ap"]
+
+[ext_resource type="PackedScene" uid="uid://bcnsetuccyqpc" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
+[ext_resource type="PackedScene" uid="uid://c06o0pf8qo34u" path="res://Scenes/ball.tscn" id="2_vnxbh"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Pool_Tabel" parent="." instance=ExtResource("1_y5xig")]
+
+[node name="Ball" parent="." instance=ExtResource("2_vnxbh")]
