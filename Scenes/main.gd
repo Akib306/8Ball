@@ -59,3 +59,7 @@ func show_cue():
 
 func _process(delta) -> void:
 	pass
+
+
+func _on_cue_shoot(power) -> void:
+	cue_ball.apply_impulse(power)

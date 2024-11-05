@@ -19,3 +19,5 @@ grow_vertical = 1
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
 rotation = 3.14159
+
+[connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
