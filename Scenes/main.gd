@@ -61,5 +61,5 @@ func _process(delta) -> void:
 	pass
 
 
-func _on_cue_shoot(power) -> void:
+func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)

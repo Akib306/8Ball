@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 		
 	else:
 		if power > 0:
-			var dir = mouse_pos + position
-			shoot.emit(power * dir)
+			var dir = mouse_pos - position
+			shoot.emit(-power * dir)
 			power = 0
