@@ -5,6 +5,8 @@ extends Node2D
 var ball_images := []
 var cue_ball
 const START_POS := Vector2(1200,350)
+const MAX_POWER := 8.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
