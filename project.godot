@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="8Ball+"
-run/main_scene="res://Scenes/pool_table.tscn"
+run/main_scene="res://Scenes/ball.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[physics]
+
+2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]
 
