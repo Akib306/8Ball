@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmg67g43v0brs"]
+
+[ext_resource type="Texture2D" uid="uid://bfm2jn61gdp8o" path="res://Assets/cue.png" id="1_1pmxk"]
+
+[node name="Cue" type="Sprite2D"]
+position = Vector2(-691.284, 1084.46)
+scale = Vector2(0.468552, 0.261756)
+texture = ExtResource("1_1pmxk")
+offset = Vector2(1406, -741)
