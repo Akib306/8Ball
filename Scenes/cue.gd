@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 		
 		elif power <= 0:
 			power_dir = 1
-		print(power)
+		
 	else:
+		power_dir = 1
 		if power > 0:
 			var dir = mouse_pos - position
 			shoot.emit(-power * dir)

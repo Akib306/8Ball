@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c18n1awt5rvoo"]
+[gd_scene load_steps=3 format=3 uid="uid://c18n1awt5rvoo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sobu2"]
+bounce = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wixnw"]
 radius = 72.0
 
 [node name="PoolBall" type="RigidBody2D"]
 position = Vector2(330, 300)
+physics_material_override = SubResource("PhysicsMaterial_sobu2")
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
