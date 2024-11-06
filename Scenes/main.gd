@@ -6,6 +6,7 @@ var ball_images := []
 var cue_ball
 const START_POS := Vector2(1200,350)
 const MAX_POWER := 8.0
+var taking_shot : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,13 +55,35 @@ func reset_cue_ball():
 	add_child(cue_ball)
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back()
+	taking_shot = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func show_cue():
 	$Cue.position = cue_ball.position
+	$Cue.show()
+	
+	
+func hide_cue():
+	$Cue.hide()
 
 func _process(delta) -> void:
-	pass
+	var moving := false
+	for b in get_tree().get_nodes_in_group("balls"):
+		if b.linear_velocity.length() >= 7:
+			moving = true
+			print("true")
+			
+	if not moving:
+		if not taking_shot:
+			taking_shot = true
+			show_cue()
+			print(false)
+	else:
+		if taking_shot:
+			taking_shot = false
+			
+			hide_cue()
+			print("idk")
 
 
 func _on_cue_shoot(power):

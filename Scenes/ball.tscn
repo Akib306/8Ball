@@ -6,7 +6,7 @@ bounce = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wixnw"]
 radius = 72.0
 
-[node name="PoolBall" type="RigidBody2D"]
+[node name="PoolBall" type="RigidBody2D" groups=["balls"]]
 position = Vector2(330, 300)
 physics_material_override = SubResource("PhysicsMaterial_sobu2")
 lock_rotation = true
