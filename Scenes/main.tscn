@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=7 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_texbr"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="PackedScene" uid="uid://dmg67g43v0brs" path="res://Scenes/cue.tscn" id="3_il0sh"]
+[ext_resource type="Script" path="res://Scenes/power_bar.gd" id="4_v37jg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imic8"]
+bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xqwk"]
+bg_color = Color(0.682353, 0.0588235, 0.0862745, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_texbr")
@@ -19,5 +26,16 @@ grow_vertical = 1
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
 rotation = 3.14159
+
+[node name="PowerBar" type="ProgressBar" parent="."]
+z_index = 1
+offset_left = 213.0
+offset_top = 146.0
+offset_right = 313.0
+offset_bottom = 176.0
+theme_override_styles/background = SubResource("StyleBoxFlat_imic8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
+show_percentage = false
+script = ExtResource("4_v37jg")
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]

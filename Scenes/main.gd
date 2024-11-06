@@ -7,12 +7,12 @@ var cue_ball
 const START_POS := Vector2(1200,350)
 const MAX_POWER := 8.0
 var taking_shot : bool
+const MOVE_THRESHOLD := 7.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	load_images()
-
 	new_game()
 
 func new_game():
@@ -59,31 +59,35 @@ func reset_cue_ball():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func show_cue():
+	$Cue.set_process(true)
 	$Cue.position = cue_ball.position
 	$Cue.show()
 	
 	
 func hide_cue():
+	$Cue.set_process(false)
 	$Cue.hide()
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
-		if b.linear_velocity.length() >= 7:
+		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() < MOVE_THRESHOLD):
+			b.sleeping = true
+		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
 			moving = true
-			print("true")
+			
 			
 	if not moving:
 		if not taking_shot:
 			taking_shot = true
 			show_cue()
-			print(false)
+			
 	else:
 		if taking_shot:
 			taking_shot = false
 			
 			hide_cue()
-			print("idk")
+			
 
 
 func _on_cue_shoot(power):
