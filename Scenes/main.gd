@@ -114,35 +114,12 @@ func potted_ball(body):
 		cue_ball_potted = true
 		remove_cue_ball()
 	else:
+		
+		#image needs to be resized
 		var b = Sprite2D.new()
 		add_child(b)
-
-# Get the texture from the existing sprite
-		var sprite = body.get_node("Sprite2D")
-		if sprite and sprite.texture:
-	# Resize the texture
-			var image = sprite.texture.get_data()  # Get image data from the texture
-			image.lock()  # Lock the image to prevent modification during the operation
-
-	# Resize the image (scale down by 50% in both width and height for example)
-			image.resize(image.get_width() / 2, image.get_height() / 2)
-
-	# Create a new texture from the resized image
-			var resized_texture = ImageTexture.new()
-			resized_texture.create_from_image(image)
-	
-	# Set the resized texture to the new sprite
-			b.texture = resized_texture
-	
-			image.unlock()  # Unlock the image after modification
-		else:
-			print("Error: Sprite2D node or texture not found!")
-
-# Add the new sprite to the potted array and position it
+		b.texture = body.get_node("Sprite2D").texture
 		potted.append(b)
 		b.position = Vector2(25 * potted.size(), 825)
-
-# Remove the body node from the scene
 		body.queue_free()
-
 	
