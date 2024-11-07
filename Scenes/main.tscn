@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_texbr"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
-[ext_resource type="PackedScene" uid="uid://dmg67g43v0brs" path="res://Scenes/cue.tscn" id="3_il0sh"]
+[ext_resource type="PackedScene" uid="uid://pkupwi4ghgg1" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="Script" path="res://Scenes/power_bar.gd" id="4_v37jg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
