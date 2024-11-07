@@ -48,3 +48,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_imic8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
 show_percentage = false
 script = ExtResource("4_v37jg")
+
+[connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]

@@ -126,12 +126,41 @@ func potted_ball(body):
 		cue_ball_potted = true
 		remove_cue_ball()
 	else:
-		
-		#image needs to be resized
+		# Retrieve the necessary nodes and settings directly from PottedPanel
+		var max_balls_per_row := 5  # Maximum balls per row
+		var ball_size := 25  # Width/height of each potted ball image before scaling
+		var scale_factor := 0.5  # Scale down factor for the balls
+		var scaled_ball_size := ball_size * scale_factor  # Effective size of each scaled ball
+
+		# Create a new Sprite2D for the potted ball
 		var b = Sprite2D.new()
 		add_child(b)
 		b.texture = body.get_node("Sprite2D").texture
 		potted.append(b)
-		b.position = Vector2(25 * potted.size(), 825)
+		b.scale = Vector2(scale_factor, scale_factor)  # Apply the scale factor
+
+		# Get PottedPanel position and size for dynamic placement
+		var panel_position = $PottedPanel.position
+		var panel_width = $PottedPanel.size.x
+		var panel_height = $PottedPanel.size.y
+
+		# Calculate the horizontal offset to center balls within the panel
+		var total_row_width = (max_balls_per_row * scaled_ball_size) + ((max_balls_per_row - 1) * scaled_ball_size / 2)
+		var x_offset = (panel_width - total_row_width) / 2
+
+		# Calculate position within PottedPanel based on current index
+		var index = potted.size() - 1
+		var row = index / max_balls_per_row
+		var col = index % max_balls_per_row
+		
+		# Calculate the x position with offset and spacing
+		var x_pos = panel_position.x + x_offset + (col * (scaled_ball_size + scaled_ball_size / 2))
+
+		# Calculate the y position to keep balls vertically centered in the panel
+		var y_pos = panel_position.y + (panel_height / 2) - (scaled_ball_size / 2) + (row * scaled_ball_size)
+
+		# Set ball position
+		b.position = Vector2(x_pos, y_pos)
+
+		# Remove the potted ball from the main table
 		body.queue_free()
-	
