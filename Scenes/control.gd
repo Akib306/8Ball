@@ -2,28 +2,44 @@ extends Control
 
 @onready var mainMenu = $Main_menu
 @onready var optionsMenu = $Options_menu
+@onready var menu_buttons = %MenuButtons
+signal start_game() 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	optionsMenu.visible = false 
+	focus_button()
 
 
 func to_options(): 
 	mainMenu.visible = false
 	optionsMenu.visible = true
 
-	
+func on_visibility_change(): 
+	if visible:
+		focus_button() 
+
+func focus_button():
+	if menu_buttons:
+		var button: Button = menu_buttons.get_child(0)
+		if button is Button:
+			button.grab_focus()
+	pass 
+
 func to_main():
 	mainMenu.visible = true
 	optionsMenu.visible = false
 
-
-
-
 func _on_option_pressed() -> void:
 	to_options()
 
-
-
 func _on_back_pressed() -> void:
 	to_main()
+	
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_start_pressed() -> void:
+	start_game.emit()
+	hide() 
