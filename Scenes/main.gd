@@ -44,9 +44,10 @@ func generate_balls():
 	var camera_center_x = camera.position.x
 	var camera_center_y = camera.position.y
 
-	# Set start position based on 30% from the left edge of the camera view for x and center y
-	var start_x = camera_center_x - (camera.get_viewport_rect().size.x * 0.3)  # 30% offset from left edge
-	var start_y = camera_center_y - (camera.get_viewport_rect().size.y * .1) # Center vertically based on the camera's position
+	# Set start position based on 30% from the left edge of the camera view for x
+	var start_x = camera_center_x - (camera.get_viewport_rect().size.x * 0.3) 
+	# Center vertically based on the camera's position
+	var start_y = camera_center_y - (camera.get_viewport_rect().size.y * .1) 
 
 	for col in range(5):
 		for row in range(rows):
@@ -54,8 +55,11 @@ func generate_balls():
 			
 			# Calculate position based on camera view and stagger for triangle shape
 			var pos = Vector2(
-				start_x + (col * dia),  # Horizontal position with 30% offset from camera center
-				start_y + (row * dia) + (col * dia / 2)  # Staggered vertical position for triangle shape
+				# Horizontal position with 30% offset from camera center
+				start_x + (col * dia),  
+				
+				# Staggered vertical position for triangle shape
+				start_y + (row * dia) + (col * dia / 2)  
 			)
 			add_child(b)
 			b.position = pos
@@ -72,7 +76,7 @@ func reset_cue_ball():
 	add_child(cue_ball)
 	
 	# Calculate the START_POS dynamically based on the camera's position
-	var START_POS = Vector2(camera.position.x + 200, camera.position.y)  # Adjust offsets as needed
+	var START_POS = Vector2(camera.position.x + 200, camera.position.y) 
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back()
 	taking_shot = false
@@ -98,12 +102,12 @@ func hide_cue():
 func _process(_delta) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
-		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() < MOVE_THRESHOLD):
+		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() 
+		< MOVE_THRESHOLD):
 			b.sleeping = true
 		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
 			moving = true
-			
-			
+
 	if not moving:
 		if cue_ball_potted:
 			reset_cue_ball()
@@ -116,9 +120,8 @@ func _process(_delta) -> void:
 	else:
 		if taking_shot:
 			taking_shot = false
-			
 			hide_cue()
-			
+
 func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)
 
@@ -146,7 +149,9 @@ func potted_ball(body):
 		var panel_height = $PottedPanel.size.y
 
 		# Calculate the horizontal offset to center balls within the panel
-		var total_row_width = (max_balls_per_row * scaled_ball_size) + ((max_balls_per_row - 1) * scaled_ball_size / 2)
+		var total_row_width = ((max_balls_per_row * scaled_ball_size) + 
+		((max_balls_per_row - 1) * scaled_ball_size / 2))
+		
 		var x_offset = (panel_width - total_row_width) / 2
 
 		# Calculate position within PottedPanel based on current index
@@ -155,10 +160,12 @@ func potted_ball(body):
 		var col = index % max_balls_per_row
 		
 		# Calculate the x position with offset and spacing
-		var x_pos = panel_position.x + x_offset + (col * (scaled_ball_size + scaled_ball_size / 2))
+		var x_pos = (panel_position.x + x_offset + 
+		(col * (scaled_ball_size + scaled_ball_size / 2)))
 
 		# Calculate the y position to keep balls vertically centered in the panel
-		var y_pos = panel_position.y + (panel_height / 2) - (scaled_ball_size / 2) + (row * scaled_ball_size)
+		var y_pos = (panel_position.y + (panel_height / 2) - 
+		(scaled_ball_size / 2) + (row * scaled_ball_size))
 
 		# Set ball position
 		b.position = Vector2(x_pos, y_pos)
