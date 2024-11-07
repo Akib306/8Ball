@@ -8,12 +8,16 @@ const START_POS := Vector2(1200,350)
 const MAX_POWER := 8.0
 var taking_shot : bool
 const MOVE_THRESHOLD := 7.0
+var cue_ball_potted : bool
+var potted := []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	load_images()
 	new_game()
+	$Pool_Tabel/Pockets.body_entered.connect(potted_ball)
 
 func new_game():
 	generate_balls()
@@ -58,15 +62,23 @@ func reset_cue_ball():
 	taking_shot = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
+func remove_cue_ball():
+	var old_b = cue_ball
+	remove_child(old_b)
+	old_b.queue_free()
+
 func show_cue():
 	$Cue.set_process(true)
 	$Cue.position = cue_ball.position
+	$PowerBar.position.x = cue_ball.position.x - (0.5 * $PowerBar.size.x)
+	$PowerBar.position.y = cue_ball.position.y + (0.5 * $PowerBar.size.y)
 	$Cue.show()
-	
+	$PowerBar.show()
 	
 func hide_cue():
 	$Cue.set_process(false)
 	$Cue.hide()
+	$PowerBar.hide()
 
 func _process(_delta) -> void:
 	var moving := false
@@ -78,6 +90,10 @@ func _process(_delta) -> void:
 			
 			
 	if not moving:
+		if cue_ball_potted:
+			reset_cue_ball()
+			cue_ball_potted = false
+			
 		if not taking_shot:
 			taking_shot = true
 			show_cue()
@@ -92,3 +108,18 @@ func _process(_delta) -> void:
 
 func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)
+
+func potted_ball(body):
+	if body == cue_ball:
+		cue_ball_potted = true
+		remove_cue_ball()
+	else:
+		
+		#image needs to be resized
+		var b = Sprite2D.new()
+		add_child(b)
+		b.texture = body.get_node("Sprite2D").texture
+		potted.append(b)
+		b.position = Vector2(25 * potted.size(), 825)
+		body.queue_free()
+	

@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=8 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_texbr"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="PackedScene" uid="uid://dmg67g43v0brs" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="Script" path="res://Scenes/power_bar.gd" id="4_v37jg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imic8"]
 bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
@@ -23,6 +30,12 @@ offset_right = 1924.0
 offset_bottom = 1012.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="PottedPanel" type="Panel" parent="."]
+offset_top = 800.0
+offset_right = 1200.0
+offset_bottom = 900.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
 rotation = 3.14159
