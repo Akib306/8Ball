@@ -19,30 +19,31 @@ bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
 bg_color = Color(0.682353, 0.0588235, 0.0862745, 1)
 
 [node name="Main" type="Node2D"]
+position = Vector2(6, 0)
 script = ExtResource("1_texbr")
 metadata/_edit_horizontal_guides_ = [-1.0]
 
 [node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
-position = Vector2(4, 7.62939e-06)
-centered = false
-offset = Vector2(30, 20)
+
+[node name="Camera2D" type="Camera2D" parent="Pool_Table"]
 
 [node name="PottedPanel" type="Panel" parent="."]
-offset_left = 18.0
-offset_top = 1181.0
-offset_right = 1218.0
-offset_bottom = 1281.0
+offset_left = -1266.0
+offset_top = 616.0
+offset_right = -66.0
+offset_bottom = 716.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
+position = Vector2(1, -2)
 rotation = 3.14159
 
 [node name="PowerBar" type="ProgressBar" parent="."]
 z_index = 1
-offset_left = 2366.0
-offset_top = 1302.0
-offset_right = 2466.0
-offset_bottom = 1332.0
+offset_left = -248.0
+offset_top = -92.0
+offset_right = -148.0
+offset_bottom = -62.0
 theme_override_styles/background = SubResource("StyleBoxFlat_imic8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
 show_percentage = false
