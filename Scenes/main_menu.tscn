@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc65cnhgnbuuv"]
+[gd_scene load_steps=6 format=3 uid="uid://cc65cnhgnbuuv"]
 
 [ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
 [ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
 [ext_resource type="Script" path="res://Scenes/control.gd" id="1_nso0m"]
+[ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
 font = ExtResource("1_n1m5i")
@@ -18,6 +19,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nso0m")
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -15.0
+offset_right = 647.0
+offset_bottom = 695.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sm1lv")
+expand_mode = 1
 
 [node name="Main_menu" type="MarginContainer" parent="Control"]
 layout_mode = 1

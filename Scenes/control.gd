@@ -15,8 +15,6 @@ func _ready() -> void:
 	focus_button()
 	
 
-
-
 func to_options(): 
 	mainMenu.visible = false
 	optionsMenu.visible = true
