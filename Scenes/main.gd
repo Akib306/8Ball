@@ -11,6 +11,7 @@ var cue_ball_potted : bool
 var potted := []
 var camera: Camera2D  # Global variable for the camera
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene

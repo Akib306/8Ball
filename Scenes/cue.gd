@@ -6,8 +6,10 @@ var power_dir : int =1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var mouse_pos := get_viewport().get_mouse_position()
+	var mouse_pos: Vector2 = $"../Pool_Table/Camera2D".get_global_mouse_position()
 	look_at(mouse_pos)
+
+
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		power += 0.1 * power_dir
