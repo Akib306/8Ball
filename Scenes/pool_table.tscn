@@ -23,29 +23,29 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_uoqrn")
 
-[node name="Boarders" type="StaticBody2D" parent="."]
+[node name="Borders" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(193, 139, 226, 165, 962, 164, 971, 157, 970, 135, 970, -156, 193, -157)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(1846, 138, 1814, 164, 1079, 166, 1068, 158, 1067, 136, 1067, -129, 1846, -128)
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(1914, 769, 1875, 743, 1871, 208, 1908, 182, 2245, 182, 2245, 769)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(1071, 809, 1069, 787, 1077, 781, 1814, 781, 1848, 809, 1848, 1041, 1071, 1042)
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(191, 812, 224, 784, 961, 779, 972, 789, 971, 811, 971, 1084, 192, 1084)
 
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Boarders"]
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Borders"]
 build_mode = 1
 polygon = PackedVector2Array(130, 181, 170, 208, 170, 744, 130, 764, -212, 764, -212, 181)
 
