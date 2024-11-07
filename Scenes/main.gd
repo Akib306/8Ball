@@ -3,7 +3,6 @@ extends Node2D
 @export var ball : PackedScene
 
 var ball_images := []
-var cue_ball
 const MAX_POWER := 8.0
 var taking_shot : bool
 const MOVE_THRESHOLD := 7.0
@@ -11,6 +10,11 @@ var cue_ball_potted : bool
 var potted := []
 var camera: Camera2D  # Global variable for the camera
 
+# Arrays for solids, stripes, and special balls
+var solids := []
+var stripes := []
+var black_ball
+var cue_ball
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,9 +71,25 @@ func generate_balls():
 			# Apply texture
 			var sprite_node = b.get_node("Sprite2D")
 			sprite_node.texture = ball_images[count]
+			
+			# Sort balls into solids, stripes, or special balls
+			if count < 7:
+				solids.append(b)  # Balls 1-7 are solids
+			elif count == 7:
+				black_ball = b  # Ball 8 is the black ball
+			elif count >= 8 and count < 15:
+				stripes.append(b)  # Balls 9-15 are stripes
+			elif count == 15:
+				cue_ball = b  # Ball 16 is the cue ball, using existing cue_ball variable
+
 			count += 1
 
 		rows -= 1  # Reduce the number of balls per row for the triangular layout
+	
+	# Print each array after ball generation
+	print("Solids:", solids)
+	print("Stripes:", stripes)
+	print("Black Ball:", black_ball)
 
 func reset_cue_ball():
 	cue_ball = ball.instantiate()
