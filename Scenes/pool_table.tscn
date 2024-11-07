@@ -1,76 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1urs3qxj7yf4"]
+[gd_scene load_steps=2 format=3 uid="uid://d1urs3qxj7yf4"]
 
 [ext_resource type="Texture2D" uid="uid://dfj0ds5r02vg2" path="res://Assets/Pool_Table_Type_1_NO_BG Wide.png" id="1_uoqrn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kf5v"]
-size = Vector2(353, 287)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_11c0r"]
-size = Vector2(59, 302)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5s4b"]
-size = Vector2(63, 277)
-
-[node name="Pool_Tabel" type="TextureRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -89.0
-offset_right = 62.0
-offset_bottom = -89.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(4, 4)
+scale = Vector2(7.96655, 5.9847)
 texture = ExtResource("1_uoqrn")
-
-[node name="Boarders" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(193, 139, 226, 165, 962, 164, 971, 157, 970, 135, 970, -156, 193, -157)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(1846, 138, 1814, 164, 1079, 166, 1068, 158, 1067, 136, 1067, -129, 1846, -128)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(1914, 769, 1875, 743, 1871, 208, 1908, 182, 2245, 182, 2245, 769)
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(1071, 809, 1069, 787, 1077, 781, 1814, 781, 1848, 809, 1848, 1041, 1071, 1042)
-
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(191, 812, 224, 784, 961, 779, 972, 789, 971, 811, 971, 1084, 192, 1084)
-
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Boarders"]
-build_mode = 1
-polygon = PackedVector2Array(130, 181, 170, 208, 170, 744, 130, 764, -212, 764, -212, 181)
-
-[node name="Pockets" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(-31.5, 1)
-shape = SubResource("RectangleShape2D_7kf5v")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(2048, 15.5)
-shape = SubResource("RectangleShape2D_7kf5v")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(-28, 932)
-shape = SubResource("RectangleShape2D_7kf5v")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(2052, 927)
-shape = SubResource("RectangleShape2D_7kf5v")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(1019, -5)
-shape = SubResource("RectangleShape2D_11c0r")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pockets"]
-position = Vector2(1018, 943.5)
-shape = SubResource("RectangleShape2D_k5s4b")
