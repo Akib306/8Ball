@@ -4,42 +4,42 @@ extends Node2D
 
 var ball_images := []
 var cue_ball
-const START_POS := Vector2(1200,720)
 const MAX_POWER := 8.0
 var taking_shot : bool
 const MOVE_THRESHOLD := 7.0
 var cue_ball_potted : bool
 var potted := []
+var camera: Camera2D  # Global variable for the camera
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
+	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
+
 	load_images()
 	new_game()
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
+	
+	# Set the global camera reference
 
 func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
-	
+
 func load_images():
-	for i in range(1,  17, 1):
+	for i in range(1, 17, 1):
 		var filename = str("res://Assets/ball_", i, ".png")
 		var ball_image = load(filename)
 		ball_images.append(ball_image)
-		
 
 func generate_balls():
-	# Reference the camera node
-	var camera = $Pool_Table/Camera2D  # Adjust the path if necessary
-
 	# Setup game balls
 	var rows : int = 5
 	var dia = 36
 	var count = 0
 
-	# Calculate the center of the camera's viewport
+	# Use the camera's position for calculating the start position
 	var camera_center_x = camera.position.x
 	var camera_center_y = camera.position.y
 
@@ -69,10 +69,12 @@ func generate_balls():
 func reset_cue_ball():
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)
+	
+	# Calculate the START_POS dynamically based on the camera's position
+	var START_POS = Vector2(camera.position.x + 200, camera.position.y)  # Adjust offsets as needed
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back()
 	taking_shot = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func remove_cue_ball():
 	var old_b = cue_ball
@@ -97,27 +99,7 @@ func _process(_delta) -> void:
 	for b in get_tree().get_nodes_in_group("balls"):
 		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() < MOVE_THRESHOLD):
 			b.sleeping = true
-		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
-			moving = true
-			
-			
-	if not moving:
-		if cue_ball_potted:
-			reset_cue_ball()
-			cue_ball_potted = false
-			
-		if not taking_shot:
-			taking_shot = true
-			show_cue()
-			
-	else:
-		if taking_shot:
-			taking_shot = false
-			
-			hide_cue()
-			
-
-
+	
 func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)
 
