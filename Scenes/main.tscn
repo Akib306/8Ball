@@ -20,6 +20,12 @@ bg_color = Color(0.682353, 0.0588235, 0.0862745, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_texbr")
+metadata/_edit_horizontal_guides_ = [-1.0]
+
+[node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
+position = Vector2(4, 7.62939e-06)
+centered = false
+offset = Vector2(30, 20)
 
 [node name="PottedPanel" type="Panel" parent="."]
 offset_left = 18.0
@@ -41,8 +47,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_imic8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
 show_percentage = false
 script = ExtResource("4_v37jg")
-
-[node name="Pool_Tabel" parent="." instance=ExtResource("1_y5xig")]
-position = Vector2(3, 6)
-centered = false
-offset = Vector2(30, 20)

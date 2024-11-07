@@ -1,44 +1,43 @@
 extends Node2D
-#
-#@export var ball : PackedScene
-#
-#var ball_images := []
-#var cue_ball
-#const START_POS := Vector2(1200,350)
-#const MAX_POWER := 8.0
-#var taking_shot : bool
-#const MOVE_THRESHOLD := 7.0
-#var cue_ball_potted : bool
-#var potted := []
-#
-#
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#ball = load("res://Scenes/ball.tscn") as PackedScene
-	#load_images()
-	#new_game()
+
+@export var ball : PackedScene
+
+var ball_images := []
+var cue_ball
+const START_POS := Vector2(1200,720)
+const MAX_POWER := 8.0
+var taking_shot : bool
+const MOVE_THRESHOLD := 7.0
+var cue_ball_potted : bool
+var potted := []
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	ball = load("res://Scenes/ball.tscn") as PackedScene
+	load_images()
+	new_game()
 	#$Pool_Table/Pockets.body_entered.connect(potted_ball)
-#
-#func new_game():
-	#generate_balls()
+
+func new_game():
+	generate_balls()
 	#reset_cue_ball()
 	#show_cue()
-	#
-#func load_images():
-	#for i in range(1,  17, 1):
-		#var filename = str("res://Assets/ball_", i, ".png")
-		#var ball_image = load(filename)
-		#ball_images.append(ball_image)
+	
+func load_images():
+	for i in range(1,  17, 1):
+		var filename = str("res://Assets/ball_", i, ".png")
+		var ball_image = load(filename)
+		ball_images.append(ball_image)
+		
 #func generate_balls():
 	## Setup game balls
 	#var rows : int = 5
-	#var dia = 36
-	#var scale_percentage = 0.5  # Set desired scale as a percentage (e.g., 0.5 for 50%)
+	#var dia = 72
 	#var count = 0
 	#for col in range(5):
 		#for row in range(rows):
 			#var b = ball.instantiate()
-			#var pos = Vector2(250 + (col * dia), 267 + (row * dia) + (col * dia / 2))
+			#var pos = Vector2(250 + (col * (dia)), 250 + (row * (dia)) + (col * (dia/2)))
 			#add_child(b)
 			#b.position = pos
 			#
@@ -46,14 +45,77 @@ extends Node2D
 			#var sprite_node = b.get_node("Sprite2D")
 			#sprite_node.texture = ball_images[count]
 			#count += 1
-#
-			## Scale the sprite to the desired percentage
-			##if sprite_node.texture:
-				##var original_size = sprite_node.texture.get_size()
-				##var target_size = original_size * scale_percentage
-				##sprite_node.scale = target_size / original_size
+			#
 		#rows -= 1
+		
+
+#func generate_balls():
+	#var rows: int = 5
+	#var dia: int = 36
+	#var count: int = 0
 #
+	## Start position (leftmost point of triangle)
+	#var start_x = 600
+	#var start_y = 700
+#
+	## Spacing constants
+	#var x_offset = dia * 0.5 # Adjust horizontal offset for the triangle pattern
+	#var y_offset = dia * 0.866 # sin(60°) * diameter for correct vertical offset
+#
+	#for row in range(rows):
+		## Center each row around the starting x position
+		#var row_start_x = start_x - (row * x_offset / 2)
+#
+		#for col in range(row + 1):
+			#var b = ball.instantiate()
+#
+			## Calculate position for each ball
+			#var x = row_start_x + (col * x_offset)
+			#var y = start_y - (row * y_offset)
+#
+			#b.position = Vector2(x, y)
+			#add_child(b)
+#
+			## Assign texture to the ball's sprite
+			#var sprite_node = b.get_node("Sprite2D")
+			#sprite_node.texture = ball_images[count]
+			#count += 1
+
+func generate_balls():
+	# Reference the pool table node (Sprite2D)
+	var table = $Pool_Table  # Adjust the path as needed to access the table node
+	
+	# Setup game balls
+	var rows : int = 5
+	var dia = 40
+	var count = 0
+
+	# Get pool table dimensions from the texture
+	var table_width = table.texture.get_width() * 5
+	var table_height = table.texture.get_height() 
+	var start_x = ((table_width / 2) - (2 * dia)) # Center the triangle horizontally
+	var start_y = (table_height / 3) + 600 # Position the triangle vertically, 1/3 down the table
+
+	for col in range(5):
+		for row in range(rows):
+			var b = ball.instantiate()
+
+			# Calculate position based on the table dimensions and column/row offsets
+			var pos = Vector2(
+			start_x + (col * dia),  # Horizontal position
+			start_y + (row * dia) + (col * dia / 2)  # Staggered vertical position for triangle formation
+			)
+			add_child(b)
+			b.position = pos
+
+			# Apply texture
+			var sprite_node = b.get_node("Sprite2D")
+			sprite_node.texture = ball_images[count]
+			count += 1
+
+		rows -= 1  # Reduce the number of balls per row for the triangular layout
+
+
 #func reset_cue_ball():
 	#cue_ball = ball.instantiate()
 	#add_child(cue_ball)
@@ -122,4 +184,4 @@ extends Node2D
 		#potted.append(b)
 		#b.position = Vector2(25 * potted.size(), 825)
 		#body.queue_free()
-	#
+	
