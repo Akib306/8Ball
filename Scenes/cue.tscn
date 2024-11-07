@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3a5lr2rc1bs"]
+
+[ext_resource type="Texture2D" uid="uid://bfm2jn61gdp8o" path="res://Assets/cue.png" id="1_1pmxk"]
+[ext_resource type="Script" path="res://Scenes/cue.gd" id="2_n0iai"]
+
+[node name="Cue" type="Sprite2D"]
+z_index = 2
+position = Vector2(-153.632, 5.8052)
+scale = Vector2(0.226313, 0.370508)
+texture = ExtResource("1_1pmxk")
+offset = Vector2(1936.04, -161.746)
+region_enabled = true
+region_rect = Rect2(885, 1617, 3548, 361)
+script = ExtResource("2_n0iai")
