@@ -33,7 +33,7 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Main_menu/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/Main_menu/CenterContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="Control/Main_menu/CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "8Ball+"
 label_settings = SubResource("LabelSettings_jm1sm")
@@ -87,15 +87,20 @@ grow_vertical = 2
 [node name="CenterContainer" type="CenterContainer" parent="Control/Options_menu"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Options_menu/CenterContainer"]
+[node name="OptionButtons" type="VBoxContainer" parent="Control/Options_menu/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Back" type="Button" parent="Control/Options_menu/CenterContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="Control/Options_menu/CenterContainer/OptionButtons"]
 layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
 theme = ExtResource("1_0abd5")
 text = "Back"
 
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Start" to="Control" method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Option" to="Control" method="_on_option_pressed"]
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Quit" to="Control" method="_on_quit_pressed"]
-[connection signal="pressed" from="Control/Options_menu/CenterContainer/VBoxContainer/Back" to="Control" method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Options_menu/CenterContainer/OptionButtons/Back" to="Control" method="_on_back_pressed"]
