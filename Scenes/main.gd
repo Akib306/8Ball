@@ -99,7 +99,25 @@ func _process(_delta) -> void:
 	for b in get_tree().get_nodes_in_group("balls"):
 		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() < MOVE_THRESHOLD):
 			b.sleeping = true
-	
+		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
+			moving = true
+			
+			
+	if not moving:
+		if cue_ball_potted:
+			reset_cue_ball()
+			cue_ball_potted = false
+			
+		if not taking_shot:
+			taking_shot = true
+			show_cue()
+			
+	else:
+		if taking_shot:
+			taking_shot = false
+			
+			hide_cue()
+			
 func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)
 
