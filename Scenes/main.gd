@@ -108,7 +108,7 @@ func reset_cue_ball():
 	add_child(cue_ball)
 	
 	# Calculate the START_POS dynamically based on the camera's position
-	var START_POS = Vector2(camera.position.x + 200, camera.position.y) 
+	var START_POS = Vector2(camera.position.x + 200, camera.position.y -60) 
 	cue_ball.position = START_POS
 	cue_ball.get_node("Sprite2D").texture = ball_images.back()
 	taking_shot = false
@@ -200,7 +200,7 @@ func potted_ball(body):
 		(scaled_ball_size / 2) + (row * scaled_ball_size))
 
 		# Set ball position
-		b.position = Vector2(x_pos, y_pos)
+		b.position = Vector2(x_pos -525, y_pos)
 
 		# Remove the potted ball from the main table
 		body.queue_free()
