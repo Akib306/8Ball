@@ -16,6 +16,11 @@ var stripes := []
 var black_ball
 var cue_ball
 
+# Set up players
+var player1 = Player.new("Player 1", true)  # Player 1 starts with the first turn
+var player2 = Player.new("Player 2", false) # Player 2 starts without a turn
+var current_player = player1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene

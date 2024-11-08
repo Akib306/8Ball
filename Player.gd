@@ -1,11 +1,18 @@
-extends Node
+extends Object
 
+class_name Player
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var name: String
+var type: String = "" # No type initially assigned
+var score: int = 0
+var is_turn: bool = false
 
+func _init(name: String, is_turn: bool = false):
+	self.name = name
+	self.is_turn = is_turn
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func assign_type(ball_type: String):
+	self.type = ball_type
+
+func toggle_turn():
+	is_turn = !is_turn
