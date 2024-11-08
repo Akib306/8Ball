@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://p1lfipx6t3xq"]
+
+[node name="Button" type="Button"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var ball : PackedScene
+@export var power_up_ui: Control
 signal power_gamble
 
 var ball_images := []
@@ -35,10 +36,13 @@ var player_potted_correct_ball := false  # New flag to track correct potting
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
+
 	game_controller = $gameController
-	
+	power_up_ui = $PowerupUI
+
 	load_images()
 	new_game()
+	update_power_up_ui()
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
 func new_game():
@@ -87,7 +91,10 @@ func generate_balls():
 	print("Solids:", solids)
 	print("Stripes:", stripes)
 	print("Black Ball:", black_ball)
-
+	
+func update_power_up_ui():
+	power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
+	power_up_ui.update_power_up_buttons()           # Refresh buttons based on inventory
 func reset_cue_ball():
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)
@@ -244,4 +251,5 @@ func display_potted_ball(body):
 
 func switch_turn():
 	current_player = player2 if current_player == player1 else player1
+	update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")

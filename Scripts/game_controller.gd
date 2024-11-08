@@ -1,8 +1,8 @@
 extends Node2D
 
 # References for setting player nodes and power-up factory scene
-@export var player1_path: NodePath
-@export var player2_path: NodePath
+#@export var player1_path: NodePath
+#@export var player2_path: NodePath
 @export var power_up_factory_scene: PackedScene
 
 var rng = RandomNumberGenerator.new()
