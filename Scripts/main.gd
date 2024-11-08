@@ -10,6 +10,7 @@ const MOVE_THRESHOLD := 7.0
 var cue_ball_potted : bool
 var potted := []
 var camera: Camera2D  # Global variable for the camera
+var game_controller: Node2D
 
 # Arrays for solids, stripes, and special balls
 var solids := []
@@ -34,7 +35,8 @@ var player_potted_correct_ball := false  # New flag to track correct potting
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
-
+	game_controller = $gameController
+	
 	load_images()
 	new_game()
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
@@ -152,7 +154,6 @@ func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
 	else:
-		emit_signal("power_gamble")
 		handle_ball_pot(body)
 
 func handle_cue_ball_pot():
@@ -169,6 +170,8 @@ func handle_ball_pot(body):
 		print(current_player.name, " potted a ", current_player.type, 
 			"! Score: ", current_player.score)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
+		game_controller.power_draw(current_player)
+		
 	else:
 		print(current_player.name, " fouled by hitting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
