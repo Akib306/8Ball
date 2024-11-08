@@ -21,6 +21,13 @@ var player1 = Player.new("Player 1", true)  # Player 1 starts with the first tur
 var player2 = Player.new("Player 2", false) # Player 2 starts without a turn
 var current_player = player1
 
+# Variables for turn logic
+var first_ball_pocketed: bool = false
+var first_ball_hit_in_shot: bool = false
+var first_ball_hit: Node = null
+var player_potted_own_ball_this_shot: bool = false
+var foul_committed_this_shot: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
@@ -197,3 +204,7 @@ func potted_ball(body):
 
 		# Remove the potted ball from the main table
 		body.queue_free()
+
+#func switch_turn():
+	#current_player = player2 if current_player == player1 else player1
+	#print("It's now", current_player.name, "'s turn.")
