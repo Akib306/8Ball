@@ -5,10 +5,10 @@
 
 [node name="Cue" type="Sprite2D"]
 z_index = 2
-position = Vector2(-153.632, 5.8052)
-scale = Vector2(0.226313, 0.370508)
+position = Vector2(-22.914, -57.1019)
+scale = Vector2(0.163799, 0.296296)
 texture = ExtResource("1_1pmxk")
-offset = Vector2(1936.04, -161.746)
+offset = Vector2(872.769, -3.03093)
 region_enabled = true
-region_rect = Rect2(885, 1617, 3548, 361)
+region_rect = Rect2(-1363, 1666, 5262, 54)
 script = ExtResource("2_n0iai")
