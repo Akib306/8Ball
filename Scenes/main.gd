@@ -60,7 +60,8 @@ func generate_balls():
 	for col in range(5):
 		for row in range(rows):
 			var b = ball.instantiate()
-			var pos = Vector2(start_x + (col * dia), start_y + (row * dia) + (col * dia / 2))
+			var pos = Vector2(start_x + (col * dia), 
+				start_y + (row * dia) + (col * dia / 2))
 			add_child(b)
 			b.position = pos
 
@@ -112,7 +113,8 @@ func hide_cue():
 func _process(_delta) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
-		if (b.linear_velocity.length() > 0.0 and b.linear_velocity.length() < MOVE_THRESHOLD):
+		if (b.linear_velocity.length() > 0.0 and 
+			b.linear_velocity.length() < MOVE_THRESHOLD):
 			b.sleeping = true
 		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
 			moving = true
@@ -133,7 +135,7 @@ func _process(_delta) -> void:
 			if not player_potted_correct_ball:
 				switch_turn()
 			else:
-				player_potted_correct_ball = false  # Reset the flag if turn is retained
+				player_potted_correct_ball = false  # Reset flag if turn retained
 			taking_shot = true
 			show_cue()
 
@@ -162,13 +164,13 @@ func handle_ball_pot(body):
 
 	if is_correct_ball(body):
 		current_player.score += 1
-		print(current_player.name, " potted a", current_player.type, "! Score:", current_player.score)
-		player_potted_correct_ball = true  # Retain turn if correct ball was potted
+		print(current_player.name, " potted a", current_player.type, 
+			"! Score:", current_player.score)
+		player_potted_correct_ball = true  # Retain turn if correct ball potted
 	else:
 		print(current_player.name, " fouled by hitting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
 		switch_turn()
-	
 	
 	handle_ball_removal(body)
 	display_potted_ball(body)
@@ -176,13 +178,12 @@ func handle_ball_pot(body):
 func check_win_condition(body):
 	if body == black_ball:
 		if solids.is_empty() and current_player.type == "solids":
-			#emit_signal("win", current_player.name)
+			# emit_signal("win", current_player.name)
 			print(current_player.name + " won")
 		elif stripes.is_empty() and current_player.type == "stripes":
-			#emit_signal("win", current_player.name)
+			# emit_signal("win", current_player.name)
 			print(current_player.name + " won")
-		
-	
+
 func handle_ball_removal(body):
 	if solids.has(body):
 		solids.erase(body)
@@ -190,7 +191,7 @@ func handle_ball_removal(body):
 		stripes.erase(body)
 	
 	check_win_condition(body)
-	
+
 func assign_player_ball_type(body):
 	if solids.has(body):
 		current_player.assign_type("solids")
@@ -202,7 +203,8 @@ func assign_player_ball_type(body):
 		print(current_player.name, "is now assigned stripes.")
 
 func is_correct_ball(body) -> bool:
-	return (current_player.type == "solids" and solids.has(body)) or (current_player.type == "stripes" and stripes.has(body))
+	return (current_player.type == "solids" and solids.has(body)) or (
+		current_player.type == "stripes" and stripes.has(body))
 
 func display_potted_ball(body):
 	var max_balls_per_row := 5
@@ -219,15 +221,18 @@ func display_potted_ball(body):
 	var panel_position = $PottedPanel.position
 	var panel_width = $PottedPanel.size.x
 	var panel_height = $PottedPanel.size.y
-	var total_row_width = ((max_balls_per_row * scaled_ball_size) + ((max_balls_per_row - 1) * scaled_ball_size / 2))
+	var total_row_width = ((max_balls_per_row * scaled_ball_size) + 
+		((max_balls_per_row - 1) * scaled_ball_size / 2))
 	var x_offset = (panel_width - total_row_width) / 2
 
 	var index = potted.size() - 1
 	var row = index / max_balls_per_row
 	var col = index % max_balls_per_row
 
-	var x_pos = (panel_position.x + x_offset + (col * (scaled_ball_size + scaled_ball_size / 2)))
-	var y_pos = (panel_position.y + (panel_height / 2) - (scaled_ball_size / 2) + (row * scaled_ball_size))
+	var x_pos = (panel_position.x + x_offset + 
+		(col * (scaled_ball_size + scaled_ball_size / 2)))
+	var y_pos = (panel_position.y + (panel_height / 2) - 
+		(scaled_ball_size / 2) + (row * scaled_ball_size))
 	b.position = Vector2(x_pos - 525, y_pos)
 
 	body.queue_free()
