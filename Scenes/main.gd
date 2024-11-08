@@ -168,9 +168,17 @@ func handle_ball_pot(body):
 		print(current_player.name, " fouled by hitting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
 		switch_turn()
-		
+	
+	
+	handle_ball_removal(body)
 	display_potted_ball(body)
 
+func handle_ball_removal(body):
+	if solids.has(body):
+		solids.erase(body)
+	elif stripes.has(body):
+		stripes.erase(body)
+	
 func assign_player_ball_type(body):
 	if solids.has(body):
 		current_player.assign_type("solids")
