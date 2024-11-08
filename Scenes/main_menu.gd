@@ -1,52 +1,58 @@
 extends Control
 
-@onready var main_menu = $Main
-@onready var option_menu = $Main2
+@onready var mainMenu = $Main_menu
+@onready var optionsMenu = $Options_menu
+@onready var menu_buttons = %MenuButtons
+@onready var option_buttons = %OptionButtons
 
 
-var menu_start_position = Vector2.ZERO
-var menu_start_size = Vector2.ZERO
-
-var curr_menu
-var stack_menu := [] 
-
+var state
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Add any initial setup or logic here, if necessary.
-	menu_start_position = Vector2(0,0)
-	menu_start_size = get_viewport_rect().size
-	curr_menu = main_menu
-	
-	
-func go_to_next_menu(menu: String): 
-	var next_menu = get_menu(menu)
-	curr_menu.rect_position = Vector2(-menu_start_position.x, 0)
-	next_menu.rect_position = menu_start_position
-	stack_menu.append(curr_menu)
-	curr_menu = next_menu
-
-func go_to_prev_menu():
-	var prev_menu = stack_menu.pop_back()
-	if prev_menu != null: 
-		prev_menu.rect_position = menu_start_position
-		curr_menu.rect_position = Vector2(menu_start_position.x, 0)
-		curr_menu = prev_menu
+	optionsMenu.visible = false
+	state = "Main"
+	focus_button()
 	
 
-func get_menu(menu: String) -> Control:
-	
-	match menu:
-		"main_menu":
-			return main_menu
-		"option_menu":
-			return option_menu
-		_:
-			return main_menu 
+func to_options(): 
+	mainMenu.visible = false
+	optionsMenu.visible = true
 
-func _on_options_pressed() -> void:
-	go_to_next_menu("option_menu")
+func on_visibility_change(): 
+	if visible:
+		focus_button() 
 
+func focus_button():
+	if menu_buttons || option_buttons:
+		var button: Button = menu_buttons.get_child(0)
+		var option_button: Button = option_buttons.get_child(0)
+		if state == "Main": 
+			if button is Button: 
+				button.grab_focus()
+		elif state == "Options":
+			if option_button is Button: 
+				option_button.grab_focus() 
+
+func to_main():
+	mainMenu.visible = true
+	optionsMenu.visible = false
+
+func _on_option_pressed() -> void:
+	to_options()
+	state = "Options"
+	focus_button()
 
 func _on_back_pressed() -> void:
-	go_to_prev_menu()
+	to_main()
+	state = "Main"
+	focus_button()
+	
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_start_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	hide()
+	
