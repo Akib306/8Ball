@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var ball : PackedScene
+signal power_gamble
 
 var ball_images := []
 const MAX_POWER := 8.0
@@ -150,11 +151,13 @@ func potted_ball(body):
 		cue_ball_potted = true
 		remove_cue_ball()
 	else:
+		
 		# Retrieve the necessary nodes and settings directly from PottedPanel
 		var max_balls_per_row := 5  # Maximum balls per row
 		var ball_size := 25  # Width/height of each potted ball image before scaling
 		var scale_factor := 0.5  # Scale down factor for the balls
 		var scaled_ball_size := ball_size * scale_factor  # Effective size of each scaled ball
+		emit_signal("power_gamble")
 
 		# Create a new Sprite2D for the potted ball
 		var b = Sprite2D.new()
