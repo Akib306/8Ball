@@ -95,6 +95,7 @@ func generate_balls():
 func update_power_up_ui():
 	power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
 	power_up_ui.update_power_up_buttons()           # Refresh buttons based on inventory
+	
 func reset_cue_ball():
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)

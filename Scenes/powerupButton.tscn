@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://p1lfipx6t3xq"]
+[gd_scene load_steps=2 format=3 uid="uid://cljq6sv0mpwit"]
+
+[ext_resource type="Texture2D" uid="uid://dk2wpblmdvwta" path="res://Assets/wall_icon.png" id="1_ffjrw"]
 
 [node name="Button" type="Button"]
+anchors_preset = -1
+anchor_right = 0.203
+anchor_bottom = 0.361
+offset_right = -519.68
+offset_bottom = -519.84
+icon = ExtResource("1_ffjrw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

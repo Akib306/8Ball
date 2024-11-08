@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://df3a5lr2rc1bs" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
 [ext_resource type="PackedScene" uid="uid://clghhtfwb58aw" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
-[ext_resource type="Script" path="res://Scenes/powerup_ui.gd" id="6_ql5pi"]
-[ext_resource type="PackedScene" uid="uid://p1lfipx6t3xq" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
+[ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
+[ext_resource type="PackedScene" uid="uid://cljq6sv0mpwit" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0.306923, 0.306923, 0.306923, 1)
