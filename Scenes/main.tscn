@@ -51,7 +51,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
 show_percentage = false
 script = ExtResource("4_v37jg")
 
-[node name="Node2D" parent="." instance=ExtResource("5_uykgu")]
+[node name="powerup" parent="." instance=ExtResource("5_uykgu")]
 script = ExtResource("6_id2wa")
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
