@@ -173,11 +173,23 @@ func handle_ball_pot(body):
 	handle_ball_removal(body)
 	display_potted_ball(body)
 
+func check_win_condition(body):
+	if body == black_ball:
+		if solids.is_empty() and current_player.type == "solids":
+			#emit_signal("win", current_player.name)
+			print(current_player.name + " won")
+		elif stripes.is_empty() and current_player.type == "stripes":
+			#emit_signal("win", current_player.name)
+			print(current_player.name + " won")
+		
+	
 func handle_ball_removal(body):
 	if solids.has(body):
 		solids.erase(body)
 	elif stripes.has(body):
 		stripes.erase(body)
+	
+	check_win_condition(body)
 	
 func assign_player_ball_type(body):
 	if solids.has(body):
