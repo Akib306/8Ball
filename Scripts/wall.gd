@@ -26,7 +26,7 @@ func _ready() -> void:
 
 	# Enable preview mode initially
 	set_as_top_level(true)  # Allow wall to move independently
-	connect("area_entered", Callable(self, "_on_area_entered"))  # Wrap in Callable
+	connect("area_entered", Callable(self, "_on_area_entered"))  
 
 func _process(delta: float) -> void:
 	if not is_placed:

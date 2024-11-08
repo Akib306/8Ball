@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://yfcfr7i0n7ap"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_texbr"]
+[ext_resource type="Script" path="res://main.gd" id="1_texbr"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="PackedScene" uid="uid://df3a5lr2rc1bs" path="res://Scenes/cue.tscn" id="3_il0sh"]
-[ext_resource type="Script" path="res://Scenes/power_bar.gd" id="4_v37jg"]
+[ext_resource type="Script" path="res://power_bar.gd" id="4_v37jg"]
 [ext_resource type="PackedScene" uid="uid://b5wgva65wx41i" path="res://Scenes/powerup.tscn" id="5_uykgu"]
-[ext_resource type="Script" path="res://Scenes/powerup.gd" id="6_id2wa"]
+[ext_resource type="Script" path="res://powerup.gd" id="6_id2wa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0.306923, 0.306923, 0.306923, 1)

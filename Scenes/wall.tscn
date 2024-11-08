@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cls2fxsbg5xh2"]
 
-[ext_resource type="Script" path="res://wall.gd" id="1_tsu6p"]
+[ext_resource type="Script" path="res://Scripts/wall.gd" id="1_er3gm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuu3t"]
 size = Vector2(2.5, 23)
 
 [node name="Wall" type="Area2D"]
-script = ExtResource("1_tsu6p")
+script = ExtResource("1_er3gm")
+player_color = Color(0.431373, 1, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.25, 11.5)
