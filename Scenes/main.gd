@@ -164,8 +164,8 @@ func handle_ball_pot(body):
 
 	if is_correct_ball(body):
 		current_player.score += 1
-		print(current_player.name, " potted a", current_player.type, 
-			"! Score:", current_player.score)
+		print(current_player.name, " potted a ", current_player.type, 
+			"! Score: ", current_player.score)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 	else:
 		print(current_player.name, " fouled by hitting the wrong ball type.")
@@ -196,11 +196,11 @@ func assign_player_ball_type(body):
 	if solids.has(body):
 		current_player.assign_type("solids")
 		(player1 if current_player == player2 else player2).assign_type("stripes")
-		print(current_player.name, "is now assigned solids.")
+		print(current_player.name, " is now assigned solids.")
 	elif stripes.has(body):
 		current_player.assign_type("stripes")
 		(player1 if current_player == player2 else player2).assign_type("solids")
-		print(current_player.name, "is now assigned stripes.")
+		print(current_player.name, " is now assigned stripes.")
 
 func is_correct_ball(body) -> bool:
 	return (current_player.type == "solids" and solids.has(body)) or (
@@ -239,4 +239,4 @@ func display_potted_ball(body):
 
 func switch_turn():
 	current_player = player2 if current_player == player1 else player1
-	print("It's now", current_player.name, "'s turn.")
+	print("It's now ", current_player.name, "'s turn.")
