@@ -146,9 +146,11 @@ func _process(_delta) -> void:
 			cue_ball_potted = false
 			
 		if not taking_shot:
+			if current_player.type != "":  # Only switch if types are assigned
+				switch_turn()
 			taking_shot = true
 			show_cue()
-			
+
 	else:
 		if taking_shot:
 			taking_shot = false
@@ -161,7 +163,27 @@ func potted_ball(body):
 	if body == cue_ball:
 		cue_ball_potted = true
 		remove_cue_ball()
+		switch_turn()
 	else:
+		if current_player.type == "":
+			if solids.has(body):
+				current_player.assign_type("solids")
+				(player1 if current_player == player2 else player2).assign_type("stripes")
+				print(current_player.name, "is now assigned solids.")
+			elif stripes.has(body):
+				current_player.assign_type("stripes")
+				(player1 if current_player == player2 else player2).assign_type("solids")
+				print(current_player.name, "is now assigned stripes.")
+		
+		var is_correct_ball = (current_player.type == "solids" and solids.has(body)) or (current_player.type == "stripes" and stripes.has(body))
+		
+		if is_correct_ball:
+			current_player.score += 1
+			print(current_player.name, "potted a", current_player.type, "! Score:", current_player.score)
+		else:
+			print(current_player.name, "fouled by hitting the wrong ball type.")
+			switch_turn()
+		
 		# Retrieve the necessary nodes and settings directly from PottedPanel
 		var max_balls_per_row := 5  # Maximum balls per row
 		var ball_size := 25  # Width/height of each potted ball image before scaling
@@ -205,6 +227,6 @@ func potted_ball(body):
 		# Remove the potted ball from the main table
 		body.queue_free()
 
-#func switch_turn():
-	#current_player = player2 if current_player == player1 else player1
-	#print("It's now", current_player.name, "'s turn.")
+func switch_turn():
+	current_player = player2 if current_player == player1 else player1
+	print("It's now", current_player.name, "'s turn.")
