@@ -175,7 +175,7 @@ func handle_ball_pot(body):
 	else:
 		print(current_player.name, " fouled by hitting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
-		switch_turn()
+		#switch_turn()
 	
 	handle_ball_removal(body)
 	display_potted_ball(body)
