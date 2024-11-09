@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc65cnhgnbuuv"]
+
+[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
+[ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_nso0m"]
+[ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
+font = ExtResource("1_n1m5i")
+font_size = 100
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nso0m")
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -15.0
+offset_right = 647.0
+offset_bottom = 695.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sm1lv")
+expand_mode = 1
+
+[node name="Main_menu" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Main_menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Main_menu/CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Control/Main_menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "8Ball+"
+label_settings = SubResource("LabelSettings_jm1sm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="Control/Main_menu/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Start" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Option")
+focus_next = NodePath("../Option")
+focus_previous = NodePath("../Quit")
+theme = ExtResource("1_0abd5")
+text = "Start"
+
+[node name="Option" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Start")
+theme = ExtResource("1_0abd5")
+text = "Options"
+
+[node name="Quit" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Option")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Option")
+theme = ExtResource("1_0abd5")
+text = "Quit"
+
+[node name="Options_menu" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Options_menu"]
+layout_mode = 2
+
+[node name="OptionButtons" type="VBoxContainer" parent="Control/Options_menu/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Control/Options_menu/CenterContainer/OptionButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("1_0abd5")
+text = "Back"
+
+[connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Option" to="Control" method="_on_option_pressed"]
+[connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Options_menu/CenterContainer/OptionButtons/Back" to="Control" method="_on_back_pressed"]
