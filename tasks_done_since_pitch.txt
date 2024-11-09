@@ -1,0 +1,37 @@
+Project Setup and Initialization:
+    Initialized project and created initial assets.
+    Set up the folder structure, scene hierarchy, and added assets for balls and 
+    table.
+
+Game Scene and Ball Mechanics:
+    Created table, borders, and pockets with collision detection.
+    Set up ball spawning and ensured balls can be either solid or striped.
+    Modified ball spawning logic to fit the new game window size and spawn balls 
+    in a triangular formation.
+    Implemented smooth collision detection between balls.
+
+Cue and Shooting Mechanics:
+    Created cue scene and implemented shooting mechanics.
+    Added power bar to track cue power.
+    Improved cue handling with max power limit and fixed positioning/rotation on 
+    the cue stick.
+
+Player and Game Control:
+    Created Player object and implemented player turn logic.
+    Fixed player turn switching bugs.
+    Added logic to handle potted balls and implemented a win condition check.
+
+Power-Ups:
+    Initialized power-up script and added a basic power-up factory.
+    Created parent class for power-ups and implemented Wall Power Up.
+
+User Interface:
+    Developed main menu with themes, background images, and button signals.
+    Adjusted game window size, enhanced menu styling, and added options to 
+    change between menus.
+
+Code and Repository Management:
+    Cleaned up and refactored code for better readability.
+    Updated .gitignore to ignore system files like .DS_Store.
+    Integrated changes from different branches, including merging branches for 
+    game mechanics and bug fixes.
