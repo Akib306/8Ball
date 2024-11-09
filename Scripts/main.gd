@@ -42,13 +42,14 @@ func _ready() -> void:
 
 	load_images()
 	new_game()
-	update_power_up_ui()
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
 func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
+	update_power_up_ui()
+
 
 func load_images():
 	for i in range(1, 17, 1):

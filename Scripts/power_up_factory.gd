@@ -6,7 +6,7 @@ enum PowerUps { TELEPORT, WALL, MRBIG, TORNADO, REWIND, GHOST }
 # Dictionary holding the paths to each power-up scene
 const POWER_UP_SCENES = {
 	PowerUps.TELEPORT: "",
-	PowerUps.WALL: "res://Scenes/PowerUps/wall.tscn",
+	PowerUps.WALL: "res://Scenes/wall.tscn",
 	PowerUps.MRBIG: "",
 	PowerUps.TORNADO: "",
 	PowerUps.REWIND: "",

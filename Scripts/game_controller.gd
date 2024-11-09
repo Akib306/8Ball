@@ -27,17 +27,18 @@ func _ready() -> void:
 # Draw a power-up randomly and assign it to the specified player
 func power_draw(player: Player) -> void:
 	var rand_num = rng.randi_range(0, 10)
-	if rand_num < 4:
+	if rand_num < 10:
 		var power_up_instance = power_selector()
 		if power_up_instance:
 			player.add_to_inventory(power_up_instance)
-			print("Power-up added to", player.name, "'s inventory")
+			print(" Power-up added to ", player.name, "'s inventory")
 
 
 # Select and assign a random power-up to the current player
 func power_selector():
 	print("Random power is being drawn...")
-	var rand_num = rng.randi_range(0, len(PowerUps) - 1)
+	#var rand_num = rng.randi_range(0, len(PowerUps) - 1)
+	var rand_num = 1
 
 	if power_up_factory:
 		var power_up_instance = power_up_factory.power_up_factory(rand_num)

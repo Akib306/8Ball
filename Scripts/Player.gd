@@ -31,7 +31,7 @@ func add_to_inventory(power_up: Node2D):
 
 	inventory.append(power_up)
 	power_up.hide()  # Hide the power-up until the player activates it
-	print(name, "added power-up to inventory:", power_up)
+	print(name, " added power-up to inventory:", power_up)
 
 # Activate a power-up from the inventory by index
 func activate_power_up(index: int) -> void:
