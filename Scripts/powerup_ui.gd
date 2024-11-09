@@ -6,7 +6,7 @@ var player: Player  # Reference to the player instance
 # Dictionary mapping power-up names to icon textures
 var power_up_icons := {
 	"TELEPORT": "",
-	"WALL": load("res://path/to/wall_icon.png") as Texture2D,
+	"WALL": load("res://Assets/wall_icon.png") as Texture2D,
 	"MRBIG": "",
 	"TORNADO": "",
 	"REWIND": "",
