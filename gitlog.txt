@@ -1,0 +1,647 @@
+commit fbad450652045777cc25d7a8c8af46fcd39be321
+Merge: 4635e12 297f7f7
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 19:06:24 2024 -0600
+
+    Merge pull request #2 from Akib306/GUI
+    
+    GUI
+
+commit 297f7f72dfb11e09a231b582d74127bdb93c6601
+Merge: 7cde7b6 4635e12
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 19:05:08 2024 -0600
+
+    Merge branch 'main' into GUI
+
+commit 4635e1260ddcc179ec29f65dd9fc718b1be15143
+Merge: 8e13dd2 26cc571
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 19:00:25 2024 -0600
+
+    Merge pull request #1 from Akib306/power_rules
+    
+    Power rules
+
+commit 26cc5714cf35d6f7f08758be64e21b0edc99ea7f
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 18:53:58 2024 -0600
+
+    fix minor issues and add icons object
+
+commit 9a755c5a0d6c2e6ecdbc90a7a2ff0344499b09d0
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 8 14:26:07 2024 -0600
+
+    Added a wall button icon asset.
+
+commit 7cde7b604f173a10b750be0f5459f2e099432b0a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 12:56:36 2024 -0600
+
+    Remove. main_menu.gd
+    
+    - Removed the old main_menu gd beacuse it was not being used
+    - Renamed control.gd to main_menu.gd
+
+commit 3705906d862d285a0b5f41ae7dcae2a2caeb126f
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 12:54:15 2024 -0600
+
+    setup powerupui logic partially
+
+commit 243e0d133fb40b47eae8f6580ceac3d84a67ee7a
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 8 11:15:27 2024 -0600
+
+    Fixed an issue with player switching in line 178 of main.gd
+    
+    It's now Player 2's turn.
+    Player 2 fouled by hitting the wrong ball type.
+    It's now Player 1's turn.
+    It's now Player 2's turn.
+    
+    Here, before Player 1 gets a chance to shoot, it switches back to Player 2.
+
+commit d2c66c6ab035d1b17af13fa1b91ffca3ee68aeb0
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 08:39:19 2024 -0600
+
+    refactor powerup selection
+
+commit 12443977511c58e961731fd07a8f34d35bbe0ad7
+Merge: 8e8f127 8e13dd2
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 05:56:04 2024 -0600
+
+    Merge branch 'main' into power_rules
+
+commit 8e13dd226160d17dc3e2f247df65bca285657e0e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 05:55:49 2024 -0600
+
+    fix the print statements (actually)
+
+commit 8e8f1273de9593770dabd5d6b9a8d534ac9b1e73
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 02:57:46 2024 -0600
+
+    Update player.gd
+    
+    - Initialize Player class with basic attributes and power-up inventory
+    - Add methods to manage player turn, type, and score
+    - Implement add_to_inventory and activate_power_up for power-up handling
+
+commit 1f05e8d9068f18bd5c630727e599c243789508df
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 02:42:15 2024 -0600
+
+    Updated game_controller
+    
+    - Added back emit signal, due to it being removed during merge
+    - game_controller now works with the player script
+    - Ran into an issue where the player needed to use nodes but fixed using node_paths
+
+commit 783aa3591b889010d2e51ac462b1f7857e003b10
+Merge: dfd8248 8723b5a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 02:27:32 2024 -0600
+
+    Merge branch 'main' into power_rules
+
+commit dfd82483397fa8f249e8142796a04a08d5dda3c9
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 02:11:08 2024 -0600
+
+    Removing Unnecessary Scenes
+    
+    - Removed powerup, due to it being split up into two different scenes
+    -Removed powerUpClass due to it not being used
+    -Removed scripts that accompany the removed entities mentioned before
+
+commit 8e97f6e0cca8ba15a7d6f3010faa156d480814c9
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 02:01:41 2024 -0600
+
+    Implementing GameControl & GameFactory
+    
+    - Split the powerup script into two parts gameControl & game_factory
+    -gameControl handles the inventory and percent chance aspect
+    - game_factory created the proper powerup object and returns it
+
+commit 9f13db55c2a7a63b106577da5f63e0e713eaf4e2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 01:28:06 2024 -0600
+
+    Update wall.gd
+    
+    - Added collision detection
+    - Follows cursor movement
+    - Timer for how long it will last
+    -Preview mode to check before its placed
+
+commit 466f1b1abdea23382f305de9ff18b6d94a41d1ec
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 01:16:18 2024 -0600
+
+    Implementing Wall Power Up
+
+commit b6e32eaeb01e3cca8d2c7b94fd1e314984435a67
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 00:26:02 2024 -0600
+
+    Creating parent class for power-ups
+
+commit 8723b5a3212d943592d37f3c7786d90bee0d7ad6
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 23:15:35 2024 -0600
+
+    cleanup code
+    
+    -try to make code less than 80 columns
+    -fix spacing with print statements
+
+commit 9ac90b19e64d4884e9d6a4691f0a22ac8ee10c8a
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 22:53:24 2024 -0600
+
+    implement check_win_condition
+
+commit d18c4a4cb73770631375084a192891a2df47f720
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 22:30:49 2024 -0600
+
+    implement handle_ball_removal
+
+commit f20ece943c1bd032577061c0bc797137695ec373
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 22:22:52 2024 -0600
+
+    cleanup code and fix turn switching
+
+commit d5cf5c8c6bc64b576bf80a388c0e4f2c2ff72d9e
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 21:28:21 2024 -0600
+
+    Temp Power Up Factory
+    
+    - Used enums to make power up factory
+    - The factory will eventually create power-ups and add it to the player inventory
+
+commit 8b7fc58413e0f8b82f6c5a5183704c81864d5a72
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 21:12:31 2024 -0600
+
+    Experimental player trun changes.
+
+commit 3130a12b1facc8948b9714a8fbe6a2de1e6b38ef
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Thu Nov 7 19:32:36 2024 -0600
+
+    centered cue ball
+
+commit 793bbc81f3c48bb9bf536991d27cf1b295e67dc4
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 19:01:07 2024 -0600
+
+    Chance of Getting a power up
+    
+    - Every time you pot a ball you will have a 40% chance of getting a new power up
+
+commit 3370d284a28dfb51d2545fc5151b6c65157be65d
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 18:49:42 2024 -0600
+
+    Instantiated variables for player turn logic in main.gd
+
+commit 29d190584d781263a3936b6cb5a88b8dae1b5814
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 18:25:34 2024 -0600
+
+    Added signals
+    
+    - Signal created for when the ball goes in
+    - When signal emitted it is received by the power up script
+
+commit 1df7f7be4142d8b18e97123648ef43d99d1f5553
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 18:09:08 2024 -0600
+
+    Instantiated players in main.gd
+
+commit d310d1d0dcd24bb7064c4171f4b4b6679739e7a2
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 17:57:21 2024 -0600
+
+    Created Player object.
+
+commit 359e3d92826db1ee0b9023cf7bb8e54fdafb5f4a
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Thu Nov 7 17:37:42 2024 -0600
+
+    modified cue cstick and cnetered it on cue ball
+
+commit b384fda42623b0ac1e10a19f5e38e28ff5cf6057
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 16:52:47 2024 -0600
+
+    Changed Window Size
+    
+    - New Window Size 2560 x 1440
+
+commit 30b00680e7243e376ff52e32ffe9d373ac30eb9e
+Merge: 5217f58 95c8f7b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 16:48:23 2024 -0600
+
+    Merge branch 'game-mechanics'
+
+commit 95c8f7ba5f81dd85a6de8b820a8b13c7c5400fd2
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 16:44:18 2024 -0600
+
+     Modified ball generation so it keeps track of soild and
+    striped balls with the new expaned game window chnages.
+
+commit 5f7cd60f0a022045ae05c9b14322267ba880811f
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 16:03:50 2024 -0600
+
+    Enhanced code readability in main.gd
+
+commit 51a1682f7c11323517ca4284ae9ab3ad3324493e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 15:22:30 2024 -0600
+
+    fix cue stick rotation
+    
+    adjust to depend on camera
+
+commit ccfb17a7fb4ff7f8f54ef736187681fe90a004c2
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 15:14:08 2024 -0600
+
+    fix potted ball scaling
+
+commit 170d26e98868558707bcd04e7286cf0da80589d3
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 14:33:26 2024 -0600
+
+    add back taking_shot logic in process
+
+commit ae186178c177e40c561f24578be11495a173b7b3
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 14:27:57 2024 -0600
+
+    fix cue stick position
+
+commit f329b50efeb10abe4b1300b66f6838ec4f5d39c7
+Merge: e5f1ff5 1086461
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 14:14:36 2024 -0600
+
+    Merge branch 'bugFixes' into game-mechanics
+
+commit e5f1ff524fdab3126bee062862aa77b0e22bb0dd
+Merge: 3e77673 473c157
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 14:00:01 2024 -0600
+
+    Merge remote-tracking branch 'origin/bugFixes' into game-mechanics
+
+commit d6a954ff26d183c9e1043172856159f43d00fd24
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 13:58:24 2024 -0600
+
+    Implemented Background Image
+    
+    - Added background image
+
+commit 10864611fe09372658079aa51b02c4e427b8ef5c
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 13:52:23 2024 -0600
+
+    The balls now spwan in a triangle with the new window size.
+
+commit 424473f19e1a752b55aef55356ed2add747c61a2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 13:41:20 2024 -0600
+
+    Corrected focusing
+    
+    - Will focus first child in the option menu
+    - Switching from the options menu to the main menu will refocus the first child
+    -Changed label name to title
+
+commit 064150039f35543c221ff581ff079ab6b36dd93f
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 13:13:04 2024 -0600
+
+    Added Signals to Buttons
+    
+    - Buttons will no have the appropriate behaviour
+
+commit 473c157f1f262f9b34044a91f516a1b33a2c1743
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Nov 7 12:19:07 2024 -0600
+
+    Tried to spwan balls in a triangle with
+    the new window size. Lot of bugs that need to be fixed.
+
+commit 3e77673615a03043493bf1b3c6ada8751f2ab86b
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 11:06:15 2024 -0600
+
+    improve collision detection
+    
+    - update physics tick speed from 60 to 120
+    - turn on continuous collision detection to ray cast in the ball node
+
+commit b248b444c4e04036a5ce93158138b25e5a6dcb06
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Nov 7 08:36:20 2024 -0600
+
+    correct spelling of borders
+
+commit a42c278a09bafb246e3b047d957a666cc32e3fcd
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 01:39:37 2024 -0600
+
+    Change between menus
+    
+    - Created a script to switch between the option menu and the main menu
+
+commit 128a3b2c57433948ac1e28f581aa03b8832e514c
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 01:27:58 2024 -0600
+
+    Generic Menu Screen
+    
+    - Used containers to create a simpler design for the menu
+    -Same style used for the buttons and label
+
+commit aabf6ab4acee0846947a125ee8addcc4631944d0
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Nov 7 01:18:31 2024 -0600
+
+    Restarting Main Menu
+    
+    - Error with vector components
+    - Error with resizing
+    - Can not find a fix
+    - Will go with a simpler menu screen
+
+commit 11b92a9a30619083c769bd622f60b1a59c2b71d0
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Nov 6 22:14:01 2024 -0600
+
+    Adjusted the game window
+
+commit bacfe0e361d8a52ac2528a1e27fa5676c875656f
+Merge: ee6d97a 9d217bd
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Nov 6 19:35:09 2024 -0600
+
+    Merge branch 'game-mechanics' of https://github.com/Akib306/8Ball into game-mechanics
+
+commit 670ad442e791df4099329ead27954d71bb60ce85
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Nov 6 18:36:11 2024 -0600
+
+    Menu Styling and layout
+    
+    -Added basic styling to all buttons
+    - Used containers to align both buttons and labels in both menus
+
+commit 9d217bdff87082b1f5481940a96aa5ebbdab7a44
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Wed Nov 6 13:42:58 2024 -0600
+
+    test commit
+
+commit fbab4b3fa89a099c5d8aee9f09cf7bf0476c7482
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Wed Nov 6 13:33:30 2024 -0600
+
+    when ball potted it dissappear
+
+commit ee6d97a08b4a831f9eba4d98c3e33b44776214cc
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Nov 6 13:04:11 2024 -0600
+
+    Add .DS_Store to .gitignore
+
+commit f89c9f42ac8066ec7f22892cb582ee6fb357ca78
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Wed Nov 6 12:44:05 2024 -0600
+
+    added power bar to track cue power
+
+commit 47abe9d5cd4211c8e1d69713e99c05e0e7d09d5e
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Wed Nov 6 12:27:10 2024 -0600
+
+    made cue stick dissappear and appear when i shoot
+
+commit bbfa639be12d4e76fe89938e4aad393bb7880469
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Wed Nov 6 11:29:55 2024 -0600
+
+    helped make collision between balls more smooth
+
+commit 62b4d6b6feaf3fd563267dac1ca82e54d22c8597
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 16:37:18 2024 -0600
+
+    added max power a shot can have
+
+commit 2bc91006f65744bd9f1fa83c89dcb545a8e56e96
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 16:25:20 2024 -0600
+
+    corrected bug for cue shoot
+    
+    it shot in the opposite direction, i fixed it with a negative
+
+commit a7c881bf31bf9fc1b81d075f8a61ee6c1b75e2c1
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 16:20:51 2024 -0600
+
+    implemented shooting
+    
+    there is a couple bugs related to cue scene
+
+commit ef61b4f7d77ee4ffe101be4cb50b927b82bdab7f
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 14:56:47 2024 -0600
+
+    Update .gitignore
+
+commit 0e5e1803d0d5351be528b556873c25f2844d59c6
+Merge: ddeaa95 5217f58
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 14:45:32 2024 -0600
+
+    Merge branch 'main' into GUI
+
+commit 7f26de3ae46768c5aad4df7e1dd63d79e3e4de87
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 14:42:21 2024 -0600
+
+    implemted cue scene
+
+commit 5217f58a0be4b0e3e8d383c9dd8fecc45759c6fb
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 14:22:45 2024 -0600
+
+    test commit
+
+commit 802aaaa0005582434098b1f8119ccab38b75ab94
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 14:17:19 2024 -0600
+
+    implement reset_cue_ball
+
+commit 1ea6871ec1553d45e4aa30606e413a3f4ce610aa
+Merge: 7f7012f 11d6634
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 14:03:39 2024 -0600
+
+    Merge branch 'main' of https://github.com/Akib306/8Ball
+
+commit 7f7012f6e73d87a539e8ad57ec41bc7651abcff6
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Tue Nov 5 14:03:28 2024 -0600
+
+    initlized powerups script
+
+commit 11d6634a576a0eaf10ba1692bdbde5209f60b9ef
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 14:01:21 2024 -0600
+
+    write load_images to main.gd
+    
+    wrote load_images to preload images and then access them by index when generating the balls
+
+commit 120282276d3f511b44254f7a19ae45639c483f2c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 13:52:05 2024 -0600
+
+    rename ball images
+
+commit 19287496dd4700ec3818d249aad4440309b5d86c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Nov 5 13:27:56 2024 -0600
+
+    fix scene url in main.gd
+    
+    fixed url when loading ball scene and had it point to the right path
+
+commit ddeaa95be9c77c550db96e8876ee0b5bdc78ab0a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 22:56:55 2024 -0600
+
+    Completing theme
+    
+    -Working towards the completing the theme for buttons
+
+commit 9cfa1bcfb9f81e699676f47dd15b12618d2a079c
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Mon Nov 4 21:55:32 2024 -0600
+
+    Set up the skeleton code for ball spawn.
+
+commit 717a7ead9c137184531b4dc2216c2333131fca69
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 21:32:26 2024 -0600
+
+    Adding themes to buttons
+    
+    - Creating a theme that can be applied to all menu screen buttons
+    - Added  Lato text font file
+
+commit c9195844ecd501ba6616fb9ec322102b2a46ec9c
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 20:53:23 2024 -0600
+
+    Main menu
+    
+    -Created a scene for the main menu
+    -Will contain the start button, controls button and settings
+    - Settings for sound and more later on
+
+commit e6ac62ed5b10a960f7fb938a10053ecba8013b41
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Mon Nov 4 20:50:27 2024 -0600
+
+    create main scene
+
+commit 02ad52176d3dc108d5434716ed216d085b698378
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Mon Nov 4 20:42:56 2024 -0600
+
+    add ball scene
+
+commit 0a7edbafeb1118416cace9862f1c594acad0f16e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Mon Nov 4 20:42:44 2024 -0600
+
+    add new ball assets
+
+commit e64109d2a0bd6db0151564283c4e9015949be5ec
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 00:52:58 2024 -0600
+
+    Save
+
+commit d2c5ace3211f46ac92139bfb799565f9747b0065
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 00:49:36 2024 -0600
+
+    Created pocket collisions
+    
+    - Detects when a ball goes in
+    - Covers all 6 pockets
+
+commit 2b0034a062e8f012fd90912c2572460b8825e9b4
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Nov 4 00:37:14 2024 -0600
+
+    Added Boarders
+    
+    - Created static2d body collisions
+    - For each cushion/boarder
+    - Will eventually detect if a ball comes and hits the wall
+    - Should bounce back
+
+commit b02c4fa9ccb9f219b52db32b424fda8071828ead
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Sun Nov 3 21:57:55 2024 -0600
+
+    move scenes to root
+
+commit b705605a3f1e6011ae3121a56500746751cb782c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Sun Nov 3 21:55:48 2024 -0600
+
+    change folder structure
+
+commit fc39f45d416f6438a085d84cf7cdb0b4c6a2dcc3
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Sun Nov 3 21:55:21 2024 -0600
+
+    Added Tabel Scene
+    
+    - Created a scene that holds the table asset
+
+commit 5263735779ae12a003771ebf5059974e7a1906ca
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Thu Oct 31 16:25:28 2024 -0600
+
+    Added assets folder with assets
+
+commit 2a1f16df36846619e77da9f50c1bfd8882da1d60
+Author: MohamedBan <114017198+MohamedBan@users.noreply.github.com>
+Date:   Thu Oct 31 16:19:08 2024 -0600
+
+    Initilized Project
