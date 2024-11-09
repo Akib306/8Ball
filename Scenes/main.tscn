@@ -55,6 +55,7 @@ script = ExtResource("4_n04ic")
 [node name="gameController" parent="." instance=ExtResource("5_mte8t")]
 
 [node name="PowerupUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

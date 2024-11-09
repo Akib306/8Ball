@@ -48,7 +48,7 @@ func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
-	update_power_up_ui()
+	#update_power_up_ui()
 
 
 func load_images():
@@ -93,9 +93,9 @@ func generate_balls():
 	print("Stripes:", stripes)
 	print("Black Ball:", black_ball)
 	
-func update_power_up_ui():
-	power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
-	power_up_ui.update_power_up_buttons()           # Refresh buttons based on inventory
+#func update_power_up_ui():
+	#power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
+	#power_up_ui.update_power_up_buttons()           # Refresh buttons based on inventory
 	
 func reset_cue_ball():
 	cue_ball = ball.instantiate()
@@ -253,5 +253,5 @@ func display_potted_ball(body):
 
 func switch_turn():
 	current_player = player2 if current_player == player1 else player1
-	update_power_up_ui()
+	#update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")
