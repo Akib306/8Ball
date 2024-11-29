@@ -32,10 +32,10 @@ metadata/_edit_horizontal_guides_ = [-1.0]
 offset = Vector2(0, 50)
 
 [node name="PottedPanel" type="Panel" parent="."]
-offset_left = -948.0
-offset_top = 435.0
-offset_right = 252.0
-offset_bottom = 535.0
+offset_left = -955.0
+offset_top = 484.0
+offset_right = 245.0
+offset_bottom = 584.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
