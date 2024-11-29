@@ -36,6 +36,7 @@ var player_potted_correct_ball := false  # New flag to track correct potting
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
+	#$Pool_Table.scale = Vector2()
 
 	game_controller = $gameController
 	power_up_ui = $PowerupUI

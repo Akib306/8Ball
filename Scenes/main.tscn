@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="PackedScene" uid="uid://ffj3t8bc3dhc" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
-[ext_resource type="PackedScene" uid="uid://0s7nrfqxww31" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
+[ext_resource type="PackedScene" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="PackedScene" uid="uid://jabrpe1tft64" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 
@@ -29,12 +29,13 @@ metadata/_edit_horizontal_guides_ = [-1.0]
 [node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
 
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
+offset = Vector2(0, 50)
 
 [node name="PottedPanel" type="Panel" parent="."]
-offset_left = -1266.0
-offset_top = 616.0
-offset_right = -66.0
-offset_bottom = 716.0
+offset_left = -948.0
+offset_top = 435.0
+offset_right = 252.0
+offset_bottom = 535.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
