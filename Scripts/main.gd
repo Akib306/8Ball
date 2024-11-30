@@ -5,6 +5,7 @@ extends Node2D
 signal power_gamble
 
 var ball_images := []
+const BALL_SCALE := 0.35
 const MAX_POWER := 8.0
 var taking_shot : bool
 const MOVE_THRESHOLD := 7.0
@@ -36,6 +37,7 @@ var player_potted_correct_ball := false  # New flag to track correct potting
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
+	#$Pool_Table.scale = Vector2()
 
 	game_controller = $gameController
 	power_up_ui = $PowerupUI
@@ -84,6 +86,11 @@ func generate_balls():
 
 			var sprite_node = b.get_node("Sprite2D")
 			sprite_node.texture = ball_images[count]
+			sprite_node.scale  = Vector2(BALL_SCALE, BALL_SCALE)
+			
+			var collision_sprite_node = b.get_node("CollisionShape2D")
+			collision_sprite_node.scale  = Vector2(BALL_SCALE, BALL_SCALE)
+			
 			
 			if count < 7:
 				solids.append(b)  # Balls 1-7 are solids
@@ -92,8 +99,8 @@ func generate_balls():
 			elif count >= 8 and count < 15:
 				stripes.append(b)  # Balls 9-15 are stripes
 			elif count == 15:
-				cue_ball = b  # Ball 16 is the cue ball
-
+				cue_ball = b  # Ball 16 is the cue ball\
+				
 			count += 1
 
 		rows -= 1
@@ -110,7 +117,16 @@ func reset_cue_ball():
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)
 	cue_ball.position = Vector2(camera.position.x + 200, camera.position.y - 60)
-	cue_ball.get_node("Sprite2D").texture = ball_images.back()
+	
+	# Get the Sprite2D node and set its texture and scale
+	var sprite_node = cue_ball.get_node("Sprite2D")
+	sprite_node.texture = ball_images.back()
+	sprite_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
+	
+	# Ensure the CollisionShape2D node is also scaled
+	var collision_node = cue_ball.get_node("CollisionShape2D")
+	collision_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
+	
 	taking_shot = false
 
 func remove_cue_ball():
