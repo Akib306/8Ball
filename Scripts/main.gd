@@ -172,8 +172,28 @@ func _process(_delta) -> void:
 			taking_shot = false
 			hide_cue()
 
+func setup_ball(ball: Node2D):
+	var body = ball.get_node("RigidBody2D")
+	var sprite = ball.get_node("Sprite2D")
+	var collision_shape = ball.get_node("CollisionShape2D")
+
+	# Scale visual and collision shapes
+	sprite.scale = Vector2(BALL_SCALE, BALL_SCALE)
+	collision_shape.shape.radius = 18 * BALL_SCALE
+
+	# Physics properties
+	body.physics_material_override = PhysicsMaterial.new()
+	body.physics_material_override.friction = 0.1
+	body.physics_material_override.bounce = 0.9
+	body.linear_damp = 0.05
+	body.angular_damp = 0.1
+	body.continuous_cd = true
+	body.mass = 1.0
+
+
 func _on_cue_shoot(power):
-	cue_ball.apply_impulse(power)
+	#cue_ball.apply_impulse(power)
+	cue_ball.apply_central_impulse(power)
 
 func potted_ball(body):
 	if body == cue_ball:
