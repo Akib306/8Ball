@@ -83,6 +83,9 @@ func generate_balls():
 				start_y + (row * dia) + (col * dia / 2))
 			add_child(b)
 			b.position = pos
+			
+			# Set up ball physics
+			setup_ball(b)
 
 			var sprite_node = b.get_node("Sprite2D")
 			sprite_node.texture = ball_images[count]
@@ -190,13 +193,17 @@ func _physics_process(delta: float):
 		ball.angular_velocity *= 0.98  # Adjust for slower or faster spin loss
 
 func setup_ball(ball: Node2D):
-	var body = ball.get_node("RigidBody2D")
-	body.physics_material_override = PhysicsMaterial.new()
-	body.physics_material_override.friction = 0.1  # Low friction for smooth rolling
-	body.physics_material_override.bounce = 0.8    # High bounce for realistic collisions
-	body.linear_damp = 0.05  # Simulates table resistance
-	body.angular_damp = 0.1  # Simulates spin decay
-	body.continuous_cd = true
+	# Ensure the ball has a RigidBody2D node
+	if ball is RigidBody2D:
+		var body = ball  # Cast the ball as RigidBody2D
+		body.physics_material_override = PhysicsMaterial.new()
+		body.physics_material_override.friction = 0.1  # Low friction for smooth rolling
+		body.physics_material_override.bounce = 0.8    # High bounce for realistic collisions
+		body.linear_damp = 0.05  # Simulates table resistance
+		body.angular_damp = 0.1  # Simulates spin decay
+		body.continuous_cd = true
+	else:
+		print("Error: Ball node is not a RigidBody2D!")
 
 func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
 	# Get velocities of both balls
@@ -225,6 +232,8 @@ func _on_Ball_body_entered(other_body):
 		
 		# Apply spin transfer to the other ball
 		other_body.angular_velocity += spin_transfer
+		
+		
 
 
 func _on_cue_shoot(power: Vector2):
