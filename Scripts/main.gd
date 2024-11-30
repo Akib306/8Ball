@@ -172,28 +172,60 @@ func _process(_delta) -> void:
 			taking_shot = false
 			hide_cue()
 
+func _physics_process(delta: float):
+	for ball in get_tree().get_nodes_in_group("balls"):
+		# Simulate friction by reducing velocity slightly each frame
+		ball.linear_velocity *= 0.99  # Adjust factor for table friction
+		
+		# Simulate spin decay
+		ball.angular_velocity *= 0.98  # Adjust for slower or faster spin loss
+
 func setup_ball(ball: Node2D):
 	var body = ball.get_node("RigidBody2D")
-	var sprite = ball.get_node("Sprite2D")
-	var collision_shape = ball.get_node("CollisionShape2D")
-
-	# Scale visual and collision shapes
-	sprite.scale = Vector2(BALL_SCALE, BALL_SCALE)
-	collision_shape.shape.radius = 18 * BALL_SCALE
-
-	# Physics properties
 	body.physics_material_override = PhysicsMaterial.new()
-	body.physics_material_override.friction = 0.1
-	body.physics_material_override.bounce = 0.9
-	body.linear_damp = 0.05
-	body.angular_damp = 0.1
+	body.physics_material_override.friction = 0.1  # Low friction for smooth rolling
+	body.physics_material_override.bounce = 0.8    # High bounce for realistic collisions
+	body.linear_damp = 0.05  # Simulates table resistance
+	body.angular_damp = 0.1  # Simulates spin decay
 	body.continuous_cd = true
-	body.mass = 1.0
+
+func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
+	# Get velocities of both balls
+	var v1 = ball1.linear_velocity
+	var v2 = ball2.linear_velocity
+
+	# Calculate momentum transfer
+	var m1 = ball1.mass
+	var m2 = ball2.mass
+
+	# Elastic collision equations
+	var new_v1 = ((m1 - m2) / (m1 + m2)) * v1 + ((2 * m2) / (m1 + m2)) * v2
+	var new_v2 = ((2 * m1) / (m1 + m2)) * v1 + ((m2 - m1) / (m1 + m2)) * v2
+
+	# Apply new velocities to the balls
+	ball1.linear_velocity = new_v1
+	ball2.linear_velocity = new_v2
+
+func _on_Ball_body_entered(other_body):
+	if other_body.is_in_group("balls"):
+		# Access the current ball's velocity using self.linear_velocity
+		var relative_velocity = other_body.linear_velocity - self.linear_velocity
+		
+		# Calculate spin transfer
+		var spin_transfer = relative_velocity.length() * 0.05
+		
+		# Apply spin transfer to the other ball
+		other_body.angular_velocity += spin_transfer
 
 
-func _on_cue_shoot(power):
-	#cue_ball.apply_impulse(power)
+func _on_cue_shoot(power: Vector2):
+	# Apply central impulse for forward motion
 	cue_ball.apply_central_impulse(power)
+	
+	# Add spin (angular velocity) based on the cue's force and direction
+	# For example, simulate slight top or side spin
+	var spin_strength = 0.2  # Adjust as needed for realism
+	cue_ball.angular_velocity = power.x * spin_strength
 
 func potted_ball(body):
 	if body == cue_ball:
