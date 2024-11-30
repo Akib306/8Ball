@@ -2,6 +2,8 @@ extends Node2D
 
 @export var ball : PackedScene
 @export var power_up_ui: Control
+@export var cue_strike_sound: AudioStream  # For cue ball striking sound
+@export var ball_pot_sound: AudioStream
 signal power_gamble
 
 var ball_images := []
@@ -43,6 +45,19 @@ func _ready() -> void:
 	load_images()
 	new_game()
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
+	
+	
+# **Added this method for cue ball strike sound**
+func play_cue_strike_sound():
+	if cue_strike_sound:
+		$CueStrikeAudio.stream = cue_strike_sound
+		$CueStrikeAudio.play()
+
+# **Added this method for ball potting sound**
+func play_ball_pot_sound():
+	if ball_pot_sound:
+		$BallPotAudio.stream = ball_pot_sound
+		$BallPotAudio.play()
 	
 func new_game():
 	generate_balls()
@@ -158,6 +173,7 @@ func _process(_delta) -> void:
 
 func _on_cue_shoot(power):
 	cue_ball.apply_impulse(power)
+	play_cue_strike_sound() 
 
 func potted_ball(body):
 	if body == cue_ball:
@@ -168,6 +184,7 @@ func potted_ball(body):
 func handle_cue_ball_pot():
 	cue_ball_potted = true
 	remove_cue_ball()
+	play_ball_pot_sound()
 	switch_turn()
 
 func handle_ball_pot(body):
@@ -182,6 +199,7 @@ func handle_ball_pot(body):
 		game_controller.power_draw(current_player)
 		
 	else:
+		play_ball_pot_sound()
 		print(current_player.name, " fouled by hitting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
 		#switch_turn()
