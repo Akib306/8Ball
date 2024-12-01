@@ -192,25 +192,25 @@ func _process(delta: float) -> void:
 			taking_shot = false
 			hide_cue()
 
-func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
-	# Get velocities of both balls
-	var v1 = ball1.linear_velocity
-	var v2 = ball2.linear_velocity
-
-	# Calculate momentum transfer
-	var m1 = ball1.mass
-	var m2 = ball2.mass
-
-	# Elastic collision equations
-	var new_v1 = ((m1 - m2) / (m1 + m2)) * v1 + ((2 * m2) / (m1 + m2)) * v2
-	var new_v2 = ((2 * m1) / (m1 + m2)) * v1 + ((m2 - m1) / (m1 + m2)) * v2
-
-	# Apply new velocities to the balls
-	ball1.linear_velocity = new_v1
-	ball2.linear_velocity = new_v2
-
-	# Logic for handling ball collisions (game-specific)
-	print("Collision between:", ball1, "and", ball2)
+#func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
+	## Get velocities of both balls
+	#var v1 = ball1.linear_velocity
+	#var v2 = ball2.linear_velocity
+#
+	## Calculate momentum transfer
+	#var m1 = ball1.mass
+	#var m2 = ball2.mass
+#
+	## Elastic collision equations
+	#var new_v1 = ((m1 - m2) / (m1 + m2)) * v1 + ((2 * m2) / (m1 + m2)) * v2
+	#var new_v2 = ((2 * m1) / (m1 + m2)) * v1 + ((m2 - m1) / (m1 + m2)) * v2
+#
+	## Apply new velocities to the balls
+	#ball1.linear_velocity = new_v1
+	#ball2.linear_velocity = new_v2
+#
+	## Logic for handling ball collisions (game-specific)
+	#print("Collision between:", ball1, "and", ball2)
 
 func _on_cue_shoot(power: Vector2):
 	# Apply central impulse for forward motion
