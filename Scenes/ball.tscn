@@ -10,7 +10,6 @@ radius = 72.0
 
 [node name="PoolBall" type="RigidBody2D" groups=["balls"]]
 physics_material_override = SubResource("PhysicsMaterial_sobu2")
-lock_rotation = true
 continuous_cd = 1
 script = ExtResource("1_g3aix")
 

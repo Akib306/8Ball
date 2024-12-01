@@ -10,13 +10,8 @@ signal ball_potted()
 @export var momentum_decay: float = 0.99
 @export var initial_mass: float = 1.0
 
-func set_physics_properties(new_friction: float, new_bounce: float, new_spin_decay: float) -> void:
-	# Set the physics properties
-	physics_material_override = PhysicsMaterial.new()
-	physics_material_override.friction = new_friction
-	physics_material_override.bounce = new_bounce
-	spin_decay = new_spin_decay
-	momentum_decay = 0.99  # Optional: Adjust or expose as needed
+# Cache the Sprite2D node for rotation
+var sprite: Sprite2D
 
 func _ready():
 	# Set up physics properties
@@ -26,27 +21,26 @@ func _ready():
 	mass = initial_mass
 	angular_velocity = 0  # No initial spin
 	
-func setup_ball(ball: Node2D):
-	# Ensure the ball has a RigidBody2D node
-	if ball is RigidBody2D:
-		var body = ball  # Cast the ball as RigidBody2D
-		body.physics_material_override = PhysicsMaterial.new()
-		body.physics_material_override.friction = 0.1  # Low friction for smooth rolling
-		body.physics_material_override.bounce = 0.8    # High bounce for realistic collisions
-		body.linear_damp = 0.05  # Simulates table resistance
-		body.angular_damp = 0.1  # Simulates spin decay
-		body.continuous_cd = true
-		
-		# Initialize angular velocity for spin effects
-		body.angular_velocity = 0  # No initial spin
-	
-	else:
-		print("Error: Ball node is not a RigidBody2D!")
+	# Get the Sprite2D node
+	sprite = $Sprite2D
 
 func _physics_process(delta: float):
 	# Apply momentum and spin decay
 	linear_velocity *= momentum_decay
 	angular_velocity *= spin_decay
+
+	# Rotate the sprite to reflect the ball's spin
+	if sprite:
+		sprite.rotation += angular_velocity * delta
+
+func set_physics_properties(new_friction: float, new_bounce: float, new_spin_decay: float) -> void:
+	# Set the physics properties
+	physics_material_override = PhysicsMaterial.new()
+	physics_material_override.friction = new_friction
+	physics_material_override.bounce = new_bounce
+	spin_decay = new_spin_decay
+	momentum_decay = 0.99  # Optional: Adjust or expose as needed
+
 
 func handle_collision(other_ball: RigidBody2D):
 	emit_signal("ball_collided", other_ball)

@@ -59,13 +59,12 @@ func play_cue_strike_sound():
 # **Added this method for ball potting sound**
 func play_ball_pot_sound():
 	$BallPotAudio.play()
-	
+
 func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
 	#update_power_up_ui()
-
 
 func load_images():
 	for i in range(1, 17, 1):
@@ -95,7 +94,6 @@ func generate_balls():
 			sprite_node.texture = ball_images[count]
 			sprite_node.scale  = Vector2(BALL_SCALE, BALL_SCALE)
 			
-			var ball_script = b.get_script() as Script
 			b.call("set_physics_properties", 0.1, 0.8, 0.98)
 			
 			# Handle collision shapes
@@ -154,9 +152,15 @@ func hide_cue():
 	$Cue.hide()
 	$PowerBar.hide()
 
-func _process(_delta) -> void:
+func _process(delta: float) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
+		# Rotate sprite based on angular velocity
+		var sprite = b.get_node("Sprite2D")
+		if sprite and b.angular_velocity != 0:
+			sprite.rotation += b.angular_velocity * delta
+			
+		# Check ball movement
 		if (b.linear_velocity.length() > 0.0 and 
 			b.linear_velocity.length() < MOVE_THRESHOLD):
 			b.sleeping = true
