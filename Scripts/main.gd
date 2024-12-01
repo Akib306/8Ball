@@ -44,8 +44,13 @@ func _ready() -> void:
 
 	load_images()
 	new_game()
-	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
+	## Connect signals for all balls
+	#for b in get_tree().get_nodes_in_group("balls"):
+		#b.connect("ball_collided", Callable(self, "_on_ball_collision"))
+		#b.connect("ball_potted", Callable(self, "_on_ball_potted"))
+
+	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
 # **Added this method for cue ball strike sound**
 func play_cue_strike_sound():
@@ -69,32 +74,35 @@ func load_images():
 		ball_images.append(ball_image)
 
 func generate_balls():
-	var rows : int = 5
+	var num_of_col_row : int = 5
 	var dia = 36
 	var count = 0
 
 	var start_x = camera.position.x - (camera.get_viewport_rect().size.x * 0.3) 
 	var start_y = camera.position.y - (camera.get_viewport_rect().size.y * .1) 
 
-	for col in range(5):
-		for row in range(rows):
+	for col in range(num_of_col_row):
+		for row in range(num_of_col_row):
 			var b = ball.instantiate()
 			var pos = Vector2(start_x + (col * dia), 
 				start_y + (row * dia) + (col * dia / 2))
 			add_child(b)
 			b.position = pos
-			
-			# Set up ball physics
-			setup_ball(b)
+			b.add_to_group("balls")
 
+			# Assign sprite texture
 			var sprite_node = b.get_node("Sprite2D")
 			sprite_node.texture = ball_images[count]
 			sprite_node.scale  = Vector2(BALL_SCALE, BALL_SCALE)
 			
+			var ball_script = b.get_script() as Script
+			b.call("set_physics_properties", 0.1, 0.8, 0.98)
+			
+			# Handle collision shapes
 			var collision_sprite_node = b.get_node("CollisionShape2D")
 			collision_sprite_node.scale  = Vector2(BALL_SCALE, BALL_SCALE)
 			
-			
+			# Group balls by type
 			if count < 7:
 				solids.append(b)  # Balls 1-7 are solids
 			elif count == 7:
@@ -106,11 +114,7 @@ func generate_balls():
 				
 			count += 1
 
-		rows -= 1
-	
-	print("Solids:", solids)
-	print("Stripes:", stripes)
-	print("Black Ball:", black_ball)
+		num_of_col_row -= 1
 	
 #func update_power_up_ui():
 	#power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
@@ -184,27 +188,6 @@ func _process(_delta) -> void:
 			taking_shot = false
 			hide_cue()
 
-func _physics_process(delta: float):
-	for ball in get_tree().get_nodes_in_group("balls"):
-		# Simulate friction by reducing velocity slightly each frame
-		ball.linear_velocity *= 0.99  # Adjust factor for table friction
-		
-		# Simulate spin decay
-		ball.angular_velocity *= 0.98  # Adjust for slower or faster spin loss
-
-func setup_ball(ball: Node2D):
-	# Ensure the ball has a RigidBody2D node
-	if ball is RigidBody2D:
-		var body = ball  # Cast the ball as RigidBody2D
-		body.physics_material_override = PhysicsMaterial.new()
-		body.physics_material_override.friction = 0.1  # Low friction for smooth rolling
-		body.physics_material_override.bounce = 0.8    # High bounce for realistic collisions
-		body.linear_damp = 0.05  # Simulates table resistance
-		body.angular_damp = 0.1  # Simulates spin decay
-		body.continuous_cd = true
-	else:
-		print("Error: Ball node is not a RigidBody2D!")
-
 func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
 	# Get velocities of both balls
 	var v1 = ball1.linear_velocity
@@ -222,19 +205,8 @@ func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
 	ball1.linear_velocity = new_v1
 	ball2.linear_velocity = new_v2
 
-func _on_Ball_body_entered(other_body):
-	if other_body.is_in_group("balls"):
-		# Access the current ball's velocity using self.linear_velocity
-		var relative_velocity = other_body.linear_velocity - self.linear_velocity
-		
-		# Calculate spin transfer
-		var spin_transfer = relative_velocity.length() * 0.05
-		
-		# Apply spin transfer to the other ball
-		other_body.angular_velocity += spin_transfer
-		
-		
-
+	# Logic for handling ball collisions (game-specific)
+	print("Collision between:", ball1, "and", ball2)
 
 func _on_cue_shoot(power: Vector2):
 	# Apply central impulse for forward motion
