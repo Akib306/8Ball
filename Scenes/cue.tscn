@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfm2jn61gdp8o" path="res://Assets/cue.png" id="1_1pmxk"]
 [ext_resource type="Script" path="res://Scripts/cue.gd" id="2_n0iai"]
-[ext_resource type="Script" path="res://Scenes/aimline.gd" id="3_yt0bp"]
+[ext_resource type="Script" path="res://Scripts/aimline.gd" id="3_yt0bp"]
 
 [node name="Cue" type="Sprite2D"]
 z_index = 2

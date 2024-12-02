@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
 [ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
-[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_nso0m"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nso0m"]
 [ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
