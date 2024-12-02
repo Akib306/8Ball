@@ -10,7 +10,8 @@ extends RigidBody2D
 
 # Cache the Sprite2D node for rotation
 var sprite: Sprite2D
-
+var grace_period = 0.5  # Time in seconds to ignore collision sounds after start
+var time_since_start = 0.0
 func _ready():
 	# Set up physics properties
 	physics_material_override = PhysicsMaterial.new()
@@ -23,6 +24,8 @@ func _ready():
 	sprite = $Sprite2D
 
 func _physics_process(delta: float):
+	time_since_start += delta
+
 	# Apply momentum and spin decay
 	linear_velocity *= momentum_decay
 	angular_velocity *= spin_decay
@@ -41,6 +44,8 @@ func set_physics_properties(new_friction: float, new_bounce: float, new_spin_dec
 
 
 func _on_body_entered(body: Node) -> void:
+	if time_since_start < grace_period:
+		return
 	if body.is_in_group("balls"):
 		print("Collided with another ball:", body.name)
 		$BallHitAudio.play()
