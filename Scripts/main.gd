@@ -33,32 +33,75 @@ var player_potted_own_ball_this_shot: bool = false
 var foul_committed_this_shot: bool = false
 var player_potted_correct_ball := false  # New flag to track correct potting
 
-# Called when the node enters the scene tree for the first time.
+#####################################################################################################
+
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
-	#$Pool_Table.scale = Vector2()
 
 	game_controller = $gameController
 	power_up_ui = $PowerupUI
 
 	load_images()
 	new_game()
-	
-	## Connect signals for all balls
-	#for b in get_tree().get_nodes_in_group("balls"):
-		#b.connect("ball_collided", Callable(self, "_on_ball_collision"))
-		#b.connect("ball_potted", Callable(self, "_on_ball_potted"))
 
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
-	
+
+#####################################################################################################
+
+func _process(delta: float) -> void:
+	var moving := false
+	for b in get_tree().get_nodes_in_group("balls"):
+		# Rotate sprite based on angular velocity
+		var sprite = b.get_node("Sprite2D")
+		if sprite and b.angular_velocity != 0:
+			sprite.rotation += b.angular_velocity * delta
+			
+		# Check ball movement
+		if (b.linear_velocity.length() > 0.0 and 
+			b.linear_velocity.length() < MOVE_THRESHOLD):
+			b.sleeping = true
+		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
+			moving = true
+
+	if not moving:
+		if cue_ball_potted:
+			reset_cue_ball()
+			cue_ball_potted = false
+
+		if not taking_shot:
+			# Ensure no turn switch at the start if no player type has been assigned
+			if current_player.type == "" and player2.type == "":
+				taking_shot = true
+				show_cue()
+				return  # Exit early to prevent switching turns
+
+			# Only switch turns if no correct ball was potted
+			if not player_potted_correct_ball:
+				switch_turn()
+			else:
+				player_potted_correct_ball = false  # Reset flag if turn retained
+			taking_shot = true
+			show_cue()
+
+	else:
+		if taking_shot:
+			taking_shot = false
+			hide_cue()
+
+#####################################################################################################
+
 # **Added this method for cue ball strike sound**
 func play_cue_strike_sound():
 	$CueStrikeAudio.play()
 
+#####################################################################################################
+
 # **Added this method for ball potting sound**
 func play_ball_pot_sound():
 	$BallPotAudio.play()
+
+#####################################################################################################
 
 func new_game():
 	generate_balls()
@@ -66,11 +109,15 @@ func new_game():
 	show_cue()
 	#update_power_up_ui()
 
+#####################################################################################################
+
 func load_images():
 	for i in range(1, 17, 1):
 		var filename = str("res://Assets/ball_", i, ".png")
 		var ball_image = load(filename)
 		ball_images.append(ball_image)
+
+#####################################################################################################
 
 func generate_balls():
 	var num_of_col_row : int = 5
@@ -113,31 +160,39 @@ func generate_balls():
 			count += 1
 
 		num_of_col_row -= 1
-	
-#func update_power_up_ui():
-	#power_up_ui.set_current_player(current_player)  # Set current player in PowerUpUI
-	#power_up_ui.update_power_up_buttons()           # Refresh buttons based on inventory
-	
+
+#####################################################################################################
+
 func reset_cue_ball():
+	# Instantiate the cue ball
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)
 	cue_ball.position = Vector2(camera.position.x + 200, camera.position.y - 60)
-	
-	# Get the Sprite2D node and set its texture and scale
+
+	# Configure the cue ball (texture, scale, etc.)
 	var sprite_node = cue_ball.get_node("Sprite2D")
 	sprite_node.texture = ball_images.back()
 	sprite_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
-	
-	# Ensure the CollisionShape2D node is also scaled
+
 	var collision_node = cue_ball.get_node("CollisionShape2D")
 	collision_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
-	
+
 	taking_shot = false
+
+	# Assign the cue_ball to Line2D
+	if $Cue and $Cue.has_node("Line2D"):
+		$Cue/Line2D.cue_ball = cue_ball
+		print("Cue ball assigned to Line2D:", cue_ball)
+	else:
+		print("Line2D not found in Cue!")
+
 
 func remove_cue_ball():
 	var old_b = cue_ball
 	remove_child(old_b)
 	old_b.queue_free()
+
+#####################################################################################################
 
 func show_cue():
 	$Cue.set_process(true)
@@ -147,70 +202,14 @@ func show_cue():
 	$Cue.show()
 	$PowerBar.show()
 
+#####################################################################################################
+
 func hide_cue():
 	$Cue.set_process(false)
 	$Cue.hide()
 	$PowerBar.hide()
 
-func _process(delta: float) -> void:
-	var moving := false
-	for b in get_tree().get_nodes_in_group("balls"):
-		# Rotate sprite based on angular velocity
-		var sprite = b.get_node("Sprite2D")
-		if sprite and b.angular_velocity != 0:
-			sprite.rotation += b.angular_velocity * delta
-			
-		# Check ball movement
-		if (b.linear_velocity.length() > 0.0 and 
-			b.linear_velocity.length() < MOVE_THRESHOLD):
-			b.sleeping = true
-		elif b.linear_velocity.length() >= MOVE_THRESHOLD:
-			moving = true
-
-	if not moving:
-		if cue_ball_potted:
-			reset_cue_ball()
-			cue_ball_potted = false
-
-		if not taking_shot:
-			# Ensure no turn switch at the start if no player type has been assigned
-			if current_player.type == "" and player2.type == "":
-				taking_shot = true
-				show_cue()
-				return  # Exit early to prevent switching turns
-
-			# Only switch turns if no correct ball was potted
-			if not player_potted_correct_ball:
-				switch_turn()
-			else:
-				player_potted_correct_ball = false  # Reset flag if turn retained
-			taking_shot = true
-			show_cue()
-
-	else:
-		if taking_shot:
-			taking_shot = false
-			hide_cue()
-
-#func _on_ball_collision(ball1: RigidBody2D, ball2: RigidBody2D):
-	## Get velocities of both balls
-	#var v1 = ball1.linear_velocity
-	#var v2 = ball2.linear_velocity
-#
-	## Calculate momentum transfer
-	#var m1 = ball1.mass
-	#var m2 = ball2.mass
-#
-	## Elastic collision equations
-	#var new_v1 = ((m1 - m2) / (m1 + m2)) * v1 + ((2 * m2) / (m1 + m2)) * v2
-	#var new_v2 = ((2 * m1) / (m1 + m2)) * v1 + ((m2 - m1) / (m1 + m2)) * v2
-#
-	## Apply new velocities to the balls
-	#ball1.linear_velocity = new_v1
-	#ball2.linear_velocity = new_v2
-#
-	## Logic for handling ball collisions (game-specific)
-	#print("Collision between:", ball1, "and", ball2)
+#####################################################################################################
 
 func _on_cue_shoot(power: Vector2):
 	# Apply central impulse for forward motion
@@ -320,3 +319,5 @@ func switch_turn():
 	current_player = player2 if current_player == player1 else player1
 	#update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")
+
+#####################################################################################################
