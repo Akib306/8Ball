@@ -225,6 +225,7 @@ func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
 	else:
+		play_ball_pot_sound()
 		handle_ball_pot(body)
 
 func handle_cue_ball_pot():
