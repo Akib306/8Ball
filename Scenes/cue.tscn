@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ffj3t8bc3dhc"]
+[gd_scene load_steps=4 format=3 uid="uid://ffj3t8bc3dhc"]
 
 [ext_resource type="Texture2D" uid="uid://bfm2jn61gdp8o" path="res://Assets/cue.png" id="1_1pmxk"]
 [ext_resource type="Script" path="res://Scripts/cue.gd" id="2_n0iai"]
+[ext_resource type="Script" path="res://Scenes/aimline.gd" id="3_yt0bp"]
 
 [node name="Cue" type="Sprite2D"]
 z_index = 2
@@ -12,3 +13,8 @@ offset = Vector2(872.769, -3.03093)
 region_enabled = true
 region_rect = Rect2(-1363, 1666, 5262, 54)
 script = ExtResource("2_n0iai")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-329.672, 0)
+points = PackedVector2Array(5.58, 0.343918)
+script = ExtResource("3_yt0bp")

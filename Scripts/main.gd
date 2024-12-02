@@ -164,22 +164,28 @@ func generate_balls():
 #####################################################################################################
 
 func reset_cue_ball():
+	# Instantiate the cue ball
 	cue_ball = ball.instantiate()
 	add_child(cue_ball)
 	cue_ball.position = Vector2(camera.position.x + 200, camera.position.y - 60)
-	
-	# Get the Sprite2D node and set its texture and scale
+
+	# Configure the cue ball (texture, scale, etc.)
 	var sprite_node = cue_ball.get_node("Sprite2D")
 	sprite_node.texture = ball_images.back()
 	sprite_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
-	
-	# Ensure the CollisionShape2D node is also scaled
+
 	var collision_node = cue_ball.get_node("CollisionShape2D")
 	collision_node.scale = Vector2(BALL_SCALE, BALL_SCALE)
-	
+
 	taking_shot = false
 
-#####################################################################################################
+	# Assign the cue_ball to Line2D
+	if $Cue and $Cue.has_node("Line2D"):
+		$Cue/Line2D.cue_ball = cue_ball
+		print("Cue ball assigned to Line2D:", cue_ball)
+	else:
+		print("Line2D not found in Cue!")
+
 
 func remove_cue_ball():
 	var old_b = cue_ball
