@@ -215,7 +215,7 @@ func _process(delta: float) -> void:
 func _on_cue_shoot(power: Vector2):
 	# Apply central impulse for forward motion
 	cue_ball.apply_central_impulse(power)
-	
+	play_cue_strike_sound() 
 	# Add spin (angular velocity) based on the cue's force and direction
 	# For example, simulate slight top or side spin
 	var spin_strength = 0.2  # Adjust as needed for realism
