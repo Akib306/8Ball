@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=14 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="AudioStream" uid="uid://cqdw201yfsbtt" path="res://Sounds/pool_ball_strike.mp3" id="2_we6ss"]
+[ext_resource type="AudioStream" uid="uid://ocwyecoxtyiu" path="res://Sounds/Lukrembo - Donut (freetouse.com).mp3" id="2_y7mfh"]
 [ext_resource type="PackedScene" uid="uid://ffj3t8bc3dhc" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="AudioStream" uid="uid://bi6dwmwui47iv" path="res://Sounds/pool_ball_pocket.mp3" id="3_uslht"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
@@ -27,6 +28,11 @@ bg_color = Color(0.682353, 0.0588235, 0.0862745, 1)
 position = Vector2(6, 0)
 script = ExtResource("1_qawor")
 metadata/_edit_horizontal_guides_ = [-1.0]
+
+[node name="bg_music_main" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y7mfh")
+volume_db = -30.15
+autoplay = true
 
 [node name="CueStrikeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_we6ss")
