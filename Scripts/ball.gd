@@ -57,5 +57,43 @@ func _on_body_entered(body: Node) -> void:
 	if time_since_start < grace_period:
 		return
 	if body.is_in_group("balls"):
-		print("Collided with another ball:", body.name)
 		$BallHitAudio.play()
+
+#func handle_collision(other_ball: RigidBody2D):
+	#emit_signal("ball_collided", other_ball)
+	#
+	## Calculate relative velocity
+	#var relative_velocity = other_ball.linear_velocity - linear_velocity
+	#
+	## Apply spin transfer
+	#var spin_transfer = relative_velocity.length() * 0.05
+	#
+	#angular_velocity -= spin_transfer
+	#other_ball.angular_velocity += spin_transfer
+	#
+	## Adjust momentum for elastic collision
+	#adjust_momentum(other_ball)
+
+#####################################################################################################
+
+#func adjust_momentum(other_ball: RigidBody2D):
+	## Use elastic collision formulas
+	#var v1 = linear_velocity
+	#var v2 = other_ball.linear_velocity
+	#var m1 = mass
+	#var m2 = other_ball.mass
+	#
+	#var new_v1 = ((m1 - m2) / (m1 + m2)) * v1 + ((2 * m2) / (m1 + m2)) * v2
+	#var new_v2 = ((2 * m1) / (m1 + m2)) * v1 + ((m2 - m1) / (m1 + m2)) * v2
+	#
+	## Apply new velocities
+	#linear_velocity = new_v1
+	#other_ball.linear_velocity = new_v2
+
+#####################################################################################################
+
+#func _on_Ball_body_entered(other_body):
+	#if other_body.is_in_group("balls"):
+		#handle_collision(other_body)
+
+#####################################################################################################
