@@ -205,9 +205,21 @@ func _on_cue_shoot(power: Vector2):
 	
 	play_cue_strike_sound() 
 	
+	# Reset the first ball hit tracking
+	first_ball_hit = null
+	foul_committed_this_shot = false
+	
 	# Add spin (angular velocity) based on the cue's force and direction
 	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
+	
+func handle_collision(other_ball: RigidBody2D):
+	if first_ball_hit == null:  # Only set on the first collision
+		first_ball_hit = other_ball
+		# Check for black ball foul
+		if other_ball == black_ball and !solids.is_empty() and !stripes.is_empty():
+			print(current_player.name, " fouled by hitting the black ball first!")
+			foul_committed_this_shot = true
 
 func potted_ball(body):
 	if body == cue_ball:
@@ -225,6 +237,16 @@ func handle_cue_ball_pot():
 func handle_ball_pot(body):
 	if current_player.type == "":
 		assign_player_ball_type(body)
+	
+	# Handle black ball potting rules
+	if body == black_ball:
+		if solids.is_empty() and stripes.is_empty():
+			print(current_player.name, " won the game by potting the black ball!")
+		else:
+			print(current_player.name, " fouled by potting the black ball!")
+			player_potted_correct_ball = false  # Switch turn on foul
+			switch_turn()
+		return
 
 	if is_correct_ball(body):
 		current_player.score += 1
@@ -237,7 +259,6 @@ func handle_ball_pot(body):
 		play_ball_pot_sound()
 		print(current_player.name, " fouled by potting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
-		#switch_turn()
 	
 	handle_ball_removal(body)
 	display_potted_ball(body)
