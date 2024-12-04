@@ -74,6 +74,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PottedPanel" type="Panel" parent="Pot"]
+layout_mode = 0
 offset_left = -955.0
 offset_top = 484.0
 offset_right = -6.0
