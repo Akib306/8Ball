@@ -5,7 +5,7 @@ enum PowerUps {TELEPORT, WALL, MRBIG, TORNADO, REWIND, GHOST}
 
 
 # Create a power-up based on its type/index
-func create_power_up(power_up_type: int) -> PowerUp:
+static func create_power_up(power_up_type: int) -> PowerUp:
 	match power_up_type:
 		PowerUps.TELEPORT:
 			return TeleportPowerUp.new()
@@ -24,5 +24,5 @@ func create_power_up(power_up_type: int) -> PowerUp:
 			return null
 
 # Return the total number of power-ups available
-func get_total_power_ups() -> int:
+static func get_total_power_ups() -> int:
 	return len(PowerUps)
