@@ -9,6 +9,7 @@ var main_game: Node = null  # Reference to main.gd
 @export var power_up_factory: Node = null
 
 # Dictionary to track active turn-based power-ups per player
+# Updated structure to support multiple power-ups per player
 # {Player: [PowerUp, PowerUp, ...]}
 var active_power_ups: Dictionary = {}
 
@@ -29,7 +30,7 @@ func activate_power_up(player: Player, power_up: PowerUp) -> void:
 			if not active_power_ups.has(opponentPlayer):
 				active_power_ups[opponentPlayer] = []
 			active_power_ups[opponentPlayer].append(power_up)
-			print("Turn-based defective power-up activated for", opponentPlayer.name)
+			print("Turn-based defective power-up activated for ", opponentPlayer.name)
 		else:
 			# Add regular power-up to player's list
 			if not active_power_ups.has(player):
