@@ -60,6 +60,12 @@ func _ready() -> void:
 	
 #####################################################################################################
 
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE:
+			current_player.activate_power_up(0, powerupManager)
+			
+			
 func _process(delta: float) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
@@ -342,6 +348,7 @@ func _on_timeout():
 	switch_turn()
 
 func switch_turn():
+	powerupManager.on_turn_end(current_player)
 	turn_timer.stop_timer()
 	current_player = player2 if current_player == player1 else player1
 	#update_power_up_ui()
