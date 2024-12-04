@@ -7,6 +7,7 @@ var main_game: Node = null
 # Set this power-up to TURN_BASED
 func _init():
 	effect_type = EffectType.TURN_BASED
+	defect = true
 
 # Activate the power-up
 func activate():

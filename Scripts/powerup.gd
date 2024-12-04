@@ -4,7 +4,7 @@ extends Node
 enum EffectType { INSTANT, TURN_BASED }
 var effect_type: EffectType = EffectType.INSTANT
 var powerupOwner: Player = null  # The player who owns/activates this power-up
-
+var defect: bool = false
 # Called when the power-up is activated
 func activate():
 	pass

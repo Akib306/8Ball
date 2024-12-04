@@ -345,10 +345,16 @@ func _on_timeout():
 	switch_turn()
 
 func switch_turn():
-	powerupManager.on_turn_end(current_player)
 	turn_timer.stop_timer()
+
+	# Handle the end of the current player's turn
+	powerupManager.on_turn_end(current_player)
+
+	# Switch to the next player
 	current_player = player2 if current_player == player1 else player1
-	#update_power_up_ui()
+
+	# Start the timer for the new player
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()
+
 #####################################################################################################
