@@ -4,7 +4,7 @@ extends Node2D
 @export var power_up_ui: Control
 signal power_gamble
 @onready var turn_timer: TurnTimer = $TurnTimer
-@onready var timer_label: Label = $TimerLabel
+@onready var timer_label: Label = $TurnTimer/TimerLabel
 
 const TURN_TIME := 10.0  
 
