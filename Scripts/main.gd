@@ -249,19 +249,28 @@ func handle_ball_pot(body):
 		return
 
 	if is_correct_ball(body):
-		current_player.score += 1
-		print(current_player.name, " potted a ", current_player.type, 
-			"! Score: ", current_player.score)
+		calculate_score()
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
 		
 	else:
 		play_ball_pot_sound()
+		calculate_score()
 		print(current_player.name, " fouled by potting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
 	
 	handle_ball_removal(body)
+	
+	print(current_player.name, " score is ", current_player.score)
+	
 	display_potted_ball(body)
+
+func calculate_score():
+	if current_player.type == "solids":
+		current_player.score = 7 - solids.size()
+		
+	elif current_player.type == "stripes":
+		current_player.score = 7 - stripes.size()
 
 func check_win_condition(body):
 	if body == black_ball:
