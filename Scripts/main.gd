@@ -61,6 +61,9 @@ func _ready() -> void:
 #####################################################################################################
 
 func _unhandled_input(event):
+	if get_tree().has_group("ui_blocking"):
+		return
+		
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SPACE:
 			current_player.activate_power_up(0, powerupManager)

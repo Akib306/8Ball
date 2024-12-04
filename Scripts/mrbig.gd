@@ -7,7 +7,7 @@ var main_game: Node = null
 # Set this power-up to TURN_BASED
 func _init():
 	effect_type = EffectType.TURN_BASED
-
+	icon = load("res://Assets/mr_big_icon.png")  # Replace with actual icon path
 # Activate the power-up
 func activate():
 	if not main_game:
