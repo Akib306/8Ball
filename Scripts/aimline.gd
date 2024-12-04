@@ -4,7 +4,6 @@ extends Node2D
 
 func _draw() -> void:
 	if not cue_ball:
-		print("Cue ball not assigned!")
 		print(cue_ball)
 		return
 
@@ -23,7 +22,6 @@ func _draw() -> void:
 
 func _process(delta: float) -> void:
 	if not cue_ball:
-		print("Cue ball not assigned!")
 		return
 		
 	queue_redraw()

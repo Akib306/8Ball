@@ -43,8 +43,10 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
-
-	game_controller = $gameController
+	
+	powerupManager = PowerUpManager.new()
+	powerupManager.set_main_game(self)
+	powerupManager.power_up_factory = PowerUpFactory.new()	
 	power_up_ui = $PowerupUI
 
 	load_images()
@@ -191,6 +193,7 @@ func reset_cue_ball():
 	else:
 		print("Line2D not found in Cue!")
 
+#####################################################################################################
 
 func remove_cue_ball():
 	var old_b = cue_ball
@@ -227,18 +230,24 @@ func _on_cue_shoot(power: Vector2):
 	var spin_strength = 0.2  # Adjust as needed for realism
 	cue_ball.angular_velocity = power.x * spin_strength
 
+#####################################################################################################
+
 func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
 	else:
 		play_ball_pot_sound()
 		handle_ball_pot(body)
+		
+#####################################################################################################
 
 func handle_cue_ball_pot():
 	cue_ball_potted = true
 	remove_cue_ball()
 	play_ball_pot_sound()
 	switch_turn()
+	
+#####################################################################################################
 
 func handle_ball_pot(body):
 	if current_player.type == "":
@@ -260,6 +269,8 @@ func handle_ball_pot(body):
 	handle_ball_removal(body)
 	display_potted_ball(body)
 
+#####################################################################################################
+
 func check_win_condition(body):
 	if body == black_ball:
 		if solids.is_empty() and current_player.type == "solids":
@@ -268,6 +279,8 @@ func check_win_condition(body):
 		elif stripes.is_empty() and current_player.type == "stripes":
 			# emit_signal("win", current_player.name)
 			print(current_player.name + " won")
+			
+#####################################################################################################
 
 func handle_ball_removal(body):
 	if solids.has(body):
@@ -276,6 +289,8 @@ func handle_ball_removal(body):
 		stripes.erase(body)
 	
 	check_win_condition(body)
+	
+#####################################################################################################
 
 func assign_player_ball_type(body):
 	if solids.has(body):
@@ -287,40 +302,35 @@ func assign_player_ball_type(body):
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
 
+#####################################################################################################
+
 func is_correct_ball(body) -> bool:
 	return (current_player.type == "solids" and solids.has(body)) or (
 		current_player.type == "stripes" and stripes.has(body))
 
+#####################################################################################################
+
 func display_potted_ball(body):
-	var max_balls_per_row := 5
-	var ball_size := 25
-	var scale_factor := 0.5
-	var scaled_ball_size := ball_size * scale_factor
+	var max_balls_per_row := 15
+	var scale_factor := 0.4
 
 	var b = Sprite2D.new()
 	add_child(b)
 	b.texture = body.get_node("Sprite2D").texture
 	potted.append(b)
 	b.scale = Vector2(scale_factor, scale_factor)
-
-	var panel_position = $PottedPanel.position
-	var panel_width = $PottedPanel.size.x
-	var panel_height = $PottedPanel.size.y
-	var total_row_width = ((max_balls_per_row * scaled_ball_size) + 
-		((max_balls_per_row - 1) * scaled_ball_size / 2))
-	var x_offset = (panel_width - total_row_width) / 2
-
-	var index = potted.size() - 1
-	var row = index / max_balls_per_row
-	var col = index % max_balls_per_row
-
-	var x_pos = (panel_position.x + x_offset + 
-		(col * (scaled_ball_size + scaled_ball_size / 2)))
-	var y_pos = (panel_position.y + (panel_height / 2) - 
-		(scaled_ball_size / 2) + (row * scaled_ball_size))
-	b.position = Vector2(x_pos - 525, y_pos)
+	
+	# set up ball position
+	var panel_position = $Pot/PottedPanel.position
+	var x_pos = panel_position.x - 20 + 60 * potted.size()
+	var panel_height = $Pot/PottedPanel.size.y
+	var y_pos = (panel_position.y + (panel_height / 2))
+	
+	b.position = Vector2(x_pos, y_pos)
 
 	body.queue_free()
+	
+#####################################################################################################
 
 func _on_timeout():
 	# Handle timeout: switch turns and restart the timer

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=14 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -7,17 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://ffj3t8bc3dhc" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="AudioStream" uid="uid://bi6dwmwui47iv" path="res://Sounds/pool_ball_pocket.mp3" id="3_uslht"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
-[ext_resource type="PackedScene" uid="uid://0s7nrfqxww31" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="PackedScene" uid="uid://jabrpe1tft64" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
-bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+bg_color = Color(0, 0.464642, 0.469822, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imic8"]
 bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
@@ -67,10 +67,17 @@ stream = ExtResource("3_uslht")
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
 offset = Vector2(0, 50)
 
-[node name="PottedPanel" type="Panel" parent="."]
+[node name="Pot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PottedPanel" type="Panel" parent="Pot"]
+layout_mode = 0
 offset_left = -955.0
 offset_top = 484.0
-offset_right = 245.0
+offset_right = -6.0
 offset_bottom = 584.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
@@ -88,8 +95,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_imic8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0xqwk")
 show_percentage = false
 script = ExtResource("4_n04ic")
-
-[node name="gameController" parent="." instance=ExtResource("5_mte8t")]
 
 [node name="PowerupUI" type="Control" parent="."]
 visible = false
