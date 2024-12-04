@@ -12,11 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://jabrpe1tft64" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
-bg_color = Color(0.151212, 0.304991, 0.527803, 1)
+bg_color = Color(0, 0.464642, 0.469822, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imic8"]
 bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
