@@ -3,8 +3,7 @@ extends Node2D
 @export var ball : PackedScene
 @export var power_up_ui: Control
 signal power_gamble
-
-@onready var turn_timer: Timer = $TurnTimer
+@onready var turn_timer: TurnTimer = $TurnTimer
 @onready var timer_label: Label = $TimerLabel
 
 const TURN_TIME := 10.0  
@@ -43,7 +42,7 @@ var player_potted_correct_ball := false  # New flag to track correct potting
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
-
+	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
 	game_controller = $gameController
 	power_up_ui = $PowerupUI
 
@@ -206,6 +205,7 @@ func show_cue():
 	$PowerBar.position.y = cue_ball.position.y + (0.5 * $PowerBar.size.y)
 	$Cue.show()
 	$PowerBar.show()
+	turn_timer.start_timer()
 
 #####################################################################################################
 
@@ -218,6 +218,7 @@ func hide_cue():
 
 func _on_cue_shoot(power: Vector2):
 	# Apply central impulse for forward motion
+	turn_timer.stop_timer()
 	cue_ball.apply_central_impulse(power)
 	play_cue_strike_sound() 
 	# Add spin (angular velocity) based on the cue's force and direction
@@ -320,9 +321,16 @@ func display_potted_ball(body):
 
 	body.queue_free()
 
+func _on_timeout():
+	# Handle timeout: switch turns and restart the timer
+	print("Time's up for", current_player.name)
+	switch_turn()
+
 func switch_turn():
+	turn_timer.stop_timer()
 	current_player = player2 if current_player == player1 else player1
 	#update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")
+	turn_timer.start_timer()
 
 #####################################################################################################
