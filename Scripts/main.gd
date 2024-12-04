@@ -1,10 +1,11 @@
 extends Node2D
 
 @export var ball : PackedScene
-@export var power_up_ui: Control
 signal power_gamble
 @onready var turn_timer: TurnTimer = $TurnTimer
 @onready var timer_label: Label = $TurnTimer/TimerLabel
+@onready var power_up_ui: PowerUpUI = $PowerupUI
+
 
 const TURN_TIME := 10.0  
 
@@ -47,7 +48,9 @@ func _ready() -> void:
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
-	power_up_ui = $PowerupUI
+	power_up_ui.player = current_player
+	power_up_ui.powerup_manager = powerupManager
+	power_up_ui.update_ui()
 
 	load_images()
 	new_game()
@@ -342,6 +345,8 @@ func switch_turn():
 	turn_timer.stop_timer()
 	current_player = player2 if current_player == player1 else player1
 	#update_power_up_ui()
+	power_up_ui.player = current_player
+	power_up_ui.update_ui()
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()
 #####################################################################################################
