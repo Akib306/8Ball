@@ -332,5 +332,4 @@ func switch_turn():
 	#update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()
-
 #####################################################################################################

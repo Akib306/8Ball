@@ -30,26 +30,31 @@ position = Vector2(6, 0)
 script = ExtResource("1_qawor")
 metadata/_edit_horizontal_guides_ = [-1.0]
 
-[node name="TimerLabel" type="Label" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -23.0
-offset_right = 22.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 0
-
 [node name="TurnTimer" type="Node" parent="."]
 script = ExtResource("11_v2jn0")
+
+[node name="TimerLabel" type="Label" parent="TurnTimer"]
+anchors_preset = -1
+anchor_left = -0.125
+anchor_top = 0.297
+anchor_right = 0.123
+anchor_bottom = 0.396
+offset_top = 0.23999
+offset_right = 0.839996
+offset_bottom = 0.319977
+grow_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="bg_music_main" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_y7mfh")
 volume_db = -30.15
 autoplay = true
+parameters/looping = true
 
 [node name="CueStrikeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_we6ss")

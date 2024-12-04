@@ -4,7 +4,7 @@ signal timeout
 
 @export var turn_time := 10.0  # Set default turn time
 @onready var timer: Timer = Timer.new()
-@onready var label: Label = Label.new()
+@onready var label: Label = $TimerLabel
 
 func _ready():
 	# Add the Timer node
@@ -13,8 +13,8 @@ func _ready():
 	timer.connect("timeout", Callable(self, "_on_timeout"))
 
 	# Add the Label node (optional for displaying time)
-	add_child(label)
-	label.visible = false
+	#add_child(label)
+	#label.visible = false
 	label.text = str(turn_time)
 
 func _process(delta: float) -> void:
