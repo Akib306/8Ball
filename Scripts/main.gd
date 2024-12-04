@@ -303,37 +303,21 @@ func is_correct_ball(body) -> bool:
 
 func display_potted_ball(body):
 	var max_balls_per_row := 15
-	var ball_size := 25
 	var scale_factor := 0.4
-	var scaled_ball_size := ball_size * scale_factor
 
 	var b = Sprite2D.new()
 	add_child(b)
 	b.texture = body.get_node("Sprite2D").texture
 	potted.append(b)
-	#b.position = Vector2(50 * potted.size(), 725)
 	b.scale = Vector2(scale_factor, scale_factor)
-
+	
+	# set up ball position
 	var panel_position = $Pot/PottedPanel.position
-	var panel_width = $Pot/PottedPanel.size.x
+	var x_pos = panel_position.x - 20 + 60 * potted.size()
 	var panel_height = $Pot/PottedPanel.size.y
+	var y_pos = (panel_position.y + (panel_height / 2))
 	
-	var total_row_width = ((max_balls_per_row * scaled_ball_size) + 
-		((max_balls_per_row - 1) * scaled_ball_size / 2))
-	
-	var x_offset = (panel_width - total_row_width) / 2
-
-	var index = potted.size() - 1
-	var row = index / max_balls_per_row
-	
-
-	#var x_pos = (panel_position.x +
-		#((scaled_ball_size + scaled_ball_size / 2)))
-		
-	var y_pos = (panel_position.y + (panel_height / 2) - 
-		(scaled_ball_size / 2) + (row * scaled_ball_size))
-	
-	b.position = Vector2(panel_position.x - 30 + 60 * potted.size(), y_pos)
+	b.position = Vector2(x_pos, y_pos)
 
 	body.queue_free()
 	

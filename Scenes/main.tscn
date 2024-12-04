@@ -33,6 +33,7 @@ metadata/_edit_horizontal_guides_ = [-1.0]
 stream = ExtResource("2_y7mfh")
 volume_db = -30.15
 autoplay = true
+parameters/looping = true
 
 [node name="CueStrikeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_we6ss")
