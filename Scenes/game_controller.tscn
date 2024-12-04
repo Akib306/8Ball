@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://0s7nrfqxww31"]
+
+[ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_rh284"]
+[ext_resource type="PackedScene" uid="uid://dtoh5h5k4q27x" path="res://Scenes/power_up_factory.tscn" id="2_bggag"]
+
+[node name="gameController" type="Node2D"]
+script = ExtResource("1_rh284")
+power_up_factory_scene = ExtResource("2_bggag")
