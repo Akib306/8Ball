@@ -314,9 +314,9 @@ func display_potted_ball(body):
 	#b.position = Vector2(50 * potted.size(), 725)
 	b.scale = Vector2(scale_factor, scale_factor)
 
-	var panel_position = $PottedPanel.position
-	var panel_width = $PottedPanel.size.x
-	var panel_height = $PottedPanel.size.y
+	var panel_position = $Pot/PottedPanel.position
+	var panel_width = $Pot/PottedPanel.size.x
+	var panel_height = $Pot/PottedPanel.size.y
 	
 	var total_row_width = ((max_balls_per_row * scaled_ball_size) + 
 		((max_balls_per_row - 1) * scaled_ball_size / 2))

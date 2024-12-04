@@ -45,7 +45,13 @@ stream = ExtResource("3_uslht")
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
 offset = Vector2(0, 50)
 
-[node name="PottedPanel" type="Panel" parent="."]
+[node name="Pot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PottedPanel" type="Panel" parent="Pot"]
 offset_left = -955.0
 offset_top = 484.0
 offset_right = -6.0
