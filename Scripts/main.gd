@@ -37,7 +37,7 @@ var player_potted_own_ball_this_shot: bool = false
 var foul_committed_this_shot: bool = false
 var player_potted_correct_ball := false  # New flag to track correct potting
 
-#####################################################################################################
+#################################################################################
 
 func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
@@ -55,7 +55,7 @@ func _ready() -> void:
 
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
-#####################################################################################################
+#################################################################################
 
 func _process(delta: float) -> void:
 	var moving := false
@@ -97,19 +97,19 @@ func _process(delta: float) -> void:
 			taking_shot = false
 			hide_cue()
 
-#####################################################################################################
+#################################################################################
 
 # **Added this method for cue ball strike sound**
 func play_cue_strike_sound():
 	$CueStrikeAudio.play()
 
-#####################################################################################################
+#################################################################################
 
 # **Added this method for ball potting sound**
 func play_ball_pot_sound():
 	$BallPotAudio.play()
 
-#####################################################################################################
+#################################################################################
 
 func new_game():
 	generate_balls()
@@ -117,7 +117,7 @@ func new_game():
 	show_cue()
 	#update_power_up_ui()
 
-#####################################################################################################
+#################################################################################
 
 func load_images():
 	for i in range(1, 17, 1):
@@ -125,7 +125,7 @@ func load_images():
 		var ball_image = load(filename)
 		ball_images.append(ball_image)
 
-#####################################################################################################
+#################################################################################
 
 func generate_balls():
 	var num_of_col_row : int = 5
@@ -169,7 +169,7 @@ func generate_balls():
 
 		num_of_col_row -= 1
 
-#####################################################################################################
+#################################################################################
 
 func reset_cue_ball():
 	# Instantiate the cue ball
@@ -194,14 +194,14 @@ func reset_cue_ball():
 	else:
 		print("Line2D not found in Cue!")
 
-#####################################################################################################
+#################################################################################
 
 func remove_cue_ball():
 	var old_b = cue_ball
 	remove_child(old_b)
 	old_b.queue_free()
 
-#####################################################################################################
+#################################################################################
 
 func show_cue():
 	$Cue.set_process(true)
@@ -212,26 +212,33 @@ func show_cue():
 	$PowerBar.show()
 	turn_timer.start_timer()
 
-#####################################################################################################
+#################################################################################
 
 func hide_cue():
 	$Cue.set_process(false)
 	$Cue.hide()
 	$PowerBar.hide()
 
-#####################################################################################################
+#################################################################################
 
 func _on_cue_shoot(power: Vector2):
-	# Apply central impulse for forward motion
+	
 	turn_timer.stop_timer()
+	
+	# Apply central impulse for forward motion
 	cue_ball.apply_central_impulse(power)
+	
 	play_cue_strike_sound() 
+	
+	# Reset the first ball hit tracking
+	#first_ball_hit = null
+	#foul_committed_this_shot = false
+	
 	# Add spin (angular velocity) based on the cue's force and direction
-	# For example, simulate slight top or side spin
-	var spin_strength = 0.2  # Adjust as needed for realism
+	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
 
-#####################################################################################################
+#################################################################################
 
 func potted_ball(body):
 	if body == cue_ball:
@@ -240,7 +247,7 @@ func potted_ball(body):
 		play_ball_pot_sound()
 		handle_ball_pot(body)
 		
-#####################################################################################################
+#################################################################################
 
 func handle_cue_ball_pot():
 	cue_ball_potted = true
@@ -248,7 +255,7 @@ func handle_cue_ball_pot():
 	play_ball_pot_sound()
 	switch_turn()
 	
-#####################################################################################################
+#################################################################################
 
 func handle_ball_pot(body):
 	if current_player.type == "":
@@ -263,14 +270,18 @@ func handle_ball_pot(body):
 		
 	else:
 		play_ball_pot_sound()
-		print(current_player.name, " fouled by hitting the wrong ball type.")
+		print(current_player.name, " fouled by potting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
 		#switch_turn()
 	
 	handle_ball_removal(body)
 	display_potted_ball(body)
 
-#####################################################################################################
+#################################################################################
+
+
+
+#################################################################################
 
 func check_win_condition(body):
 	if body == black_ball:
@@ -281,7 +292,7 @@ func check_win_condition(body):
 			# emit_signal("win", current_player.name)
 			print(current_player.name + " won")
 			
-#####################################################################################################
+#################################################################################
 
 func handle_ball_removal(body):
 	if solids.has(body):
@@ -291,7 +302,7 @@ func handle_ball_removal(body):
 	
 	check_win_condition(body)
 	
-#####################################################################################################
+#################################################################################
 
 func assign_player_ball_type(body):
 	if solids.has(body):
@@ -303,13 +314,13 @@ func assign_player_ball_type(body):
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
 
-#####################################################################################################
+#################################################################################
 
 func is_correct_ball(body) -> bool:
 	return (current_player.type == "solids" and solids.has(body)) or (
 		current_player.type == "stripes" and stripes.has(body))
 
-#####################################################################################################
+#################################################################################
 
 func display_potted_ball(body):
 	var max_balls_per_row := 15
@@ -331,12 +342,14 @@ func display_potted_ball(body):
 
 	body.queue_free()
 	
-#####################################################################################################
+#################################################################################
 
 func _on_timeout():
 	# Handle timeout: switch turns and restart the timer
 	print("Time's up for", current_player.name)
 	switch_turn()
+	
+#################################################################################
 
 func switch_turn():
 	turn_timer.stop_timer()
@@ -344,4 +357,5 @@ func switch_turn():
 	#update_power_up_ui()
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()
-#####################################################################################################
+	
+#################################################################################
