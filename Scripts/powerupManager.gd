@@ -16,6 +16,7 @@ func set_main_game(main: Node):
 # Activate a power-up for a player
 func activate_power_up(player: Player, power_up: PowerUp) -> void:
 	power_up.powerupOwner = player
+	power_up.main_game = main_game
 	power_up.activate()
 
 	if power_up.effect_type == PowerUp.EffectType.TURN_BASED:
