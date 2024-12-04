@@ -3,6 +3,7 @@ class_name PowerUpManager
 
 # Random Number Generator for random power-ups
 var rng = RandomNumberGenerator.new()
+var main_game: Node = null  # Reference to main.gd
 
 # Reference to the power-up factory
 @export var power_up_factory: Node = null
@@ -10,6 +11,8 @@ var rng = RandomNumberGenerator.new()
 # Dictionary to track active turn-based power-ups per player
 var active_power_ups: Dictionary = {}  # {Player: PowerUp}
 
+func set_main_game(main: Node):
+	main_game = main
 # Activate a power-up for a player
 func activate_power_up(player: Player, power_up: PowerUp) -> void:
 	power_up.powerupOwner = player
