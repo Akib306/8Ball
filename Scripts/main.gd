@@ -43,7 +43,10 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
-	game_controller = $gameController
+	
+	powerupManager = PowerUpManager.new()
+	powerupManager.set_main_game(self)
+	powerupManager.power_up_factory = PowerUpFactory.new()	
 	power_up_ui = $PowerupUI
 
 	load_images()
