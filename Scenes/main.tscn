@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ffj3t8bc3dhc" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="AudioStream" uid="uid://bi6dwmwui47iv" path="res://Sounds/pool_ball_pocket.mp3" id="3_uslht"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
-[ext_resource type="PackedScene" uid="uid://0s7nrfqxww31" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
+[ext_resource type="PackedScene" uid="uid://banex0d3qryqk" path="res://Scenes/game_controller.tscn" id="5_mte8t"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="PackedScene" uid="uid://jabrpe1tft64" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 
