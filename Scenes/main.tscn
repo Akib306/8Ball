@@ -48,7 +48,7 @@ offset = Vector2(0, 50)
 [node name="PottedPanel" type="Panel" parent="."]
 offset_left = -955.0
 offset_top = 484.0
-offset_right = 245.0
+offset_right = -6.0
 offset_bottom = 584.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
