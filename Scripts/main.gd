@@ -12,7 +12,7 @@ const MOVE_THRESHOLD := 7.0
 var cue_ball_potted : bool
 var potted := []
 var camera: Camera2D  # Global variable for the camera
-var game_controller: Node2D
+var powerupManager: PowerUpManager
 
 # Arrays for solids, stripes, and special balls
 var solids := []
@@ -39,14 +39,17 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 
-	game_controller = $gameController
+	powerupManager = PowerUpManager.new()
+	powerupManager.set_main_game(self)
+	powerupManager.power_up_factory = PowerUpFactory.new()
 	power_up_ui = $PowerupUI
 
 	load_images()
 	new_game()
+	
 
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
-
+	
 #####################################################################################################
 
 func _process(delta: float) -> void:
@@ -249,7 +252,7 @@ func handle_ball_pot(body):
 		print(current_player.name, " potted a ", current_player.type, 
 			"! Score: ", current_player.score)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
-		game_controller.power_draw(current_player)
+		powerupManager.power_draw(current_player)
 		
 	else:
 		play_ball_pot_sound()
