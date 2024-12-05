@@ -34,16 +34,18 @@ script = ExtResource("11_v2jn0")
 
 [node name="TimerLabel" type="Label" parent="TurnTimer"]
 anchors_preset = -1
-anchor_left = -0.125
-anchor_top = 0.297
-anchor_right = 0.123
-anchor_bottom = 0.396
-offset_top = 0.23999
-offset_right = 0.839996
-offset_bottom = 0.319977
+anchor_left = -0.493
+anchor_top = -0.384
+anchor_right = 0.5
+anchor_bottom = 0.394
+offset_left = 717.56
+offset_top = 753.72
+offset_right = -718.0
+offset_bottom = 50.4799
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "
 "
 horizontal_alignment = 1
@@ -113,6 +115,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Power Ups"
 horizontal_alignment = 1
 
