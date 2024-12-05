@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgfeedcra8tsn"]
+[gd_scene load_steps=3 format=3 uid="uid://bgfeedcra8tsn"]
 
 [ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
+[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="2_kysxv"]
 
 [node name="game_over" type="Node2D"]
 
@@ -43,3 +44,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
 text = "YOU WIN!"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 146.5
+offset_right = 212.0
+offset_bottom = 253.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kysxv")
+theme_override_font_sizes/font_size = 80
+text = "Main Menu"
