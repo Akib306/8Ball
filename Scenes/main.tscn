@@ -73,6 +73,7 @@ stream = ExtResource("3_uslht")
 
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
 offset = Vector2(0, 50)
+zoom = Vector2(0.65, 0.65)
 
 [node name="Pot" type="Control" parent="."]
 layout_mode = 3
@@ -196,10 +197,10 @@ offset_bottom = 40.0
 [node name="CenterContainer" type="CenterContainer" parent="header_gui"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -23.3
-anchor_top = -19.525
-anchor_right = 24.575
-anchor_bottom = -13.55
+anchor_left = -23.675
+anchor_top = -18.45
+anchor_right = 24.2
+anchor_bottom = -12.075
 offset_left = -6.0
 offset_right = -0.00012207
 grow_horizontal = 2
