@@ -3,7 +3,7 @@ extends Sprite2D
 signal shoot
 var power: float = 0.0
 var power_dir: int = 1
-
+var powerfactor: int = 1
 func _process(delta: float) -> void:
 	var mouse_pos: Vector2 = $"../Pool_Table/Camera2D".get_global_mouse_position()
 	look_at(mouse_pos)
@@ -21,5 +21,5 @@ func _process(delta: float) -> void:
 		power_dir = 1
 		if power > 0:
 			var dir = mouse_pos - position
-			emit_signal("shoot", -power * dir)
+			emit_signal("shoot", -power * dir * powerfactor)
 			power = 0

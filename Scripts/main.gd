@@ -7,7 +7,7 @@ signal power_gamble
 @onready var power_up_ui: PowerUpUI = $PowerupUI
 var is_mouse_over_ui: bool = false
 
-
+var cue
 const TURN_TIME := 10.0  
 
 var ball_images := []
@@ -55,7 +55,8 @@ func _ready() -> void:
 	power_up_ui.player = current_player
 	power_up_ui.powerup_manager = powerupManager
 	power_up_ui.update_ui()
-
+	
+	cue = $Cue
 	load_images()
 	new_game()
 	
