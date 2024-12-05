@@ -8,7 +8,7 @@ var main_game: Node = null
 func _init():
 	effect_type = EffectType.TURN_BASED
 	defect = false  # This is a positive effect for the player
-
+	icon = load("res://Assets/ghost_icon.png")
 # Activate the power-up
 func activate():
 	if not main_game:
