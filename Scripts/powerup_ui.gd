@@ -38,14 +38,7 @@ func update_ui():
 			slot.disabled = true
 
 func _on_power_up_button_pressed(button: Button):
-	self.add_to_group("ui_blocking")
-	print("Added to ui_blocking group.")
-	get_viewport().set_input_as_handled()
 	var index = button.get_meta("index")
 	if index is int and player:
 		player.activate_power_up(index, powerup_manager)
 		update_ui()
-	await get_tree().process_frame  # Wait for the frame to end
-	await get_tree().process_frame  # Wait for another frame for safety
-	self.remove_from_group("ui_blocking")
-	print("Removed from ui_blocking group.")

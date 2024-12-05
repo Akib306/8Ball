@@ -5,6 +5,7 @@ signal power_gamble
 @onready var turn_timer: TurnTimer = $TurnTimer
 @onready var timer_label: Label = $TurnTimer/TimerLabel
 @onready var power_up_ui: PowerUpUI = $PowerupUI
+var is_mouse_over_ui: bool = false
 
 
 const TURN_TIME := 10.0  
@@ -44,7 +45,10 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
-	
+	$PowerupUI/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
@@ -59,11 +63,20 @@ func _ready() -> void:
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
 #####################################################################################################
+func _on_ui_mouse_entered() -> void:
+	is_mouse_over_ui = true
+	
+func _on_ui_mouse_exited() -> void:
+	is_mouse_over_ui = false
 
+	
 func _unhandled_input(event):
-	if get_tree().has_group("ui_blocking"):
+	if taking_shot:
+		return  # Ignore input while a shot is being taken
+	
+	if is_mouse_over_ui:
 		return
-		
+			
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SPACE:
 			current_player.activate_power_up(0, powerupManager)
