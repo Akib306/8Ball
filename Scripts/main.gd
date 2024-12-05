@@ -264,11 +264,18 @@ func handle_ball_pot(body):
 
 func calculate_score(body, player: Player):
 	handle_ball_removal(body)
+	
 	if player.type == "solids":
 		player.score = 7 - solids.size()
+		
+		if player.score == 7:
+			player.can_win = true
 	
 	elif player.type == "stripes":
 		player.score = 7 - stripes.size()
+		
+		if player.score == 7:
+			player.can_win = true
 
 func handle_ball_removal(body):
 	if solids.has(body):
