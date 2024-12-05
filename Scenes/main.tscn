@@ -72,11 +72,9 @@ stream = ExtResource("3_uslht")
 [node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
 
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
-visible = false
 offset = Vector2(0, 50)
 
 [node name="Pot" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -91,12 +89,10 @@ offset_bottom = 584.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
-visible = false
 position = Vector2(1, -2)
 rotation = 3.14159
 
 [node name="PowerBar" type="ProgressBar" parent="."]
-visible = false
 z_index = 1
 offset_left = -248.0
 offset_top = -92.0
@@ -108,7 +104,6 @@ show_percentage = false
 script = ExtResource("4_n04ic")
 
 [node name="PowerupUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
