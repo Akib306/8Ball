@@ -102,21 +102,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_ql5pi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PowerupUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PowerupUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.975
-anchor_top = 12.492
-anchor_right = 8.225
-anchor_bottom = 14.8
-offset_top = -5.68002
-offset_bottom = -6.10352e-05
+anchor_left = 0.825
+anchor_top = 11.475
+anchor_right = 8.85
+anchor_bottom = 15.225
+metadata/_edit_use_anchors_ = true
 
-[node name="Slot1" type="Button" parent="PowerupUI/HBoxContainer"]
+[node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
+layout_mode = 2
+text = "Power Ups"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PowerupUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Slot1" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PowerupUI/HBoxContainer/Slot1"]
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,11 +134,11 @@ grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Slot2" type="Button" parent="PowerupUI/HBoxContainer"]
+[node name="Slot2" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PowerupUI/HBoxContainer/Slot2"]
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

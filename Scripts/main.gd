@@ -45,10 +45,10 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
-	$PowerupUI/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
-	$PowerupUI/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
-	$PowerupUI/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
-	$PowerupUI/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	

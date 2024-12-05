@@ -5,7 +5,7 @@ var player: Player  # Current player
 var powerup_manager: PowerUpManager  # Reference to PowerUpManager
 
 func update_ui():
-	var container = $HBoxContainer
+	var container = $VBoxContainer/HBoxContainer
 
 	# Predefined slots
 	var slots = container.get_children()
