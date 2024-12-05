@@ -7,6 +7,8 @@ var main_game: Node = null
 # Set this power-up to TURN_BASED
 func _init():
 	effect_type = EffectType.TURN_BASED
+	icon = load("res://Assets/mr_big_icon.png")  # Replace with actual icon path
+	defect = true
 
 # Activate the power-up
 func activate():
@@ -14,8 +16,8 @@ func activate():
 		print("Error: Main game reference not set!")
 		return
 	
-	print(owner.name, " used MrBig!")
-	#enlarge_opponent_balls()
+	print(powerupOwner.name, " used MrBig!")
+	enlarge_opponent_balls()
 
 # Logic to enlarge opponent's balls
 func enlarge_opponent_balls():
@@ -29,18 +31,22 @@ func enlarge_opponent_balls():
 		ball.add_to_group("enlarged_balls")  # Tag for tracking
 		print("Ball", ball.name, "enlarged.")
 
-# Cleanup logic at the end of the owner's turn
+# Cleanup logic at the end of the powerupOwner's turn
 func on_turn_end():
 	if not main_game:
 		print("Error: Main game reference not set!")
 		return
 	
 	print("MrBig effect ended.")
-	#restore_ball_sizes()
+	restore_ball_sizes()
 
 # Restore the original sizes of the opponent's balls
 func restore_ball_sizes():
-	for ball in get_tree().get_nodes_in_group("enlarged_balls"):
+	if not main_game.get_tree().has_group("enlarged_balls"):
+		print("Error: Group 'enlarged_balls' does not exist.")
+		return
+		
+	for ball in main_game.get_tree().get_nodes_in_group("enlarged_balls"):
 		var sprite_node = ball.get_node("Sprite2D")
 		var collision_node = ball.get_node("CollisionShape2D")
 		sprite_node.scale /= 1.5  # Restore sprite size
@@ -50,9 +56,9 @@ func restore_ball_sizes():
 
 # Helper function to get the opponent's balls
 func get_opponent_balls() -> Array:
-	if owner.type == "solids" and main_game:
+	if powerupOwner.type == "solids" and main_game:
 		return main_game.stripes
-	elif owner.type == "stripes" and main_game:
+	elif powerupOwner.type == "stripes" and main_game:
 		return main_game.solids
 	else:
 		print("Error: Player type not assigned or main game reference missing.")

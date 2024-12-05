@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=13 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://bi6dwmwui47iv" path="res://Sounds/pool_ball_pocket.mp3" id="3_uslht"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
-[ext_resource type="PackedScene" uid="uid://jabrpe1tft64" path="res://Scenes/powerupButton.tscn" id="7_rgdeg"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
@@ -97,19 +96,70 @@ show_percentage = false
 script = ExtResource("4_n04ic")
 
 [node name="PowerupUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_ql5pi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PowerupUI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PowerupUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.825
+anchor_top = 11.475
+anchor_right = 8.85
+anchor_bottom = 15.225
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" parent="PowerupUI/HBoxContainer" instance=ExtResource("7_rgdeg")]
+[node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
 layout_mode = 2
+text = "Power Ups"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PowerupUI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Slot1" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot2" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot3" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]

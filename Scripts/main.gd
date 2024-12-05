@@ -1,10 +1,12 @@
 extends Node2D
 
 @export var ball : PackedScene
-@export var power_up_ui: Control
 signal power_gamble
 @onready var turn_timer: TurnTimer = $TurnTimer
 @onready var timer_label: Label = $TurnTimer/TimerLabel
+@onready var power_up_ui: PowerUpUI = $PowerupUI
+var is_mouse_over_ui: bool = false
+
 
 const TURN_TIME := 10.0  
 
@@ -41,19 +43,47 @@ func _ready() -> void:
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
-	
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
-	power_up_ui = $PowerupUI
+	power_up_ui.player = current_player
+	power_up_ui.powerup_manager = powerupManager
+	power_up_ui.update_ui()
 
 	load_images()
 	new_game()
 	
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
+#####################################################################################################
+func _on_ui_mouse_entered() -> void:
+	is_mouse_over_ui = true
+	
+func _on_ui_mouse_exited() -> void:
+	is_mouse_over_ui = false
+
+	
+func _unhandled_input(event):
+	if taking_shot:
+		return  # Ignore input while a shot is being taken
+	
+	if is_mouse_over_ui:
+		return
+			
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE:
+			current_player.activate_power_up(0, powerupManager)
+			
+			
 func _process(delta: float) -> void:
 	var moving := false
+
 	for b in get_tree().get_nodes_in_group("balls"):
 		# Rotate sprite based on angular velocity
 		var sprite = b.get_node("Sprite2D")
@@ -233,6 +263,7 @@ func handle_ball_pot(body):
 		return
 	
 	# At the beginning of the game
+	power_up_ui.update_ui()
 	if current_player.type == "":
 		assign_player_ball_type(body)
 
@@ -240,6 +271,7 @@ func handle_ball_pot(body):
 		calculate_score(body, current_player)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
+		power_up_ui.update_ui()
 		
 	else:
 		play_ball_pot_sound()
@@ -341,7 +373,16 @@ func _on_timeout():
 
 func switch_turn():
 	turn_timer.stop_timer()
+
+	# Handle the end of the current player's turn
+	powerupManager.on_turn_end(current_player)
+
+	# Switch to the next player
 	current_player = player2 if current_player == player1 else player1
 	#update_power_up_ui()
+	power_up_ui.player = current_player
+	power_up_ui.update_ui()
+
+	# Start the timer for the new player
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()

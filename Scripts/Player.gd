@@ -26,7 +26,7 @@ func toggle_turn():
 
 # Add a power-up to the inventory if there's space
 func add_to_inventory(power_up: PowerUp):
-	if inventory.size() >= 2:
+	if inventory.size() >= 3:
 		print(name, " has a full inventory. Cannot add more power-ups.")
 		return
 
