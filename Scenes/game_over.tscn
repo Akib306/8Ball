@@ -1,3 +1,45 @@
-[gd_scene format=3 uid="uid://bgfeedcra8tsn"]
+[gd_scene load_steps=2 format=3 uid="uid://bgfeedcra8tsn"]
+
+[ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
 
 [node name="game_over" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -280.0
+offset_right = 2220.0
+offset_bottom = 1320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gau7n")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -268.5
+offset_right = 234.5
+offset_bottom = -131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN!"
