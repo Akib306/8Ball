@@ -1,7 +1,7 @@
 extends Node
 class_name PowerUpFactory
 
-enum PowerUps {MRBIG,GHOST}
+enum PowerUps {MRBIG,GHOST, SPEEDBALL}
 
 
 # Create a power-up based on its type/index
@@ -19,6 +19,8 @@ static func create_power_up(power_up_type: int) -> PowerUp:
 			#return TornadoPowerUp.new()
 		#PowerUps.REWIND:
 			#return RewindPowerUp.new()
+		PowerUps.SPEEDBALL:
+			return SpeedBallPowerUp.new()
 		PowerUps.GHOST:
 			return GhostPowerUp.new()
 		_:
