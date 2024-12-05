@@ -108,10 +108,11 @@ script = ExtResource("6_ql5pi")
 [node name="VBoxContainer" type="VBoxContainer" parent="PowerupUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.825
-anchor_top = 10.75
-anchor_right = 12.575
-anchor_bottom = 16.375
+anchor_left = 1.075
+anchor_top = 9.75
+anchor_right = 12.825
+anchor_bottom = 15.375
+offset_bottom = -6.10352e-05
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
@@ -174,6 +175,7 @@ stretch_mode = 5
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
