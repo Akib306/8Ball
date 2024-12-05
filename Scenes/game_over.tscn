@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bgfeedcra8tsn"]
+
+[node name="game_over" type="Node2D"]
