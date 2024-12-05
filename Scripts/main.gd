@@ -8,6 +8,8 @@ signal power_gamble
 var is_mouse_over_ui: bool = false
 @onready var player1_icon: Button = $header_gui/CenterContainer/player_profile/player_1_profile/Button
 @onready var player2_icon: Button = $header_gui/CenterContainer/player_profile/player_2_profile/Button
+@onready var player1_label: Label = $header_gui/CenterContainer/player_profile/player_1_profile/player_tag
+@onready var player2_label: Label = $header_gui/CenterContainer/player_profile/player_2_profile/player_tag
 var cue
 const TURN_TIME := 10.0  
 
@@ -339,10 +341,15 @@ func handle_ball_removal(body):
 func assign_player_ball_type(body):
 	if solids.has(body):
 		current_player.assign_type("solids")
+		player1_label.text = "Player 1 (Solids)"
+		player2_label.text = "Player 2 (Stripes)"
+
 		(player1 if current_player == player2 else player2).assign_type("stripes")
 		print(current_player.name, " is now assigned solids.")
 	elif stripes.has(body):
 		current_player.assign_type("stripes")
+		player1_label.text = "Player 1 (Stripes)"
+		player2_label.text = "Player 2 (Solids)"
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
 
