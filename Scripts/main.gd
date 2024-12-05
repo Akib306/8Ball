@@ -86,6 +86,7 @@ func _unhandled_input(event):
 			
 func _process(delta: float) -> void:
 	var moving := false
+
 	for b in get_tree().get_nodes_in_group("balls"):
 		# Rotate sprite based on angular velocity
 		var sprite = b.get_node("Sprite2D")
@@ -278,6 +279,7 @@ func handle_cue_ball_pot():
 #####################################################################################################
 
 func handle_ball_pot(body):
+	power_up_ui.update_ui()
 	if current_player.type == "":
 		assign_player_ball_type(body)
 
@@ -287,6 +289,7 @@ func handle_ball_pot(body):
 			"! Score: ", current_player.score)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
+		power_up_ui.update_ui()
 		
 	else:
 		play_ball_pot_sound()
