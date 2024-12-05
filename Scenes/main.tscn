@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=16 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -9,7 +9,9 @@
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="Theme" uid="uid://bnmpgydbpmg6b" path="res://Themes/powerup_theme.tres" id="10_2stwm"]
+[ext_resource type="Texture2D" uid="uid://c841l85tvi3ap" path="res://Assets/player_1_icon.png" id="11_qjtyc"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
+[ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0, 0.464642, 0.469822, 1)
@@ -67,9 +69,11 @@ stream = ExtResource("3_uslht")
 [node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
 
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
+visible = false
 offset = Vector2(0, 50)
 
 [node name="Pot" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -84,10 +88,12 @@ offset_bottom = 584.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
+visible = false
 position = Vector2(1, -2)
 rotation = 3.14159
 
 [node name="PowerBar" type="ProgressBar" parent="."]
+visible = false
 z_index = 1
 offset_left = -248.0
 offset_top = -92.0
@@ -99,6 +105,7 @@ show_percentage = false
 script = ExtResource("4_n04ic")
 
 [node name="PowerupUI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -181,5 +188,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.494118, 0.745098, 1, 0.792157)
+
+[node name="header_gui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="header_gui"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -23.5
+anchor_top = -21.475
+anchor_right = 24.375
+anchor_bottom = -18.975
+offset_left = -6.0
+offset_right = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="player_profile" type="HBoxContainer" parent="header_gui/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="player_1_profile" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
+layout_mode = 2
+
+[node name="player1_icon" type="TextureRect" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("11_qjtyc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_2_profile" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
+layout_mode = 2
+
+[node name="player2_icon" type="TextureRect" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("12_4si6d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Player 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
