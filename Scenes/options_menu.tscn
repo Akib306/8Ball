@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://mlelcngvrmx1"]
+
+[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0o7s3"]
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_gyxe3"]
+[ext_resource type="Script" path="res://Scripts/audio_options.gd" id="2_djm1j"]
+
+[node name="Options_menu" type="MarginContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gyxe3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="OptionButtons" type="VBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Back" type="Button" parent="CenterContainer/OptionButtons"]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme = ExtResource("1_0o7s3")
+text = "Back"
+
+[node name="AudioOptions" type="Control" parent="CenterContainer"]
+layout_mode = 2
+script = ExtResource("2_djm1j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/AudioOptions"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 142.0
+offset_right = 816.0
+offset_bottom = 402.0
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/AudioOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

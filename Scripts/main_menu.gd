@@ -3,7 +3,7 @@ extends Control
 @onready var mainMenu = $Main_menu
 @onready var optionsMenu = $Options_menu
 @onready var menu_buttons = %MenuButtons
-@onready var option_buttons = %OptionButtons
+@onready var option_buttons = $"./Options_menu/CenterContainer/VBoxContainer/OptionButtons"
 
 
 var state

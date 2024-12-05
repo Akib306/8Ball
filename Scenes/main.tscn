@@ -56,13 +56,16 @@ vertical_alignment = 1
 stream = ExtResource("3_y17m3")
 volume_db = -24.75
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="CueStrikeAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_we6ss")
+bus = &"SFX"
 
 [node name="BallPotAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_uslht")
+bus = &"SFX"
 
 [node name="Pool_Table" parent="." instance=ExtResource("1_y5xig")]
 
