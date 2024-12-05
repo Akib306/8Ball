@@ -18,11 +18,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0, 0.464642, 0.469822, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imic8"]
 bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
@@ -73,7 +77,7 @@ stream = ExtResource("3_uslht")
 
 [node name="Camera2D" type="Camera2D" parent="Pool_Table"]
 offset = Vector2(0, 50)
-zoom = Vector2(0.65, 0.65)
+zoom = Vector2(0.83, 0.83)
 
 [node name="Pot" type="Control" parent="."]
 layout_mode = 3
@@ -83,10 +87,10 @@ offset_bottom = 40.0
 
 [node name="PottedPanel" type="Panel" parent="Pot"]
 layout_mode = 0
-offset_left = -955.0
-offset_top = 484.0
-offset_right = -6.0
-offset_bottom = 584.0
+offset_left = -938.0
+offset_top = -588.0
+offset_right = 11.0
+offset_bottom = -488.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hexvr")
 
 [node name="Cue" parent="." instance=ExtResource("3_il0sh")]
@@ -114,10 +118,10 @@ script = ExtResource("6_ql5pi")
 [node name="VBoxContainer" type="VBoxContainer" parent="PowerupUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.075
-anchor_top = 9.75
-anchor_right = 12.825
-anchor_bottom = 15.375
+anchor_left = 12.025
+anchor_top = 9.575
+anchor_right = 23.85
+anchor_bottom = 15.4
 offset_bottom = -6.10352e-05
 metadata/_edit_use_anchors_ = true
 
@@ -181,6 +185,7 @@ stretch_mode = 5
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,10 +202,10 @@ offset_bottom = 40.0
 [node name="CenterContainer" type="CenterContainer" parent="header_gui"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -23.675
-anchor_top = -18.45
-anchor_right = 24.2
-anchor_bottom = -12.075
+anchor_left = -38.75
+anchor_top = 9.05
+anchor_right = 9.125
+anchor_bottom = 15.425
 offset_left = -6.0
 offset_right = -0.00012207
 grow_horizontal = 2
