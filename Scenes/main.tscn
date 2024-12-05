@@ -109,9 +109,9 @@ script = ExtResource("6_ql5pi")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.825
-anchor_top = 11.475
-anchor_right = 8.85
-anchor_bottom = 15.225
+anchor_top = 10.75
+anchor_right = 12.575
+anchor_bottom = 16.375
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
@@ -123,6 +123,7 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="PowerupUI/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Slot1" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -168,5 +169,16 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 1, 0.313726, 0.67451)
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
