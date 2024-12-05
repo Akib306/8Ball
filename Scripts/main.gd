@@ -238,10 +238,10 @@ func handle_ball_pot(body):
 			
 		else:
 			if current_player == player1:
-				print(player2.name, "won!")
+				print(player2.name, " won!")
 			
 			elif current_player == player2:
-				print(player1.name, "won!")
+				print(player1.name, " won!")
 				
 		return
 
@@ -267,6 +267,7 @@ func handle_ball_pot(body):
 	print(player2.name, "'s score is ", player2.score)
 
 func calculate_score(body, player: Player):
+	
 	handle_ball_removal(body)
 	
 	if player.type == "solids":
@@ -280,6 +281,23 @@ func calculate_score(body, player: Player):
 		
 		if player.score == 7:
 			player.can_win = true
+
+func handle_black_ball(body):
+	# Check if the black ball is potted
+	if body != black_ball:
+		return false  # Not the black ball, no special handling needed
+	
+	# Check if the player can win
+	if current_player.can_win:
+		print(current_player.name, " potted the black ball and won the game!")
+		declare_winner(current_player)
+	else:
+		print(current_player.name, " fouled by potting the black ball too early!")
+		declare_winner(player1 if current_player == player2 else player2)
+	
+	return true
+
+
 
 func handle_ball_removal(body):
 	if solids.has(body):
