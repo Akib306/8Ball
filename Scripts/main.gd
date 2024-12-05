@@ -242,10 +242,11 @@ func handle_ball_pot(body):
 		return
 
 	if is_correct_ball(body):
+		
 		calculate_score(body, current_player)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
-		
+
 	else:
 		play_ball_pot_sound()
 		
