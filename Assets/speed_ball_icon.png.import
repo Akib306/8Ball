@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://84dt8e4qxwwt"
-path="res://.godot/imported/ball_13.png-a06985ab9438c17c46ee1c7b2d17d619.ctex"
+uid="uid://cxrpfh22f6jct"
+path="res://.godot/imported/speed_ball_icon.png-0d9ac6248ba3c8cb96bf78ff642a830c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ball_13.png"
-dest_files=["res://.godot/imported/ball_13.png-a06985ab9438c17c46ee1c7b2d17d619.ctex"]
+source_file="res://Assets/speed_ball_icon.png"
+dest_files=["res://.godot/imported/speed_ball_icon.png-0d9ac6248ba3c8cb96bf78ff642a830c.ctex"]
 
 [params]
 

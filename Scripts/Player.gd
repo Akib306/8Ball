@@ -5,6 +5,7 @@ class_name Player
 var name: String
 var type: String = ""  # "solids" or "stripes", assigned after the first shot
 var score: int = 0
+var can_win: bool = false
 var is_turn: bool = false
 
 # Power-up inventory with a maximum of two slots
