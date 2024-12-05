@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1urs3qxj7yf4"]
+[gd_scene load_steps=6 format=3 uid="uid://d1urs3qxj7yf4"]
 
 [ext_resource type="Texture2D" uid="uid://dfj0ds5r02vg2" path="res://Assets/Pool_Table_Type_1_NO_BG Wide.png" id="1_uoqrn"]
 
@@ -10,6 +10,9 @@ size = Vector2(6.23425, 61.9914)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b47ua"]
 size = Vector2(102.951, 20.9067)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qk0p"]
+size = Vector2(9.87447, 50.2949)
 
 [node name="Pool_Table" type="Sprite2D"]
 scale = Vector2(7.96655, 5.9847)
@@ -79,3 +82,8 @@ shape = SubResource("RectangleShape2D_b47ua")
 position = Vector2(-52.5949, 29.669)
 scale = Vector2(0.999999, 1)
 shape = SubResource("RectangleShape2D_b47ua")
+
+[node name="Test3" type="CollisionShape2D" parent="Pockets"]
+position = Vector2(-99.583, -8.77237)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7qk0p")
