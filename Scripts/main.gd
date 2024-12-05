@@ -6,7 +6,8 @@ signal power_gamble
 @onready var timer_label: Label = $TurnTimer/TimerLabel
 @onready var power_up_ui: PowerUpUI = $PowerupUI
 var is_mouse_over_ui: bool = false
-
+@onready var player1_icon: Button = $header_gui/CenterContainer/player_profile/player_1_profile/Button
+@onready var player2_icon: Button = $header_gui/CenterContainer/player_profile/player_2_profile/Button
 var cue
 const TURN_TIME := 10.0  
 
@@ -55,6 +56,8 @@ func _ready() -> void:
 	power_up_ui.player = current_player
 	power_up_ui.powerup_manager = powerupManager
 	power_up_ui.update_ui()
+	player1_icon.grab_focus()
+
 	
 	cue = $Cue
 	load_images()
@@ -380,6 +383,14 @@ func switch_turn():
 
 	# Switch to the next player
 	current_player = player2 if current_player == player1 else player1
+	
+	if current_player == player1:
+		player1_icon.grab_focus()
+		player2_icon.FOCUS_NONE
+	else:
+		player2_icon.grab_focus()
+		player1_icon.FOCUS_NONE
+
 	#update_power_up_ui()
 	power_up_ui.player = current_player
 	power_up_ui.update_ui()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=19 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -10,9 +10,11 @@
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="Theme" uid="uid://bnmpgydbpmg6b" path="res://Themes/powerup_theme.tres" id="10_2stwm"]
 [ext_resource type="Texture2D" uid="uid://c841l85tvi3ap" path="res://Assets/player_1_icon.png" id="11_qjtyc"]
+[ext_resource type="Theme" uid="uid://djcu7oroyq5sw" path="res://Themes/player_icon_theme.tres" id="11_sbvhy"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 [ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
 [ext_resource type="Texture2D" uid="uid://qmxlk77x0s4n" path="res://Assets/versus.png" id="12_pm2bj"]
+[ext_resource type="Theme" uid="uid://cfyuvdelv7on7" path="res://Themes/player2_icon_theme.tres" id="14_bw7fy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0, 0.464642, 0.469822, 1)
@@ -216,13 +218,15 @@ alignment = 1
 
 [node name="player_1_profile" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="player1_icon" type="TextureRect" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
+[node name="Button" type="Button" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("11_qjtyc")
-expand_mode = 3
-stretch_mode = 5
+theme = ExtResource("11_sbvhy")
+icon = ExtResource("11_qjtyc")
+icon_alignment = 1
+expand_icon = true
 
 [node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
 layout_mode = 2
@@ -252,13 +256,15 @@ vertical_alignment = 1
 
 [node name="player_2_profile" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="player2_icon" type="TextureRect" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
+[node name="Button" type="Button" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("12_4si6d")
-expand_mode = 3
-stretch_mode = 5
+theme = ExtResource("14_bw7fy")
+icon = ExtResource("12_4si6d")
+icon_alignment = 1
+expand_icon = true
 
 [node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
 layout_mode = 2
