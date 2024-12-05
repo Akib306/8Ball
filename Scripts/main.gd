@@ -43,15 +43,18 @@ var foul_committed_this_shot: bool = false
 var player_potted_correct_ball := false  # New flag to track correct potting
 
 func _ready() -> void:
+	
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
+	
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
@@ -60,21 +63,18 @@ func _ready() -> void:
 	power_up_ui.update_ui()
 	player1_icon.grab_focus()
 
-	
 	cue = $Cue
 	load_images()
 	new_game()
 	
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
-	
-#####################################################################################################
+
 func _on_ui_mouse_entered() -> void:
 	is_mouse_over_ui = true
-	
+
 func _on_ui_mouse_exited() -> void:
 	is_mouse_over_ui = false
 
-	
 func _unhandled_input(event):
 	if taking_shot:
 		return  # Ignore input while a shot is being taken
@@ -85,8 +85,7 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SPACE:
 			current_player.activate_power_up(0, powerupManager)
-			
-			
+
 func _process(delta: float) -> void:
 	var moving := false
 
@@ -138,7 +137,6 @@ func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
-	#update_power_up_ui()
 
 func load_images():
 	for i in range(1, 17, 1):
@@ -246,7 +244,7 @@ func _on_cue_shoot(power: Vector2):
 	# Add spin (angular velocity) based on the cue's force and direction
 	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
-	
+
 func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
