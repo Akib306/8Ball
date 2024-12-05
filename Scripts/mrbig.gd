@@ -8,6 +8,8 @@ var main_game: Node = null
 func _init():
 	effect_type = EffectType.TURN_BASED
 	icon = load("res://Assets/mr_big_icon.png")  # Replace with actual icon path
+	defect = true
+
 # Activate the power-up
 func activate():
 	if not main_game:
