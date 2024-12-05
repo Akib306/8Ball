@@ -148,4 +148,15 @@ grow_vertical = 2
 expand_mode = 3
 stretch_mode = 5
 
+[node name="Slot3" type="Button" parent="PowerupUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 3
+stretch_mode = 5
+
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]

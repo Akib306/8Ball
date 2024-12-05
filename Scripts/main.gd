@@ -49,6 +49,8 @@ func _ready() -> void:
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
