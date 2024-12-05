@@ -228,6 +228,11 @@ func handle_ball_pot(body):
 	
 	display_potted_ball(body)
 	
+	# Black ball handling
+	if handle_black_ball(body):
+		return
+	
+	# At the beginning of the game
 	if current_player.type == "":
 		assign_player_ball_type(body)
 	

@@ -9,7 +9,7 @@ size = Vector2(64.7498, 66.0724)
 size = Vector2(6.23425, 61.9914)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b47ua"]
-size = Vector2(102.951, 34.2476)
+size = Vector2(102.951, 20.9067)
 
 [node name="Pool_Table" type="Sprite2D"]
 scale = Vector2(7.96655, 5.9847)
@@ -70,7 +70,12 @@ shape = SubResource("RectangleShape2D_6pup8")
 position = Vector2(0.25105, -99.9215)
 shape = SubResource("RectangleShape2D_6pup8")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Pockets"]
+[node name="Test" type="CollisionShape2D" parent="Pockets"]
 position = Vector2(-52.8564, -46.8663)
 scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_b47ua")
+
+[node name="Test2" type="CollisionShape2D" parent="Pockets"]
+position = Vector2(-52.5949, 29.669)
+scale = Vector2(0.999999, 1)
 shape = SubResource("RectangleShape2D_b47ua")
