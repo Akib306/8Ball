@@ -326,7 +326,7 @@ func display_potted_ball(body):
 	
 	# set up ball position
 	var panel_position = $Pot/PottedPanel.position
-	var x_pos = panel_position.x - 20 + 60 * potted.size()
+	var x_pos = panel_position.x - 10 + 60 * potted.size()
 	var panel_height = $Pot/PottedPanel.size.y
 	var y_pos = (panel_position.y + (panel_height / 2))
 	
