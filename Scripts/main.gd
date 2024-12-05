@@ -52,7 +52,6 @@ func _ready() -> void:
 	
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 	
-
 func _process(delta: float) -> void:
 	var moving := false
 	for b in get_tree().get_nodes_in_group("balls"):
@@ -93,7 +92,6 @@ func _process(delta: float) -> void:
 			taking_shot = false
 			hide_cue()
 
-# **Added this method for cue ball strike sound**
 func play_cue_strike_sound():
 	$CueStrikeAudio.play()
 
@@ -213,14 +211,6 @@ func _on_cue_shoot(power: Vector2):
 	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
 	
-func handle_collision(other_ball: RigidBody2D):
-	if first_ball_hit == null:  # Only set on the first collision
-		first_ball_hit = other_ball
-		# Check for black ball foul
-		if other_ball == black_ball and !solids.is_empty() and !stripes.is_empty():
-			print(current_player.name, " fouled by hitting the black ball first!")
-			foul_committed_this_shot = true
-
 func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
@@ -235,6 +225,9 @@ func handle_cue_ball_pot():
 	switch_turn()
 
 func handle_ball_pot(body):
+	
+	display_potted_ball(body)
+	
 	if current_player.type == "":
 		assign_player_ball_type(body)
 	
@@ -249,45 +242,38 @@ func handle_ball_pot(body):
 		return
 
 	if is_correct_ball(body):
-		calculate_score()
+		calculate_score(body, current_player)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
 		
 	else:
 		play_ball_pot_sound()
-		calculate_score()
+		
+		if current_player == player1:
+			calculate_score(body, player2)
+			
+		elif current_player == player2:
+			calculate_score(body, player1)
+
 		print(current_player.name, " fouled by potting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
-	
+
+	print(player1.name, "'s score is ", player1.score)
+	print(player2.name, "'s score is ", player2.score)
+
+func calculate_score(body, player: Player):
 	handle_ball_removal(body)
+	if player.type == "solids":
+		player.score = 7 - solids.size()
 	
-	print(current_player.name, " score is ", current_player.score)
-	
-	display_potted_ball(body)
-
-func calculate_score():
-	if current_player.type == "solids":
-		current_player.score = 7 - solids.size()
-		
-	elif current_player.type == "stripes":
-		current_player.score = 7 - stripes.size()
-
-func check_win_condition(body):
-	if body == black_ball:
-		if solids.is_empty() and current_player.type == "solids":
-			# emit_signal("win", current_player.name)
-			print(current_player.name + " won")
-		elif stripes.is_empty() and current_player.type == "stripes":
-			# emit_signal("win", current_player.name)
-			print(current_player.name + " won")
+	elif player.type == "stripes":
+		player.score = 7 - stripes.size()
 
 func handle_ball_removal(body):
 	if solids.has(body):
 		solids.erase(body)
 	elif stripes.has(body):
 		stripes.erase(body)
-	
-	check_win_condition(body)
 
 func assign_player_ball_type(body):
 	if solids.has(body):
