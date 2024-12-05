@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
 [ext_resource type="AudioStream" uid="uid://cqdw201yfsbtt" path="res://Sounds/pool_ball_strike.mp3" id="2_we6ss"]
-[ext_resource type="AudioStream" uid="uid://ocwyecoxtyiu" path="res://Sounds/Lukrembo - Donut (freetouse.com).mp3" id="2_y7mfh"]
 [ext_resource type="PackedScene" uid="uid://ffj3t8bc3dhc" path="res://Scenes/cue.tscn" id="3_il0sh"]
 [ext_resource type="AudioStream" uid="uid://bi6dwmwui47iv" path="res://Sounds/pool_ball_pocket.mp3" id="3_uslht"]
+[ext_resource type="AudioStream" uid="uid://66td7snhes85" path="res://Sounds/game-Music.mp3" id="3_y17m3"]
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="Theme" uid="uid://bnmpgydbpmg6b" path="res://Themes/powerup_theme.tres" id="10_2stwm"]
@@ -53,8 +53,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="bg_music_main" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_y7mfh")
-volume_db = -30.15
+stream = ExtResource("3_y17m3")
+volume_db = -18.177
 autoplay = true
 parameters/looping = true
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cc65cnhgnbuuv"]
 
 [ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
-[ext_resource type="AudioStream" uid="uid://ca82b560wk5pg" path="res://Sounds/beanfeast.mp3" id="1_j3bc4"]
+[ext_resource type="AudioStream" uid="uid://bawhagyqmp1k1" path="res://Sounds/main_menu.mp3" id="1_g15ik"]
 [ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nso0m"]
 [ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
@@ -13,7 +13,7 @@ font_size = 100
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="bg_music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_j3bc4")
+stream = ExtResource("1_g15ik")
 volume_db = -15.26
 autoplay = true
 
