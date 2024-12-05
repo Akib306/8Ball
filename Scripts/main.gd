@@ -233,12 +233,16 @@ func handle_ball_pot(body):
 	
 	# Handle black ball potting rules
 	if body == black_ball:
-		if solids.is_empty() and stripes.is_empty():
-			print(current_player.name, " won the game by potting the black ball!")
+		if current_player.can_win:
+			print(current_player.name, "won!")
+			
 		else:
-			print(current_player.name, " fouled by potting the black ball!")
-			player_potted_correct_ball = false  # Switch turn on foul
-			switch_turn()
+			if current_player == player1:
+				print(player2.name, "won!")
+			
+			elif current_player == player2:
+				print(player1.name, "won!")
+				
 		return
 
 	if is_correct_ball(body):
