@@ -235,27 +235,12 @@ func handle_ball_pot(body):
 	# At the beginning of the game
 	if current_player.type == "":
 		assign_player_ball_type(body)
-	
-	# Handle black ball potting rules
-	if body == black_ball:
-		if current_player.can_win:
-			print(current_player.name, "won!")
-			
-		else:
-			if current_player == player1:
-				print(player2.name, " won!")
-			
-			elif current_player == player2:
-				print(player1.name, " won!")
-				
-		return
 
 	if is_correct_ball(body):
-		
 		calculate_score(body, current_player)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
 		powerupManager.power_draw(current_player)
-
+		
 	else:
 		play_ball_pot_sound()
 		
