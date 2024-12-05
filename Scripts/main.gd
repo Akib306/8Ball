@@ -297,7 +297,12 @@ func handle_black_ball(body):
 	
 	return true
 
-
+func declare_winner(winning_player: Player):
+	turn_timer.stop_timer()
+	print("Congratulations ", winning_player.name, " you win!")
+	# Add any GUI updates or game-ending logic here
+	# Example:
+	# game_over_ui.show_winner(winning_player.name)
 
 func handle_ball_removal(body):
 	if solids.has(body):
