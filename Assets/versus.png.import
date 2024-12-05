@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8xhtvmoaodux"
-valid=false
+uid="uid://qmxlk77x0s4n"
+path="res://.godot/imported/versus.png-16639966f2db243ca4819f5a3c3f6edf.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Assets/versus.jpeg"
+source_file="res://Assets/versus.png"
+dest_files=["res://.godot/imported/versus.png-16639966f2db243ca4819f5a3c3f6edf.ctex"]
 
 [params]
 

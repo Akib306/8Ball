@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=17 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c841l85tvi3ap" path="res://Assets/player_1_icon.png" id="11_qjtyc"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 [ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
+[ext_resource type="Texture2D" uid="uid://qmxlk77x0s4n" path="res://Assets/versus.png" id="12_pm2bj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0, 0.464642, 0.469822, 1)
@@ -198,10 +199,10 @@ offset_bottom = 40.0
 [node name="CenterContainer" type="CenterContainer" parent="header_gui"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -23.5
-anchor_top = -21.475
-anchor_right = 24.375
-anchor_bottom = -18.975
+anchor_left = -23.3
+anchor_top = -19.525
+anchor_right = 24.575
+anchor_bottom = -13.55
 offset_left = -6.0
 offset_right = -0.00012207
 grow_horizontal = 2
@@ -210,6 +211,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="player_profile" type="HBoxContainer" parent="header_gui/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 70
 alignment = 1
 
 [node name="player_1_profile" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
@@ -226,6 +228,25 @@ stretch_mode = 5
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="versus_container" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="versus" type="TextureRect" parent="header_gui/CenterContainer/player_profile/versus_container"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("12_pm2bj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="versus_title" type="Label" parent="header_gui/CenterContainer/player_profile/versus_container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Versus"
 horizontal_alignment = 1
 vertical_alignment = 1
 
