@@ -6,7 +6,13 @@
 
 [node name="game_over" type="Node2D"]
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 32
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
