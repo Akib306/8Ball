@@ -1,12 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://bnmpgydbpmg6b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdism"]
-bg_color = Color(1, 0.27451, 0.592157, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 150
 corner_radius_top_right = 150
 corner_radius_bottom_right = 150
@@ -52,7 +46,6 @@ corner_radius_bottom_right = 150
 corner_radius_bottom_left = 150
 
 [resource]
-Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
 Button/styles/disabled = SubResource("StyleBoxFlat_mdism")
 Button/styles/focus = SubResource("StyleBoxFlat_e5vp6")
 Button/styles/hover = SubResource("StyleBoxFlat_xpb4a")
