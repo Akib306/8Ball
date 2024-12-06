@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=39 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://djcu7oroyq5sw" path="res://Themes/player_icon_theme.tres" id="11_sbvhy"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 [ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
+[ext_resource type="FontFile" uid="uid://c6iij84f136tx" path="res://Fonts/Minecraft.ttf" id="12_k6735"]
 [ext_resource type="Texture2D" uid="uid://qmxlk77x0s4n" path="res://Assets/versus.png" id="12_pm2bj"]
 [ext_resource type="Texture2D" uid="uid://bkiudfevtj0s4" path="res://Assets/old_window_wood.png" id="13_hn3pl"]
 [ext_resource type="Theme" uid="uid://cfyuvdelv7on7" path="res://Themes/player2_icon_theme.tres" id="14_bw7fy"]
@@ -272,9 +273,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_k6735")
 theme_override_font_sizes/font_size = 30
 text = "Power Ups"
 horizontal_alignment = 1
@@ -288,6 +292,7 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot1"]
 layout_mode = 1
@@ -303,6 +308,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot2"]
 layout_mode = 1
@@ -318,6 +324,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot3"]
 layout_mode = 1
@@ -390,7 +397,8 @@ grow_vertical = 2
 [node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile/Panel/CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("12_k6735")
+theme_override_font_sizes/font_size = 18
 text = "Player 1"
 
 [node name="versus_container" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
@@ -441,7 +449,8 @@ grow_vertical = 2
 [node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile/Panel/CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("12_k6735")
+theme_override_font_sizes/font_size = 18
 text = "Player 2
 "
 
