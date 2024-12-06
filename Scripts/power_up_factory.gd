@@ -1,8 +1,16 @@
-extends Node
-class_name PowerUpFactory
+extends Node2D
 
 enum PowerUps {MRBIG,GHOST, SPEEDBALL}
 
+# Dictionary holding the paths to each power-up scene
+const POWER_UP_SCENES = {
+	PowerUps.TELEPORT: "",
+	PowerUps.WALL: "res://Scenes/wall.tscn",
+	PowerUps.MRBIG: "",
+	PowerUps.TORNADO: "",
+	PowerUps.REWIND: "",
+	PowerUps.GHOST: "",
+}
 
 # Create a power-up based on its type/index
 static func create_power_up(power_up_type: int) -> PowerUp:

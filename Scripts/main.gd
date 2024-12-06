@@ -21,7 +21,7 @@ const MOVE_THRESHOLD := 7.0
 var cue_ball_potted : bool
 var potted := []
 var camera: Camera2D  # Global variable for the camera
-var powerupManager: PowerUpManager
+var game_controller: Node2D
 
 # Arrays for solids, stripes, and special balls
 var solids := []
