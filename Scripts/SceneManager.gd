@@ -23,9 +23,3 @@ func change_scene(scene_path: String, data: Dictionary = {}) -> void:
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene = new_scene
 	current_scene = new_scene
-
-#func stop_all_audio() -> void:
-	## Find all AudioStreamPlayer nodes and stop them
-	#for node in get_tree().get_root().get_children():
-		#if node is AudioStreamPlayer:
-			#node.stop()
