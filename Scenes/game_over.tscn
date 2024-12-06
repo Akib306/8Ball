@@ -15,7 +15,8 @@ point_count = 2
 [node name="red" type="CPUParticles2D" parent="."]
 position = Vector2(960, -10)
 amount = 16
-explosiveness = 0.2
+explosiveness = 0.6
+randomness = 0.01
 lifetime_randomness = 0.2
 fixed_fps = 30
 emission_shape = 3
