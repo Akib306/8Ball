@@ -327,7 +327,8 @@ func declare_winner(winning_player: Player):
 	turn_timer.stop_timer()
 	print("Congratulations ", winning_player.name, " you win!")
 	
-	SceneManager.change_scene("res://Scenes/game_over.tscn")
+	# Pass the winner's name to the game_over scene
+	SceneManager.change_scene("res://Scenes/game_over.tscn", {"winner_name": winning_player.name})
 
 func handle_ball_removal(body):
 	if solids.has(body):
