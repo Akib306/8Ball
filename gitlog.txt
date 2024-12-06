@@ -1,3 +1,1060 @@
+commit 5c0bfdf53c4139f7c868893214a4eeaade852cb2
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Dec 6 12:42:52 2024 -0600
+
+    correct typo in credits
+
+commit c116dbbd61c19c71e3f14a69282b9e88fed02650
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Dec 6 12:41:37 2024 -0600
+
+    change credit to credits
+
+commit 1790e5089f34e9a0221d1a593e9cc9a0ffd64116
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Dec 6 12:40:25 2024 -0600
+
+    use call_deferred for cleanup in ghost and mrbig
+
+commit 5efb651907c0539287b949350e367ed393ebad3c
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 02:27:03 2024 -0600
+
+    Ready for production
+    
+    - Got rid of test collisions
+
+commit 30f0944c1e0d7bd866ab3ef6f02d4b8426131431
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 02:17:10 2024 -0600
+
+    Credit menu made
+
+commit 0f7c104d93f94cd7babf9d4ba28d50b6afa2e532
+Merge: e83e1eb afdea6c
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 01:55:32 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit e83e1eb1def1f68bdf1940dafc321c1341342fba
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 01:51:21 2024 -0600
+
+    Rechanges
+
+commit b807a62541f3b7777d846e79b8d9b9b164d9cb16
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 01:47:06 2024 -0600
+
+    Massive GUI Overhaul
+    
+    -Changed Buttons
+    - Changed Text font
+
+commit 7c3e681e59755c60374ed79f979c68648f998417
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 00:54:04 2024 -0600
+
+    Added paralax background as the menu background
+
+commit afdea6cea069f033c3d78e0cc21b2eb784a72a00
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Dec 6 00:47:57 2024 -0600
+
+    Added music in game_over.gd
+
+commit b0dab5bce50889fef71a06af76e117998bdc8620
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Dec 6 00:39:50 2024 -0600
+
+    Imported game_over audio
+
+commit 5d70551cc87d3e599c7b1e9aff2d8d3228f34fe1
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 00:24:02 2024 -0600
+
+    Cloud assets added
+
+commit 4cdff166510143fcd454d4fdd6a365f76abb6661
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Dec 6 00:10:36 2024 -0600
+
+    Added more gravity to the confetti
+
+commit 08f2aa5c6d283e27b9918bc8fbe71588653a7510
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Dec 6 00:08:50 2024 -0600
+
+    Added assets of the background main menu
+
+commit 187d35c05217c1601ffef53a14c1451924b90054
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Dec 6 00:06:15 2024 -0600
+
+    Added pink confetti
+
+commit 8509208efd986d12c3c029c241049a6ba23bab27
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 23:17:58 2024 -0600
+
+    Changed background color of powerups
+
+commit f2cc4d1fc66e27c9aa99de8cd2f47336c1aa06cd
+Merge: 7ead880 90a15f3
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 23:15:21 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 7ead8806282746d9e3f72902ec995b77a8d5fff8
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 23:13:45 2024 -0600
+
+    Prep for merge
+
+commit 4813f261d7045c02fcee2d02df55e8ab715300f2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 23:09:53 2024 -0600
+
+    GUI updates
+
+commit 90a15f3aff303be28365ba6457d7e5278e159e6c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 22:52:24 2024 -0600
+
+    revert feature-optionsScreen merge
+
+commit 0933d20c6322134484f28300a93f2ba7f29f52ef
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 22:40:29 2024 -0600
+
+    rebirth the SceneManager
+
+commit 7ce9254b9c31f09cee8ebfce586913c71b04b516
+Merge: 348aac7 11853db
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 22:12:32 2024 -0600
+
+    Merge branch 'main' into feature-optionsScreen
+
+commit 348aac78d4a233eba0078afac8f39a19c4c11400
+Merge: 9ca202b 419fe67
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 22:11:40 2024 -0600
+
+    Merge branch 'main' into feature-optionsScreen
+
+commit 11853db7d389343725843580089f83beca12118b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 22:10:42 2024 -0600
+
+    Added green confetti
+
+commit 9ca202b6b9bb7a15bb7108e74744977dabba95ff
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 22:10:11 2024 -0600
+
+    implement master slider from -50db to 30db
+
+commit 419fe67beb38b7ee58fd5cfbe28d9d0ab6c2da18
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 22:07:48 2024 -0600
+
+    Added blue confetti
+
+commit 6d13a2fe0c6c159d61d8cd43b26cf95ec0d7eaca
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 22:05:45 2024 -0600
+
+    Added yellow confetti
+
+commit 34f07c575e7e9ceb697e0ab98dec50e4269e8e2c
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 21:45:33 2024 -0600
+
+    Updated red confetti settings
+
+commit c719978746898eb16091e99dd0c93a36d023f55b
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 21:25:34 2024 -0600
+
+    delete sfx and music sliders
+
+commit 3ea9cddd6ded2d71aece630c508ffabbe2d43f6b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 21:22:55 2024 -0600
+
+    Added red confetti
+
+commit 3ffdbb9e6d4f58f5e1e253763e0688fb7253359b
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 20:59:38 2024 -0600
+
+    Player assiged inital ball type fixed
+
+commit 3a865246ac1e4bfa7a12a73b03a2ccca9749c500
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 20:15:53 2024 -0600
+
+    Initial confetti build in the game_over scene
+
+commit dade86fd61a4f0abfe776f0386c070c7da316538
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 20:08:53 2024 -0600
+
+    Remove unnecessary code; Singleton SceneManager.gd complete
+
+commit 08e3c35e9dfe205f449697de66b671cd37e63157
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 20:04:26 2024 -0600
+
+    game_over.tscn displays the actual winner name
+
+commit 926740c6b10c5e05efaeeb8cec5b47adaea63794
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:51:39 2024 -0600
+
+    Fixed multi-instance music issue caused by main_menu.tscn
+
+commit 8ba23da54c8d8a30277334e21fdaf72b97fb5094
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:35:43 2024 -0600
+
+    Update _on_button_pressed() in game_over.gd
+
+commit 76f48a93019771cedacfc23afb2f4661c8fe5e24
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:33:09 2024 -0600
+
+    Update declare_winner() in main.gd
+
+commit 3eec56a3616173c3b7b12b05e64141b84c238dcf
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:30:50 2024 -0600
+
+    Update _on_start_pressed() in main_menu.gd
+
+commit 4ab4b436b790d4a1a595bd1f01dac2e4a5316d1f
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:28:07 2024 -0600
+
+    Autoloaded SceneManager
+
+commit 8154710370d706ee370ee645e69c0fad39144221
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:23:07 2024 -0600
+
+    Create SceneManager.gd
+
+commit fe9627ccb8d512ff709aca4349a075a062cb7d7b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 19:19:56 2024 -0600
+
+    Updated _on_start_pressed() in the main_menu.gd
+
+commit ad6a6f0d6d69ab73e226d5f6679e1736c24572a6
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 18:34:26 2024 -0600
+
+    Updated declare_winner() in main.gd
+
+commit eaf991c443bafdd33e519fded58348eb9e300329
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 18:24:30 2024 -0600
+
+    Created game_over.gd
+
+commit b4b50921ff5165063eb44e0588d313d068f12da5
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 17:44:24 2024 -0600
+
+    Added button in game_over.tscn
+    
+    Will take back to the main menu
+
+commit 0404d3ee47a27bf7eccbfb73330ba8dc8e12c924
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 17:41:03 2024 -0600
+
+    Added game_over background and winner text
+
+commit cde53f32fd07c6d19eb010dbe003dbe0c014bda8
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 17:29:47 2024 -0600
+
+    created game_over scene
+
+commit 627ec45b871bd1a64877a6a57e2f8c33e5d43890
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 17:27:15 2024 -0600
+
+    imported game_over background
+
+commit 73de32517ff0907b8d40cab8a31eefab5063e495
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 17:24:02 2024 -0600
+
+    Modified color rect in main
+
+commit aedd3a02f1b32a6b739430453d394593db6ed0ad
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 12:28:52 2024 -0600
+
+    wip: implement audio options
+
+commit 59474df8f60a062da36ff940ba6130694b1ad5f1
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 11:03:32 2024 -0600
+
+    Unique. power up draw
+    
+    - So you cant get the same power up twice
+
+commit d3c7506ce2d5edc65d96a8d7aeaf4638fa39f857
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 10:19:19 2024 -0600
+
+    Added names to solids, and stripes
+
+commit ae74862b5d866c3592bbcf220d2bab880924bf6a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 10:03:20 2024 -0600
+
+    Layout changes
+
+commit ae1f8159f31422fc27e5f152378999b31203b61d
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 09:45:02 2024 -0600
+
+    Project Setting update
+    
+    - Display setting adjusted
+
+commit 1c1152c4528fa8c242b6a73e9388ac9d42e83cc2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 09:09:51 2024 -0600
+
+    reset visibility
+
+commit 0f6ecc139caa4d97b07f0513702af0384dc24bee
+Merge: 8736e7a cbc4cdc
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 09:07:41 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 8736e7a69d5e1ae264a18afee19f9d0b4d60bcdb
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 09:07:01 2024 -0600
+
+    player turn icon working
+
+commit c2b262bb44723509dc6a40f1902465d6df14d543
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 08:26:21 2024 -0600
+
+    Cleaning up player header
+
+commit e87377730ee7f773047ee562c6df3f5b09a027cf
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 08:15:53 2024 -0600
+
+    Creating player turn profiles
+
+commit 27c7e25fb495c4de57ca96670871f05486f3d38b
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 07:51:00 2024 -0600
+
+    Imports for pics
+
+commit 8d390001efe2ca88b1a53e8d18a4ed4be9fc4480
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Thu Dec 5 07:47:53 2024 -0600
+
+    Added assets for players
+
+commit cbc4cdc1409532c4c073bd7f2fe544fb24d6f6af
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Thu Dec 5 07:45:26 2024 -0600
+
+    change opacity during ghost powerup
+
+commit a4baf2c6b6766b0128e8fa64dccfeabea88169a2
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 07:03:04 2024 -0600
+
+    Changed ColorRect background color
+
+commit a5d5c658810b622502941633bbdf3b045e8c85a9
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Thu Dec 5 07:00:46 2024 -0600
+
+    Move powerup slots a bit upwards
+
+commit e8578f19ac16c9cbf8937fcd572838215aba1451
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 23:14:28 2024 -0600
+
+    Audio adjusted
+
+commit c0e1fbacb25adfa3dd89118742bd08ff333370c6
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 23:10:39 2024 -0600
+
+    Picked out better audio
+
+commit 16178483f39d259a5c92c2c95ca776c6f0b1f193
+Merge: ba15c70 9cd3872
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 22:39:48 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 9cd387258bca75ef9294bd7a3c4e548a56a91fe4
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 22:38:45 2024 -0600
+
+    implement speed ball powerup
+
+commit ba15c70473107ce8d387164a0d206e86a16ba99a
+Merge: 76a13a9 0275894
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 22:35:53 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 76a13a9e50149eee07caa2a2eae69b6eafcbf24a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 22:35:43 2024 -0600
+
+    Added background
+
+commit 0e8783fe9fdfc5fe99d34c064e8b93590c8755b2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 22:19:06 2024 -0600
+
+    Created themes for the power_ups
+
+commit 0275894e1277f5a36e347cf98b18debff7623800
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 21:51:40 2024 -0600
+
+    Added speed ball icon
+
+commit dd737a4f05c06496d88f3f1e06cdf9134ce57016
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 21:08:10 2024 -0600
+
+    disabled test pockets
+
+commit c3616ed9b871509f49b02d34fd24662af9e76896
+Merge: 4f669b4 f41c07e
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 21:01:42 2024 -0600
+
+    Merge branch 'main' into feature-gameRules
+
+commit 4f669b4ca8156c57b27fd4e3bd7ea3396369e1d3
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:57:12 2024 -0600
+
+    More padding in potted ball display
+
+commit 333f4059f0140e6d0aa3bda5b139d733dc8021eb
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:55:35 2024 -0600
+
+    Another collision pocket for testing
+
+commit c39b82a9436c84a26cf96d93b6e5334945cd7151
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:51:43 2024 -0600
+
+    Deleted redundant code
+
+commit feb0d27d81e4c078fbbf2587178bc72dbb9fac01
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:46:32 2024 -0600
+
+    Added test collision pockets
+
+commit 5f357aee7bb175911355dc038779fb9c2beda95b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:41:19 2024 -0600
+
+    Added declare_winner()
+
+commit 28e428731cebc0722cc279e3bd81b2f260c51a29
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:39:46 2024 -0600
+
+    Wrote handle_black_ball()
+
+commit 3c4e4519eaa1cce04d0d2e2d366164c7e3de9cbe
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 20:28:29 2024 -0600
+
+    Working win condition handling
+
+commit f7e75c53a80e35af770437d80901b91ac3ea1e58
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 19:34:20 2024 -0600
+
+    Timer size adjustment implemented
+
+commit 599a97a3ab38eecd09fda7ca3f1afb600e0870a8
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 19:33:10 2024 -0600
+
+    Modified calculate_score
+    
+    Needed for tracking winning possibility
+
+commit 91aa7c251e585987e16f4f988ecb3017eb9f2c99
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 19:25:50 2024 -0600
+
+    Added new player attribute
+
+commit 0e892cf8c7b65b0a23d3a2d2099ebd9d0188dd3d
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 19:12:35 2024 -0600
+
+    fixed ball_13.png
+
+commit f41c07e964ed336534150a41a7800a89a10dd458
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 19:09:59 2024 -0600
+
+    Adjusted ghost power up to work
+
+commit c8abc1bef13ea6e1782f4d7ce15dfdea8e8c301d
+Merge: 7037a6b ce1454f
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 18:57:30 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 7037a6b9a2124fb673d7858973fa835eaabb9bd8
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 18:55:31 2024 -0600
+
+    Now updates powerups after getting the ball in
+
+commit 770868cdf095b1ec4e3b0b2c28d61c82550bd96b
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 18:22:48 2024 -0600
+
+    Added third invetory slot
+
+commit 37e48541959c12b8ac0bf8c25399ae1dee51109b
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 18:18:26 2024 -0600
+
+    Fixed paths
+
+commit 07fa9454120049fee1bf5189a1257c70aca01c87
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 18:01:50 2024 -0600
+
+    Bug fixed
+    
+    Problem: if you clicked on the power it would shoot the ball
+
+commit ce1454f824cb3f935f1b40927316143fac20ae10
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 17:36:22 2024 -0600
+
+    implement ghost powerup
+
+commit c14b0cc8944ee25b0c937ab8ad5ecebdf85f645e
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 17:12:46 2024 -0600
+
+    Added calculate_score()
+
+commit 7548b6ab26ec4d6865076ee342fdf7e001c6698e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 17:02:17 2024 -0600
+
+    document code and debug statements
+
+commit 3c01c3541c9cf3b900c866d49d478d34c9049f2b
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 17:01:38 2024 -0600
+
+    implement defects and simultaneous power ups
+    
+    schedule to defects to activate when opponent players turn and support multiple powerups at a time
+
+commit 5d9d3e15ec7fd488a03f5fa3cb7ddeb357cd08c7
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 16:56:55 2024 -0600
+
+    Implemented button ui for powerups
+    
+    - Puts powerups in slots
+    - Has a bug where if you click on the button that it will also shoot the ball
+
+commit 8ae34127c47dd10c5f492f5e1dabb59e3afad0f8
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 16:34:47 2024 -0600
+
+    Initial black ball win condition
+
+commit fbe17aa006ad9438f7bfc72c440ad6157ac4f070
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 14:58:08 2024 -0600
+
+    decided to implement all game rules to main
+
+commit 17bcd9bf817a7623c79e66346b5b7d4aeb4160f8
+Merge: 6772874 e42d66d
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 14:47:56 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 6772874780f4a0238dce3573ba0b98ead444e8c6
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 14:46:50 2024 -0600
+
+    Switching to a new approach for slots
+    
+    - Created new buttons to hold the power ups
+
+commit e42d66dcefecda732aa096553da0b023ab246346
+Merge: cd4f432 1311145
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 14:46:27 2024 -0600
+
+    Merge branch 'main' into feature-mrbigpowerup
+
+commit 83bc12befb6ac5ea668d039ee6820f1f699b455d
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 14:36:06 2024 -0600
+
+    Base power up ui working
+    
+    - current player gets the power up
+    
+    - Activates when pressing on the button
+    
+    Bug:
+    -If you click on the button it will shoot the shot
+
+commit f541954298dade485ffb92e929f79c82c691b336
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 13:36:02 2024 -0600
+
+    Refactor Power up ui
+
+commit 33e52dafae6b382f8aef540ecc54a6c3e87975a9
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 13:06:52 2024 -0600
+
+    Created gameRules.gd
+
+commit cd4f43254d24b1d3e051a423358f5726db44a512
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 12:53:03 2024 -0600
+
+    fix: pass in main_game reference to powerup
+
+commit 3f1b52fdbec6eb126490358fe487700dc1d92edc
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 12:52:06 2024 -0600
+
+    wip: setup temporary trigger for powerup using keyevent
+
+commit 0b4b952329dd24ea575a436e03b869ca2a00f46c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Wed Dec 4 12:51:18 2024 -0600
+
+    fix: owner to powerupOwner
+
+commit 6e7e9c8522f2eebf51ce2640b5ec21d2caeb6387
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 12:03:00 2024 -0600
+
+    fixed debug statement in handle_ball_pot()
+
+commit 131114504e66eefcfddca4febc1235f39fc7b6c6
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 10:57:47 2024 -0600
+
+    Removed print statements
+
+commit b10379f7982292b162e0c521c3a121240ed7f3f8
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 00:13:32 2024 -0600
+
+    Timer Error Fixed
+
+commit 29c030962bdd9446b1f41142cf8a39110a71a08c
+Merge: 5bb46a3 c065cd5
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 00:08:49 2024 -0600
+
+    Merge branch 'main' into feature-score
+
+commit 5bb46a38086095e70da920ad254a0e3c595065b9
+Merge: 6133554 7310cf0
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Wed Dec 4 00:01:49 2024 -0600
+
+    Merge branch 'main' into feature-score
+
+commit c065cd519d88172f1e18a0776ef72e7203bca6e2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Wed Dec 4 00:00:44 2024 -0600
+
+    Deleted Power Factory
+
+commit 4d5e81f874500335b08efb79c1e85a4c0f53dc18
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 23:57:56 2024 -0600
+
+    fix merge conflicts
+
+commit 48bfc1bd687f88ddd7b2892897fc02401dac23bf
+Merge: 265a0e1 029a7be
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 23:56:02 2024 -0600
+
+    Merge branch 'feature-mrbigpowerup'
+
+commit 613355491bc26b7f337aff14413f422f449d6adf
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Tue Dec 3 23:50:33 2024 -0600
+
+    Added better bg color to the PottedPanel
+
+commit 6938ac7973dbec3086d8be5416eb103247d93898
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Tue Dec 3 23:34:24 2024 -0600
+
+    Fixed bugs with display_potted_ball()
+
+commit 265a0e12cb2cf39c6c4af511774551b8ae47a688
+Merge: 7310cf0 4ac8fca
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Tue Dec 3 23:12:36 2024 -0600
+
+    Merge branch 'feature-GUI'
+
+commit 4ac8fcaa31277d6135e3fd4c0c226f624dd312a3
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Tue Dec 3 23:10:26 2024 -0600
+
+    Timer Fully Works
+
+commit 029a7beec38d232e39b8db0c8cf459cb58444436
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:59:05 2024 -0600
+
+    implement mrbig.gd
+
+commit 9519f29db2f2b0672335fc3c231f960ca208c2b7
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Tue Dec 3 22:48:29 2024 -0600
+
+    Added background color to the PottedPanel
+
+commit 4f6e447913ace4924e2d9ad44699035d366960ab
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Tue Dec 3 22:43:46 2024 -0600
+
+    Added pot control node
+
+commit 38a524f9c9e65b010fffa807aa386e1e643cd6b8
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Tue Dec 3 22:38:30 2024 -0600
+
+    Resized the PottedPanel
+
+commit 7310cf025412af2fd53a38615eb652f0167a32a1
+Merge: d1994d0 67a3d5c
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:38:14 2024 -0600
+
+    Merge branch 'feature-powerupSystem'
+
+commit 08ffb788384cd969b0a94e17b2edd7109a83d82a
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Tue Dec 3 22:35:38 2024 -0600
+
+    Timer implemented
+    
+    - Added a timer that will count down
+    - If a player runs out of time than it will switch the turns
+
+commit 67a3d5cbe9ab0179ea0474efcdc65ab87b9a9901
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:26:40 2024 -0600
+
+    refactor Player.gd to work with new PowerUp system
+
+commit 2c3dce03722c193aafa56e0ffd1630af62194b28
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:25:57 2024 -0600
+
+    edit main.gd to use powerUpManager
+
+commit 39a5a1b16c4d4c9920cce10603de836ebdbe31e2
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:25:34 2024 -0600
+
+    add set_main_game to powerUpManager
+    
+    WIP: funneling reference to main script to access game data. Will refactor later
+
+commit 0c34653b6675b24cbf3f0ece6d601b58213d87dc
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:23:32 2024 -0600
+
+    comment out power_ui.gd
+
+commit d97710971737effc1e3548acab9a1279cc9373a0
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 22:22:50 2024 -0600
+
+    comment out unused powerups for now in factory
+
+commit ce24fa9fcfc86175c7270bdce9668d343cdcc8f6
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Tue Dec 3 21:35:13 2024 -0600
+
+    Added a node so it will handle the timer
+
+commit 7767da33940fa9613d4256f73137d047208f0a5e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 21:20:10 2024 -0600
+
+    implement powerupManager.gd
+
+commit c7e5e77067c641be65d0fa3705de5fa08a189df3
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 21:19:34 2024 -0600
+
+    get rid of useless scenes
+
+commit d1994d0f0a76986d664b71c7a1064750f6583cef
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Tue Dec 3 21:17:32 2024 -0600
+
+    Cleaned up redundant code
+    
+    - Removed code that was not being used
+
+commit eb513d51e66cec8703d8bf9a9a8c8cb076c5b141
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 21:06:29 2024 -0600
+
+    make power_up_factory methods static
+
+commit 2a103078be618d1c72370dce11690f954114f47e
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 20:36:18 2024 -0600
+
+    Create powerup.gd
+
+commit e68a3842f1e51b910326e4830d92e78bb4a1ab1d
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Tue Dec 3 20:18:53 2024 -0600
+
+    create power_up_factory.gd
+
+commit 7e6b2ca28744e706d59b413214f411d39eafa840
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 18:47:59 2024 -0600
+
+    Added background music to the main game
+
+commit e3340d48ca873b7f67c76eb6e118caacec6f42df
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 18:38:09 2024 -0600
+
+    Implemeted background main music
+
+commit af4d8cb7d4abea46d63f2db7d060a68a8804e42b
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 17:58:12 2024 -0600
+
+    Commented out redundant code
+    
+    - Commented out code that was not being used and old
+
+commit 7dec2ea36598498b1c8e4d643570586d5e38ee42
+Merge: 2f61bd5 19c9907
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 17:50:26 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit 2f61bd56005d9be6f3434f820186bace651c89a2
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 17:48:24 2024 -0600
+
+    Bug Fixed
+    
+    - Collision sound effect bug fixed by adding a grace period
+    - Decreased collision sound audio
+
+commit c6d74e220f07698ca34d2d8e4fcf73c17500bd34
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Mon Dec 2 17:41:17 2024 -0600
+
+    Added ball collision sound efffects
+    
+    - Added sounds when the balls hit each other
+    - Has a small bug where at the start the collision sound effect plays
+    - Needs some fine tuning as well for how loud it is
+
+commit 19c990797ef2d9d1769881c6c610e70b6f997ffa
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Mon Dec 2 13:22:17 2024 -0600
+
+    move aimline and mainmenu scripts into scripts folder
+
+commit bcc4b7d5c1229da380b335a68027460395025480
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Mon Dec 2 13:15:08 2024 -0600
+
+    wip: implement aiming line
+
+commit 4a797f6bd1bb153e23c7ed5c7fa5b92867966234
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Sun Dec 1 21:33:46 2024 -0600
+
+    Fixed Strike Audio
+
+commit 04419a8d637f46868fec7fde3a61afdddc7a5502
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sun Dec 1 14:01:54 2024 -0600
+
+    Added sections to ball.gd and main.gd for readability.
+
+commit c49c126e1de2065a28ec715c09eb50d4c8af7d5a
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sun Dec 1 13:14:06 2024 -0600
+
+    remove a duplicate function from main.gd
+
+commit f68820af94847d9e21a2611cb7c0b8af70d670bf
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sun Dec 1 12:55:29 2024 -0600
+
+    Got the ball rotation working
+
+commit 4130b4a3da904ee3e117d9b80ead4469bb7b7361
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sun Dec 1 11:38:00 2024 -0600
+
+    Smoothest ball movement yet
+
+commit 31ed581e66376b74c4197d5681bf9a79c0dbc965
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sat Nov 30 13:02:58 2024 -0600
+
+    Last version before putting ball physics into a separate script.
+
+commit d2f09fc13276fccf2f7dd10d3f88416d2a5dd0be
+Merge: c46c562 83b7440
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Sat Nov 30 12:04:58 2024 -0600
+
+    Merge branch 'main' into feature-smoothBounce
+
+commit 83b7440bbec584200da9c6026b7ab3327533f807
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 29 22:30:02 2024 -0600
+
+    Imported new
+    
+    Imported new sound for ball collision
+
+commit 692e1d4648610aa71645cae0cc1467db4503ef0c
+Merge: c8ff3ff 03e1369
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 29 22:14:21 2024 -0600
+
+    Merge branch 'main' into feature-GUI
+
+commit c8ff3ffc7f467c16539ab1f1e498a9064978aa34
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 29 22:12:43 2024 -0600
+
+    Fixed Audio
+
+commit b4bfc14df5435f161cc04a5b1e58a7ab3b851f67
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 29 21:53:55 2024 -0600
+
+    Implemented sounds
+    
+    - Added sound animation for when the cue ball is stroken
+    - Also for the a ball is potted
+
+commit c46c562eacb7f39fdd892cd8f0b5bebeb1423cab
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 29 21:40:51 2024 -0600
+
+    Smoother ball physics with momentum and angular motion on cue ball
+
+commit ea4a0b4cf12652cf9973c8cdb31595c821d14f93
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 29 19:05:15 2024 -0600
+
+    Initial testing with the ball rigid body physics manipulation
+
+commit 03e13692b0ccf9be7b850eccc4e7d4e7a7254359
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 29 17:13:29 2024 -0600
+
+    Adjusted the score rack for the new window size
+
+commit 5fc42f59db30aab553907bd8092357aa2a4af910
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 29 17:03:11 2024 -0600
+
+    Scaled up the balls for better visibility
+
+commit 7463e48472464382841eb3d3b3ef68d6b65f4100
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 29 16:17:54 2024 -0600
+
+    Set default screen size to 1920 x 1080
+    Made screen draggable
+
+commit 8c24d5c42ef0addebc6535bc9a8dd27ba8bb62a0
+Author: CompAj <114016409+CompAj@users.noreply.github.com>
+Date:   Fri Nov 8 23:02:13 2024 -0600
+
+    Update to main.gd
+    
+    - Commented out update_game_ui for the video
+
+commit 3e4002b256bf7de24552508a9050d3be5708e101
+Author: kararAcode <63989704+kararAcode@users.noreply.github.com>
+Date:   Fri Nov 8 21:46:33 2024 -0600
+
+    fix wall_icon url and nsid
+
+commit 2a913ed8dfeb17961049453c3307b66e64a1732b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 8 20:45:29 2024 -0600
+
+    Made tasks_done_since_pitch.txt
+    Made tasks_done_since_pitch.txt
+
+commit 69d0b5ae495c6eced29cfd524243bcb49f74708b
+Author: Akib306 <123131218+Akib306@users.noreply.github.com>
+Date:   Fri Nov 8 19:37:20 2024 -0600
+
+    Made gitlog.txt
+
 commit fbad450652045777cc25d7a8c8af46fcd39be321
 Merge: 4635e12 297f7f7
 Author: kararAcode <63989704+kararAcode@users.noreply.github.com>

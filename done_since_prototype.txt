@@ -1,0 +1,34 @@
+Since November 8, the following contributions were made by the team:
+
+- Anjana (zgw096 - CompAJ):
+  - Created player turn profiles to improve player interaction clarity.
+  - Added a parallax background for the menu and cloud assets for visual enhancement.
+  - Made significant updates to GUI, including new buttons and fonts.
+  - Enhanced the main menu and added a credit menu for production readiness.
+  - Refined the power-up system UI and added inventory slots for power-ups.
+  - Designed and implemented unique power-up logic to prevent duplicates.
+  - Updated project settings for optimal display and user experience.
+  - Added collision sound effects and fixed related audio bugs.
+  - Worked on various gameplay enhancements and debugging tasks.
+
+- Motasin (nzy764 - Akib306):
+  - Enhanced ball physics, including momentum and angular rotation for realism.
+  - Improved the game_over scene by displaying winner names and adding confetti effects.
+  - Implemented scoring logic and additional player attributes.
+  - Refined game rules, including win conditions and black ball handling.
+  - Added audio for game-over events and debugged multi-instance music issues.
+  - Integrated a SceneManager singleton for streamlined scene handling.
+
+- Karar (uls178 - kararAcode):
+  - Debugged and implemented ghost and speed ball power-ups.
+  - Created and managed a PowerUpManager script.
+  - Refactored main.gd and Player.gd for compatibility with the new power-up system.
+  - Enhanced aiming line mechanics and adjusted cue stick rotation.
+  - Worked on audio options and defect scheduling logic for power-ups.
+  - Coordinated merging branches and addressing conflicts.
+
+Together as a group, the team:
+- Streamlined code by removing redundant elements and improving readability.
+- Iteratively refined GUI and gameplay mechanics based on testing feedback.
+- Debugged physics, audio, and gameplay issues for a polished final build.
+- Enhanced the overall user experience with continuous updates and quality control.

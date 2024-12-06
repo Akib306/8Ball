@@ -1,108 +1,66 @@
-Mohamed (asy756):
+﻿################################################################################
 
-Project Initialization:
-    Initialized the project and added an assets folder containing game assets.
 
-Game Mechanics:
-    Implemented cue scene and shooting mechanics with cue stick behavior.
-    Corrected bugs related to cue shooting and made collision between balls
-    smoother.
-    Added maximum power a shot can have to balance gameplay.
-    Made the cue stick disappear and appear appropriately during shooting.
-    Added a power bar to track cue power for player feedback.
-    Made potted balls disappear when pocketed to reflect game progress.
-    Modified cue stick and centered it on the cue ball for accurate aiming.
-    Centered the cue ball in the game scene for proper game setup.
+Mohamed (asy756 - MohamedBan):
+- Initialized project.
+- Centered the cue ball and modified its position for accuracy.
+- Adjusted the cue stick to be aligned with the cue ball for better gameplay.
+
 
 ################################################################################
 
-Anjana (zgw096):
 
-User Interface and Graphics:
-    Added table scene with borders and pocket collisions for realistic gameplay.
-    Designed and styled the main menu with themed buttons and layout.
-    Implemented background image and adjusted window size for better UI
-    presentation.
-    Created generic menu screens and enabled switching between menus.
-    Corrected focusing issues within the UI and added signals to buttons for
-    interactions.
+Anjana (zgw096 - CompAJ):
+- Implemented a unique power-up draw system to avoid duplicates.
+- Created and refined GUI elements, including a massive GUI overhaul (buttons and fonts).
+- Added parallax background to the main menu and cloud assets for visual enhancements.
+- Adjusted project settings for better display and gameplay experience.
+- I worked on player turn profiles and icons to clarify player interaction.
+- Refactored power-up UI and implemented buttons for power-ups with inventory slots.
+- Added collision sound effects and fixed related bugs.
+- Worked extensively on power-up systems, such as the Wall Power Up (not in production) and 
+its parent class.
+- Added background music 
 
-Power-ups and Additional Features:
-    Added signals and implemented a chance mechanism for obtaining power-ups.
-    Created a temporary power-up factory and a parent class for power-ups.
-    Implemented the Wall Power-Up and updated relevant scripts (wall.gd).
-    Implemented GameControl and GameFactory scripts to manage game flow and
-    object creation.
-
-Project Maintenance:
-    Removed unnecessary scenes to streamline the project.
-    Updated game_controller and player.gd scripts for improved functionality.
-    Merged branches (main, power_rules) to integrate features.
 
 ################################################################################
 
-Motasin (nzy764):
 
-Game Mechanics:
-    Set up the skeleton code for ball spawning.
-    Modified ball generation to keep track of solid and striped balls.
-    Adjusted the game window size for better gameplay experience.
-    Reworked and adjusted Anjana's table borders and pocket collisions with
-    according to the game window adjustments.
-    Implemented spawning balls in a triangle formation adjusted for the new
-    window size.
-    Enhanced code readability and cleaned up the main game script (main.gd).
-    Modified ball generation with the new expanded game window changes.
-    Created Player object and instantiated players in main.gd.
-    Implemented player turn logic, including experimental changes and fixing
-    issues with player switching.
+Motasin (nzy764 - Akib306):
+- Implemented ball generation.
+- Set up ball spawning in a triangle.
+- Enhanced ball physics, including rotation, momentum, and angular motion for realistic gameplay.
+- Implemented proper score rack UI.
+- Worked on scoring logic, player attributes, and calculate_score functionality.
+- Implemented game rules, including win conditions and handling the black ball.
+- Implemented Singleton SceneManager.gd for switching between the main menu, game, and the 
+game over scene.
+- Fixed a multi-instance music issue in the main menu.
+- Created and enhanced the game_over scene, including displaying the winner's name.
+- Added and refined confetti effects (pink, blue, yellow, red, and green) in the game over scene.
 
-Project Maintenance:
-    Merged branches (big, game-mechanics) to integrate features and fixes.
-    Added .DS_Store to .gitignore to prevent unnecessary files from being
-    tracked.
 
 ################################################################################
 
-Karar (uls179):
 
-Project Structure and Assets:
-    Changed folder structure and moved scenes to the root directory for better
-    organization.
-    Added new ball assets and renamed images for consistency.
-    Created ball scene and main scene for the game setup.
-    Fixed scene URLs in scripts (main.gd) to ensure proper loading of resources.
-    Wrote load_images function in main.gd to handle asset loading.
+Karar (uls178 - kararAcode):
+- Implemented and debugged various power-ups, including ghost and speedball power-ups.
+- Refactored Player.gd to work with the new power-up system.
+- Added an options screen and worked on SceneManager functionalities.
+- Worked on aiming line implementation and adjusted cue stick rotation.
+- Debugged and documented code, including simultaneous power-ups and defect scheduling.
+- Developed PowerUpManager and refactored main.gd to integrate with power-up systems.
 
-Game Mechanics:
-    Implemented reset_cue_ball functionality to reset the game state.
-    Improved collision detection between balls for smoother gameplay.
-    Corrected spelling mistakes in code (e.g., changed "boarders" to "borders").
-    Fixed cue stick position and rotation to align properly with the cue ball.
-    Fixed scaling of potted balls for visual consistency.
-    Cleaned up code and fixed turn switching logic for seamless gameplay.
-    Implemented functions to handle ball removal and check win conditions.
-    Refactored power-up selection code for better maintainability.
-
-Project Maintenance:
-    Cleaned up code across the project to remove redundancies and improve
-    efficiency.
-    Fixed print statements for better debugging output.
-    Merged branches (bugFixes, game-mechanics, main, power_rules) to integrate
-    features and fixes.
 
 ################################################################################
 
-General Contributions:
 
-Collaborative Efforts:
-    Merged various branches to integrate features and bug fixes across the
-    project.
-    Resolved conflicts and coordinated updates among team members.
+General Contributions (group):
+- Collaborated on merging various branches to maintain a cohesive codebase.
+- Improved code readability and removed redundant code across scripts.
+- Enhanced the user experience through iterative GUI updates and gameplay mechanics.
+- Debugged and resolved audio, physics, and gameplay-related bugs as a team.
+- Added a credit menu and refined collision testing for the final build.
 
-Bug Fixes:
-    Fixed issues related to ball spawning in a triangle formation with the new
-    window size.
-    Corrected focusing and UI issues to enhance user experience.
-    Fixed player switching logic and turn management in main.gd.
 
+################################################################################
