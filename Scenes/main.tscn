@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=39 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -18,7 +18,9 @@
 [ext_resource type="Theme" uid="uid://djcu7oroyq5sw" path="res://Themes/player_icon_theme.tres" id="11_sbvhy"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 [ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
+[ext_resource type="FontFile" uid="uid://c6iij84f136tx" path="res://Fonts/Minecraft.ttf" id="12_k6735"]
 [ext_resource type="Texture2D" uid="uid://qmxlk77x0s4n" path="res://Assets/versus.png" id="12_pm2bj"]
+[ext_resource type="Texture2D" uid="uid://bkiudfevtj0s4" path="res://Assets/old_window_wood.png" id="13_hn3pl"]
 [ext_resource type="Theme" uid="uid://cfyuvdelv7on7" path="res://Themes/player2_icon_theme.tres" id="14_bw7fy"]
 [ext_resource type="Texture2D" uid="uid://7ebpqeue2x6m" path="res://Assets/test2.png" id="16_hjx5q"]
 
@@ -46,7 +48,7 @@ texture_margin_left = 4.0
 texture_margin_top = 6.0
 texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(224, 128, 32, 32)
+region_rect = Rect2(32, 192, 32, 32)
 
 [sub_resource type="Theme" id="Theme_fbtli"]
 Panel/styles/panel = SubResource("StyleBoxTexture_0aroi")
@@ -89,6 +91,14 @@ region_rect = Rect2(288, 134, 64, 20)
 
 [sub_resource type="Theme" id="Theme_mn1u2"]
 Panel/styles/panel = SubResource("StyleBoxTexture_3hdy5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4orlx"]
+texture = ExtResource("13_hn3pl")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_u7skc"]
+Panel/styles/panel = SubResource("StyleBoxTexture_4orlx")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8sy4o"]
 texture = ExtResource("16_hjx5q")
@@ -267,9 +277,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_k6735")
 theme_override_font_sizes/font_size = 30
 text = "Power Ups"
 horizontal_alignment = 1
@@ -283,6 +296,7 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot1"]
 layout_mode = 1
@@ -298,6 +312,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot2"]
 layout_mode = 1
@@ -313,6 +328,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme = ExtResource("10_2stwm")
+theme_override_fonts/font = ExtResource("12_k6735")
 
 [node name="TextureRect" type="TextureRect" parent="PowerupUI/VBoxContainer/HBoxContainer/Slot3"]
 layout_mode = 1
@@ -327,13 +343,10 @@ stretch_mode = 5
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.193311, 0.617418, 0.780077, 0.792157)
+[node name="wood_background" type="Panel" parent="CanvasLayer"]
+offset_right = 1940.0
+offset_bottom = 1089.0
+theme = SubResource("Theme_u7skc")
 
 [node name="header_gui" type="Control" parent="."]
 layout_mode = 3
@@ -388,7 +401,8 @@ grow_vertical = 2
 [node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile/Panel/CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("12_k6735")
+theme_override_font_sizes/font_size = 18
 text = "Player 1"
 
 [node name="versus_container" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
@@ -439,7 +453,8 @@ grow_vertical = 2
 [node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile/Panel/CenterContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_fonts/font = ExtResource("12_k6735")
+theme_override_font_sizes/font_size = 18
 text = "Player 2
 "
 

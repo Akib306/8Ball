@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc65cnhgnbuuv"]
+[gd_scene load_steps=12 format=3 uid="uid://cc65cnhgnbuuv"]
 
-[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
 [ext_resource type="AudioStream" uid="uid://bawhagyqmp1k1" path="res://Sounds/main_menu.mp3" id="1_g15ik"]
-[ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nso0m"]
 [ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
+[ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="2_18j65"]
+[ext_resource type="Texture2D" uid="uid://dcobixkdscfxf" path="res://Assets/Clouds 7/1.png" id="6_drogy"]
+[ext_resource type="Texture2D" uid="uid://btkwc5fwxiiai" path="res://Assets/Clouds 7/2.png" id="7_hrwt7"]
+[ext_resource type="Texture2D" uid="uid://dv1w1e8i8djo1" path="res://Assets/Clouds 7/3.png" id="8_vn226"]
+[ext_resource type="Texture2D" uid="uid://bmncjx8xhyalq" path="res://Assets/Clouds 7/4.png" id="9_2kqda"]
+[ext_resource type="FontFile" uid="uid://c6iij84f136tx" path="res://Fonts/Minecraft.ttf" id="9_dfa42"]
+[ext_resource type="Theme" uid="uid://c8j5xj8klade4" path="res://Themes/new_button_themes.tres" id="10_vk2u8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
-font = ExtResource("1_n1m5i")
+font = ExtResource("9_dfa42")
 font_size = 100
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -16,6 +21,45 @@ font_size = 100
 stream = ExtResource("1_g15ik")
 volume_db = -20.19
 parameters/looping = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_18j65")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1928.0
+offset_bottom = 1067.0
+texture = ExtResource("6_drogy")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_hrwt7")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_vn226")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4"]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_2kqda")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -27,6 +71,7 @@ grow_vertical = 2
 script = ExtResource("1_nso0m")
 
 [node name="Background" type="TextureRect" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,7 +119,7 @@ focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Option")
 focus_next = NodePath("../Option")
 focus_previous = NodePath("../Quit")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("10_vk2u8")
 text = "Start"
 
 [node name="Option" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
@@ -84,7 +129,7 @@ focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Start")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("10_vk2u8")
 text = "Options"
 
 [node name="Quit" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
@@ -94,10 +139,11 @@ focus_neighbor_top = NodePath("../Option")
 focus_neighbor_bottom = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Option")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("10_vk2u8")
 text = "Quit"
 
 [node name="Options_menu" type="MarginContainer" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -118,7 +164,7 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("10_vk2u8")
 text = "Back"
 
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Start" to="Control" method="_on_start_pressed"]
