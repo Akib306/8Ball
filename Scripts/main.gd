@@ -6,7 +6,10 @@ signal power_gamble
 @onready var timer_label: Label = $TurnTimer/TimerLabel
 @onready var power_up_ui: PowerUpUI = $PowerupUI
 var is_mouse_over_ui: bool = false
-
+@onready var player1_icon: Button = $header_gui/CenterContainer/player_profile/player_1_profile/Button
+@onready var player2_icon: Button = $header_gui/CenterContainer/player_profile/player_2_profile/Button
+@onready var player1_label: Label = $header_gui/CenterContainer/player_profile/player_1_profile/Panel/CenterContainer/Player1
+@onready var player2_label: Label = $header_gui/CenterContainer/player_profile/player_2_profile/Panel/CenterContainer/Player1
 var cue
 const TURN_TIME := 10.0  
 
