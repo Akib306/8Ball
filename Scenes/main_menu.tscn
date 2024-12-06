@@ -15,7 +15,7 @@ font_size = 100
 [node name="bg_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_g15ik")
 volume_db = -20.19
-autoplay = true
+parameters/looping = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -7,6 +7,9 @@ func _ready() -> void:
 	change_scene("res://Scenes/main_menu.tscn")
 
 func change_scene(scene_path: String) -> void:
+	# Stop all currently playing audio
+	#stop_all_audio()
+	
 	# Ensure the current scene is removed
 	if current_scene:
 		current_scene.queue_free()
@@ -17,3 +20,9 @@ func change_scene(scene_path: String) -> void:
 	get_tree().get_root().add_child(new_scene)
 	get_tree().current_scene = new_scene
 	current_scene = new_scene
+
+#func stop_all_audio() -> void:
+	## Find all AudioStreamPlayer nodes and stop them
+	#for node in get_tree().get_root().get_children():
+		#if node is AudioStreamPlayer:
+			#node.stop()
