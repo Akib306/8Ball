@@ -63,10 +63,21 @@ func on_turn_end(player: Player) -> void:
 
 # Randomly draw a power-up and assign it to the player
 func power_draw(player: Player) -> void:
-	var power_up = power_selector()
-	if power_up:
+	var power_up = null
+	var attempts = 0
+	var max_attempts = 10  # Prevent infinite loops
+
+	while attempts < max_attempts:
+		power_up = power_selector()
+		if power_up and not check_if_in_inventory(player, power_up.name):  # Check by name
+			break  # Found a unique power-up
+		attempts += 1
+
+	if power_up and not check_if_in_inventory(player, power_up.name):  # Final check
 		player.add_to_inventory(power_up)
-		print("Random power-up added to ", player.name, "'s inventory:", power_up)
+		print("Unique power-up added to ", player.name, "'s inventory:", power_up.name)
+	else:
+		print("Failed to find a unique power-up after", max_attempts, "attempts.")
 
 # Select a random power-up using the factory
 func power_selector() -> PowerUp:
@@ -83,3 +94,10 @@ func power_selector() -> PowerUp:
 	else:
 		print("Error: Failed to create power-up instance.")
 		return null
+
+# Check if a power-up with the given name exists in the player's inventory
+func check_if_in_inventory(player: Player, name: String) -> bool:
+	for power_up in player.inventory:
+		if power_up.name == name: 
+			return true
+	return false

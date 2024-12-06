@@ -6,7 +6,10 @@ signal power_gamble
 @onready var timer_label: Label = $TurnTimer/TimerLabel
 @onready var power_up_ui: PowerUpUI = $PowerupUI
 var is_mouse_over_ui: bool = false
-
+@onready var player1_icon: Button = $header_gui/CenterContainer/player_profile/player_1_profile/Button
+@onready var player2_icon: Button = $header_gui/CenterContainer/player_profile/player_2_profile/Button
+@onready var player1_label: Label = $header_gui/CenterContainer/player_profile/player_1_profile/player_tag
+@onready var player2_label: Label = $header_gui/CenterContainer/player_profile/player_2_profile/player_tag
 var cue
 const TURN_TIME := 10.0  
 
@@ -40,36 +43,38 @@ var foul_committed_this_shot: bool = false
 var player_potted_correct_ball := false  # New flag to track correct potting
 
 func _ready() -> void:
+	
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
+	
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
 	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
 	power_up_ui.player = current_player
 	power_up_ui.powerup_manager = powerupManager
 	power_up_ui.update_ui()
-	
+	player1_icon.grab_focus()
+
 	cue = $Cue
 	load_images()
 	new_game()
 	
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
-	
-#####################################################################################################
+
 func _on_ui_mouse_entered() -> void:
 	is_mouse_over_ui = true
-	
+
 func _on_ui_mouse_exited() -> void:
 	is_mouse_over_ui = false
 
-	
 func _unhandled_input(event):
 	if taking_shot:
 		return  # Ignore input while a shot is being taken
@@ -80,8 +85,7 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SPACE:
 			current_player.activate_power_up(0, powerupManager)
-			
-			
+
 func _process(delta: float) -> void:
 	var moving := false
 
@@ -133,7 +137,6 @@ func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
-	#update_power_up_ui()
 
 func load_images():
 	for i in range(1, 17, 1):
@@ -241,7 +244,7 @@ func _on_cue_shoot(power: Vector2):
 	# Add spin (angular velocity) based on the cue's force and direction
 	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
-	
+
 func potted_ball(body):
 	if body == cue_ball:
 		handle_cue_ball_pot()
@@ -323,9 +326,9 @@ func handle_black_ball(body):
 func declare_winner(winning_player: Player):
 	turn_timer.stop_timer()
 	print("Congratulations ", winning_player.name, " you win!")
-	# Add any GUI updates or game-ending logic here
-	# Example:
-	# game_over_ui.show_winner(winning_player.name)
+	
+	# Pass the winner's name to the game_over scene
+	SceneManager.change_scene("res://Scenes/game_over.tscn", {"winner_name": winning_player.name})
 
 func handle_ball_removal(body):
 	if solids.has(body):
@@ -336,10 +339,15 @@ func handle_ball_removal(body):
 func assign_player_ball_type(body):
 	if solids.has(body):
 		current_player.assign_type("solids")
+		player1_label.text = "Player 1 (Solids)"
+		player2_label.text = "Player 2 (Stripes)"
+
 		(player1 if current_player == player2 else player2).assign_type("stripes")
 		print(current_player.name, " is now assigned solids.")
 	elif stripes.has(body):
 		current_player.assign_type("stripes")
+		player1_label.text = "Player 1 (Stripes)"
+		player2_label.text = "Player 2 (Solids)"
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
 
@@ -380,6 +388,14 @@ func switch_turn():
 
 	# Switch to the next player
 	current_player = player2 if current_player == player1 else player1
+	
+	if current_player == player1:
+		player1_icon.grab_focus()
+		player2_icon.FOCUS_NONE
+	else:
+		player2_icon.grab_focus()
+		player1_icon.FOCUS_NONE
+
 	#update_power_up_ui()
 	power_up_ui.player = current_player
 	power_up_ui.update_ui()
