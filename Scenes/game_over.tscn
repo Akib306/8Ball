@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgfeedcra8tsn"]
+[gd_scene load_steps=6 format=3 uid="uid://bgfeedcra8tsn"]
 
 [ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_u5cwg"]
 [ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="2_kysxv"]
+[ext_resource type="AudioStream" uid="uid://c624jup04vxvt" path="res://Sounds/end.mp3" id="4_aok1y"]
 
 [sub_resource type="Curve" id="Curve_qs64s"]
 min_value = 1.0
@@ -185,3 +186,7 @@ grow_vertical = 2
 theme = ExtResource("2_kysxv")
 theme_override_font_sizes/font_size = 80
 text = "Main Menu"
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("4_aok1y")
+parameters/looping = true
