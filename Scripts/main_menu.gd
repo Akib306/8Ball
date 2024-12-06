@@ -53,7 +53,6 @@ func _on_quit_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	
 	SceneManager.change_scene("res://Scenes/main.tscn")
 	hide()
 	
