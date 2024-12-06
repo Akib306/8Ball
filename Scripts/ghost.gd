@@ -48,7 +48,8 @@ func on_turn_end():
 		return
 
 	print("Ghost Power-Up effect ended. Restoring collisions and opacity.")
-	disable_ghost_mode()
+	call_deferred("disable_ghost_mode")
+
 
 # Restore collisions and opacity
 func disable_ghost_mode():

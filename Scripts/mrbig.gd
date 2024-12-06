@@ -39,8 +39,7 @@ func on_turn_end():
 		return
 	
 	print("MrBig effect ended.")
-	restore_ball_sizes()
-
+	call_deferred("restore_ball_sizes")
 # Restore the original sizes of the opponent's balls
 func restore_ball_sizes():
 	if not main_game.get_tree().has_group("enlarged_balls"):
