@@ -1,8 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cc65cnhgnbuuv"]
 
-[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="1_0abd5"]
 [ext_resource type="AudioStream" uid="uid://bawhagyqmp1k1" path="res://Sounds/main_menu.mp3" id="1_g15ik"]
-[ext_resource type="FontFile" uid="uid://dhganyxn4d3qk" path="res://Fonts/Lato/Lato-Black.ttf" id="1_n1m5i"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nso0m"]
 [ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
 [ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="2_18j65"]
@@ -10,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://btkwc5fwxiiai" path="res://Assets/Clouds 7/2.png" id="7_hrwt7"]
 [ext_resource type="Texture2D" uid="uid://dv1w1e8i8djo1" path="res://Assets/Clouds 7/3.png" id="8_vn226"]
 [ext_resource type="Texture2D" uid="uid://bmncjx8xhyalq" path="res://Assets/Clouds 7/4.png" id="9_2kqda"]
+[ext_resource type="FontFile" uid="uid://5xpmc0do43kv" path="res://Fonts/Minecraft.ttf" id="9_3dqor"]
+[ext_resource type="Theme" uid="uid://b36eg213tvr53" path="res://Themes/new_button_themes.tres" id="11_ql2od"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
-font = ExtResource("1_n1m5i")
 font_size = 100
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -101,6 +100,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="Control/Main_menu/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("9_3dqor")
 text = "8Ball+"
 label_settings = SubResource("LabelSettings_jm1sm")
 horizontal_alignment = 1
@@ -119,7 +119,7 @@ focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Option")
 focus_next = NodePath("../Option")
 focus_previous = NodePath("../Quit")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("11_ql2od")
 text = "Start"
 
 [node name="Option" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
@@ -129,7 +129,7 @@ focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Start")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("11_ql2od")
 text = "Options"
 
 [node name="Quit" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
@@ -139,7 +139,7 @@ focus_neighbor_top = NodePath("../Option")
 focus_neighbor_bottom = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Option")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("11_ql2od")
 text = "Quit"
 
 [node name="Options_menu" type="MarginContainer" parent="Control"]
@@ -163,7 +163,7 @@ focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
-theme = ExtResource("1_0abd5")
+theme = ExtResource("11_ql2od")
 text = "Back"
 
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Start" to="Control" method="_on_start_pressed"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_u5cwg"]
 [ext_resource type="FontFile" uid="uid://5xpmc0do43kv" path="res://Fonts/Minecraft.ttf" id="3_x6ejf"]
-[ext_resource type="Theme" path="res://Themes/new_button_themes.tres" id="4_450t3"]
+[ext_resource type="Theme" uid="uid://b36eg213tvr53" path="res://Themes/new_button_themes.tres" id="4_450t3"]
 
 [sub_resource type="Curve" id="Curve_qs64s"]
 min_value = 1.0
