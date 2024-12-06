@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgfeedcra8tsn"]
+[gd_scene load_steps=7 format=3 uid="uid://bgfeedcra8tsn"]
 
 [ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_u5cwg"]
 [ext_resource type="FontFile" uid="uid://5xpmc0do43kv" path="res://Fonts/Minecraft.ttf" id="3_x6ejf"]
 [ext_resource type="Theme" uid="uid://b36eg213tvr53" path="res://Themes/new_button_themes.tres" id="4_450t3"]
-[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="2_kysxv"]
 [ext_resource type="AudioStream" uid="uid://c624jup04vxvt" path="res://Sounds/end.mp3" id="4_aok1y"]
 
 [sub_resource type="Curve" id="Curve_qs64s"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc65cnhgnbuuv"]
+[gd_scene load_steps=11 format=3 uid="uid://cc65cnhgnbuuv"]
 
 [ext_resource type="AudioStream" uid="uid://bawhagyqmp1k1" path="res://Sounds/main_menu.mp3" id="1_g15ik"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nso0m"]
-[ext_resource type="Texture2D" uid="uid://tr5atyjf7280" path="res://Assets/steven-weeks-pdTi4_gxSsY-unsplash.jpg" id="1_sm1lv"]
 [ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="2_18j65"]
 [ext_resource type="Texture2D" uid="uid://dcobixkdscfxf" path="res://Assets/Clouds 7/1.png" id="6_drogy"]
 [ext_resource type="Texture2D" uid="uid://btkwc5fwxiiai" path="res://Assets/Clouds 7/2.png" id="7_hrwt7"]
@@ -69,21 +68,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nso0m")
 
-[node name="Background" type="TextureRect" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -87.0
-offset_top = -15.0
-offset_right = 647.0
-offset_bottom = 695.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_sm1lv")
-expand_mode = 1
-
 [node name="Main_menu" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -116,13 +100,13 @@ alignment = 1
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Option")
-focus_next = NodePath("../Option")
+focus_neighbor_bottom = NodePath("../Credits")
+focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Quit")
 theme = ExtResource("11_ql2od")
 text = "Start"
 
-[node name="Option" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
+[node name="Credits" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
@@ -130,19 +114,19 @@ focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Start")
 theme = ExtResource("11_ql2od")
-text = "Options"
+text = "Credit"
 
 [node name="Quit" type="Button" parent="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Option")
+focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../Start")
 focus_next = NodePath("../Start")
-focus_previous = NodePath("../Option")
+focus_previous = NodePath("../Credits")
 theme = ExtResource("11_ql2od")
 text = "Quit"
 
-[node name="Options_menu" type="MarginContainer" parent="Control"]
+[node name="Credits" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,14 +134,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/Options_menu"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/Credits"]
 layout_mode = 2
 
-[node name="OptionButtons" type="VBoxContainer" parent="Control/Options_menu/CenterContainer"]
+[node name="OptionButtons" type="VBoxContainer" parent="Control/Credits/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Back" type="Button" parent="Control/Options_menu/CenterContainer/OptionButtons"]
+[node name="Back" type="Button" parent="Control/Credits/CenterContainer/OptionButtons"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
@@ -166,7 +151,33 @@ focus_previous = NodePath(".")
 theme = ExtResource("11_ql2od")
 text = "Back"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Control/Credits"]
+
+[node name="Label" type="Label" parent="Control/Credits/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.223
+anchor_top = 0.208
+anchor_right = 0.82
+anchor_bottom = 0.456
+offset_left = 0.839996
+offset_top = 0.360001
+offset_right = 1.59985
+offset_bottom = 0.519958
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_3dqor")
+theme_override_font_sizes/font_size = 50
+text = "Anjana Samarasinghe (zgw096@mail.usask.ca) 
+
+Motasin Akib (nzy764@usask.ca)
+
+Karar Ål-Shanoon (uls179@usask.ca)
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Start" to="Control" method="_on_start_pressed"]
-[connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Option" to="Control" method="_on_option_pressed"]
+[connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Credits" to="Control" method="_on_option_pressed"]
 [connection signal="pressed" from="Control/Main_menu/CenterContainer/VBoxContainer/MenuButtons/Quit" to="Control" method="_on_quit_pressed"]
-[connection signal="pressed" from="Control/Options_menu/CenterContainer/OptionButtons/Back" to="Control" method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Credits/CenterContainer/OptionButtons/Back" to="Control" method="_on_back_pressed"]

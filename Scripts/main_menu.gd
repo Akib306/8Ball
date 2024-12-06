@@ -1,9 +1,10 @@
 extends Control
 
 @onready var mainMenu = $Main_menu
-@onready var optionsMenu = $Options_menu
+@onready var optionsMenu = $Credits
 @onready var menu_buttons = %MenuButtons
 @onready var option_buttons = %OptionButtons
+@onready var credit_name = $Credits/CanvasLayer/Label
 
 
 var state
@@ -12,6 +13,7 @@ var state
 func _ready() -> void:
 	$"../bg_music".play()
 	optionsMenu.visible = false
+	credit_name.visible = false
 	state = "Main"
 	focus_button()
 	
@@ -19,6 +21,7 @@ func _ready() -> void:
 func to_options(): 
 	mainMenu.visible = false
 	optionsMenu.visible = true
+	credit_name.visible = true
 
 func on_visibility_change(): 
 	if visible:
@@ -38,11 +41,13 @@ func focus_button():
 func to_main():
 	mainMenu.visible = true
 	optionsMenu.visible = false
+	credit_name.visible = false
 
 func _on_option_pressed() -> void:
 	to_options()
 	state = "Options"
 	focus_button()
+	
 
 func _on_back_pressed() -> void:
 	to_main()
