@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b36eg213tvr53"]
+
+[ext_resource type="FontFile" uid="uid://5xpmc0do43kv" path="res://Fonts/Minecraft.ttf" id="1_d04fx"]
+[ext_resource type="Texture2D" uid="uid://cs2acdlvoo6c4" path="res://Assets/test.png" id="2_rpcsu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ivxri"]
+texture = ExtResource("2_rpcsu")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(32, 67, 31, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i255w"]
+texture = ExtResource("2_rpcsu")
+texture_margin_left = 7.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 7.0
+region_rect = Rect2(32, 67, 32, 29)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xwcf"]
+texture = ExtResource("2_rpcsu")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 9.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(96, 64, 32, 32)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_d04fx")
+Button/styles/focus = SubResource("StyleBoxTexture_ivxri")
+Button/styles/hover = SubResource("StyleBoxTexture_i255w")
+Button/styles/normal = SubResource("StyleBoxTexture_4xwcf")
