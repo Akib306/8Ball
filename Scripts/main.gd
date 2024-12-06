@@ -1,11 +1,16 @@
 extends Node2D
 
 @export var ball : PackedScene
-@export var power_up_ui: Control
 signal power_gamble
 @onready var turn_timer: TurnTimer = $TurnTimer
 @onready var timer_label: Label = $TurnTimer/TimerLabel
-
+@onready var power_up_ui: PowerUpUI = $PowerupUI
+var is_mouse_over_ui: bool = false
+@onready var player1_icon: Button = $header_gui/CenterContainer/player_profile/player_1_profile/Button
+@onready var player2_icon: Button = $header_gui/CenterContainer/player_profile/player_2_profile/Button
+@onready var player1_label: Label = $header_gui/CenterContainer/player_profile/player_1_profile/Panel/CenterContainer/Player1
+@onready var player2_label: Label = $header_gui/CenterContainer/player_profile/player_2_profile/Panel/CenterContainer/Player1
+var cue
 const TURN_TIME := 10.0  
 
 var ball_images := []
@@ -37,27 +42,53 @@ var player_potted_own_ball_this_shot: bool = false
 var foul_committed_this_shot: bool = false
 var player_potted_correct_ball := false  # New flag to track correct potting
 
-#####################################################################################################
-
 func _ready() -> void:
+	
 	ball = load("res://Scenes/ball.tscn") as PackedScene
 	camera = $Pool_Table/Camera2D  # Adjust the path if necessary
 	turn_timer.connect("timeout", Callable(self, "_on_timeout"))
 	
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot1.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot2.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_entered", Callable(self, "_on_ui_mouse_entered"))
+	$PowerupUI/VBoxContainer/HBoxContainer/Slot3.connect("mouse_exited", Callable(self, "_on_ui_mouse_exited"))
+	
 	powerupManager = PowerUpManager.new()
 	powerupManager.set_main_game(self)
 	powerupManager.power_up_factory = PowerUpFactory.new()	
-	power_up_ui = $PowerupUI
+	power_up_ui.player = current_player
+	power_up_ui.powerup_manager = powerupManager
+	power_up_ui.update_ui()
+	player1_icon.grab_focus()
 
+	cue = $Cue
 	load_images()
 	new_game()
-
+	
 	$Pool_Table/Pockets.body_entered.connect(potted_ball)
 
-#####################################################################################################
+func _on_ui_mouse_entered() -> void:
+	is_mouse_over_ui = true
+
+func _on_ui_mouse_exited() -> void:
+	is_mouse_over_ui = false
+
+func _unhandled_input(event):
+	if taking_shot:
+		return  # Ignore input while a shot is being taken
+	
+	if is_mouse_over_ui:
+		return
+			
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE:
+			current_player.activate_power_up(0, powerupManager)
 
 func _process(delta: float) -> void:
 	var moving := false
+
 	for b in get_tree().get_nodes_in_group("balls"):
 		# Rotate sprite based on angular velocity
 		var sprite = b.get_node("Sprite2D")
@@ -96,35 +127,22 @@ func _process(delta: float) -> void:
 			taking_shot = false
 			hide_cue()
 
-#####################################################################################################
-
-# **Added this method for cue ball strike sound**
 func play_cue_strike_sound():
 	$CueStrikeAudio.play()
 
-#####################################################################################################
-
-# **Added this method for ball potting sound**
 func play_ball_pot_sound():
 	$BallPotAudio.play()
-
-#####################################################################################################
 
 func new_game():
 	generate_balls()
 	reset_cue_ball()
 	show_cue()
-	#update_power_up_ui()
-
-#####################################################################################################
 
 func load_images():
 	for i in range(1, 17, 1):
 		var filename = str("res://Assets/ball_", i, ".png")
 		var ball_image = load(filename)
 		ball_images.append(ball_image)
-
-#####################################################################################################
 
 func generate_balls():
 	var num_of_col_row : int = 5
@@ -168,8 +186,6 @@ func generate_balls():
 
 		num_of_col_row -= 1
 
-#####################################################################################################
-
 func reset_cue_ball():
 	# Instantiate the cue ball
 	cue_ball = ball.instantiate()
@@ -193,14 +209,10 @@ func reset_cue_ball():
 	else:
 		print("Line2D not found in Cue!")
 
-#####################################################################################################
-
 func remove_cue_ball():
 	var old_b = cue_ball
 	remove_child(old_b)
 	old_b.queue_free()
-
-#####################################################################################################
 
 func show_cue():
 	$Cue.set_process(true)
@@ -211,26 +223,27 @@ func show_cue():
 	$PowerBar.show()
 	turn_timer.start_timer()
 
-#####################################################################################################
-
 func hide_cue():
 	$Cue.set_process(false)
 	$Cue.hide()
 	$PowerBar.hide()
 
-#####################################################################################################
-
 func _on_cue_shoot(power: Vector2):
-	# Apply central impulse for forward motion
+	
 	turn_timer.stop_timer()
+	
+	# Apply central impulse for forward motion
 	cue_ball.apply_central_impulse(power)
+	
 	play_cue_strike_sound() 
+	
+	# Reset the first ball hit tracking
+	first_ball_hit = null
+	foul_committed_this_shot = false
+	
 	# Add spin (angular velocity) based on the cue's force and direction
-	# For example, simulate slight top or side spin
-	var spin_strength = 0.2  # Adjust as needed for realism
+	var spin_strength = 0.2
 	cue_ball.angular_velocity = power.x * spin_strength
-
-#####################################################################################################
 
 func potted_ball(body):
 	if body == cue_ball:
@@ -238,77 +251,118 @@ func potted_ball(body):
 	else:
 		play_ball_pot_sound()
 		handle_ball_pot(body)
-		
-#####################################################################################################
 
 func handle_cue_ball_pot():
 	cue_ball_potted = true
 	remove_cue_ball()
 	play_ball_pot_sound()
 	switch_turn()
-	
-#####################################################################################################
 
 func handle_ball_pot(body):
+	
+	display_potted_ball(body)
+	
+	# Black ball handling
+	if handle_black_ball(body):
+		return
+	
+	# At the beginning of the game
+	power_up_ui.update_ui()
 	if current_player.type == "":
 		assign_player_ball_type(body)
 
 	if is_correct_ball(body):
-		current_player.score += 1
-		print(current_player.name, " potted a ", current_player.type, 
-			"! Score: ", current_player.score)
+		calculate_score(body, current_player)
 		player_potted_correct_ball = true  # Retain turn if correct ball potted
-		game_controller.power_draw(current_player)
+		powerupManager.power_draw(current_player)
+		power_up_ui.update_ui()
 		
 	else:
 		play_ball_pot_sound()
-		print(current_player.name, " fouled by hitting the wrong ball type.")
+		
+		if current_player == player1:
+			calculate_score(body, player2)
+			
+		elif current_player == player2:
+			calculate_score(body, player1)
+
+		print(current_player.name, " fouled by potting the wrong ball type.")
 		player_potted_correct_ball = false  # Switch turn on foul
-		#switch_turn()
+
+	print(player1.name, "'s score is ", player1.score)
+	print(player2.name, "'s score is ", player2.score)
+
+func calculate_score(body, player: Player):
 	
 	handle_ball_removal(body)
-	display_potted_ball(body)
+	
+	if player.type == "solids":
+		player.score = 7 - solids.size()
+		
+		if player.score == 7:
+			player.can_win = true
+	
+	elif player.type == "stripes":
+		player.score = 7 - stripes.size()
+		
+		if player.score == 7:
+			player.can_win = true
 
-#####################################################################################################
+func handle_black_ball(body):
+	# Check if the black ball is potted
+	if body != black_ball:
+		return false  # Not the black ball, no special handling needed
+	
+	# Check if the player can win
+	if current_player.can_win:
+		print(current_player.name, " potted the black ball and won the game!")
+		declare_winner(current_player)
+	else:
+		print(current_player.name, " fouled by potting the black ball too early!")
+		declare_winner(player1 if current_player == player2 else player2)
+	
+	return true
 
-func check_win_condition(body):
-	if body == black_ball:
-		if solids.is_empty() and current_player.type == "solids":
-			# emit_signal("win", current_player.name)
-			print(current_player.name + " won")
-		elif stripes.is_empty() and current_player.type == "stripes":
-			# emit_signal("win", current_player.name)
-			print(current_player.name + " won")
-			
-#####################################################################################################
+func declare_winner(winning_player: Player):
+	turn_timer.stop_timer()
+	print("Congratulations ", winning_player.name, " you win!")
+	
+	# Pass the winner's name to the game_over scene
+	SceneManager.change_scene("res://Scenes/game_over.tscn", {"winner_name": winning_player.name})
 
 func handle_ball_removal(body):
 	if solids.has(body):
 		solids.erase(body)
 	elif stripes.has(body):
 		stripes.erase(body)
-	
-	check_win_condition(body)
-	
-#####################################################################################################
 
 func assign_player_ball_type(body):
+	
 	if solids.has(body):
+		if current_player == player1: 
+			player1_label.text = "Player 1 (Solids)"
+			player2_label.text = "Player 2 (Stripes)"
+		else:
+			player2_label.text = "Player 2 (Solids)"
+			player1_label.text = "Player 1 (Stripes)"
 		current_player.assign_type("solids")
 		(player1 if current_player == player2 else player2).assign_type("stripes")
 		print(current_player.name, " is now assigned solids.")
+	
 	elif stripes.has(body):
+		if current_player == player1: 
+			player1_label.text = "Player 1 (Stripes)"
+			player2_label.text = "Player 2 (Solid)"
+		else:
+			player2_label.text = "Player 2 (Stripes)"
+			player1_label.text = "Player 1 (Solids)"
 		current_player.assign_type("stripes")
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
 
-#####################################################################################################
-
 func is_correct_ball(body) -> bool:
 	return (current_player.type == "solids" and solids.has(body)) or (
 		current_player.type == "stripes" and stripes.has(body))
-
-#####################################################################################################
 
 func display_potted_ball(body):
 	var max_balls_per_row := 15
@@ -322,15 +376,13 @@ func display_potted_ball(body):
 	
 	# set up ball position
 	var panel_position = $Pot/PottedPanel.position
-	var x_pos = panel_position.x - 20 + 60 * potted.size()
+	var x_pos = panel_position.x - 10 + 60 * potted.size()
 	var panel_height = $Pot/PottedPanel.size.y
 	var y_pos = (panel_position.y + (panel_height / 2))
 	
 	b.position = Vector2(x_pos, y_pos)
 
 	body.queue_free()
-	
-#####################################################################################################
 
 func _on_timeout():
 	# Handle timeout: switch turns and restart the timer
@@ -339,8 +391,24 @@ func _on_timeout():
 
 func switch_turn():
 	turn_timer.stop_timer()
+
+	# Handle the end of the current player's turn
+	powerupManager.on_turn_end(current_player)
+
+	# Switch to the next player
 	current_player = player2 if current_player == player1 else player1
+	
+	if current_player == player1:
+		player1_icon.grab_focus()
+		player2_icon.FOCUS_NONE
+	else:
+		player2_icon.grab_focus()
+		player1_icon.FOCUS_NONE
+
 	#update_power_up_ui()
+	power_up_ui.player = current_player
+	power_up_ui.update_ui()
+
+	# Start the timer for the new player
 	print("It's now ", current_player.name, "'s turn.")
 	turn_timer.start_timer()
-#####################################################################################################

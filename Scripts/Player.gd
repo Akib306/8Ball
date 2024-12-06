@@ -5,6 +5,7 @@ class_name Player
 var name: String
 var type: String = ""  # "solids" or "stripes", assigned after the first shot
 var score: int = 0
+var can_win: bool = false
 var is_turn: bool = false
 
 # Power-up inventory with a maximum of two slots
@@ -24,9 +25,9 @@ func toggle_turn():
 	is_turn = !is_turn
 
 # Add a power-up to the inventory if there's space
-func add_to_inventory(power_up: Node2D):
-	if inventory.size() >= 2:
-		print(name, "has a full inventory. Cannot add more power-ups.")
+func add_to_inventory(power_up: PowerUp):
+	if inventory.size() >= 3:
+		print(name, " has a full inventory. Cannot add more power-ups.")
 		return
 
 	inventory.append(power_up)
