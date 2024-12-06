@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgfeedcra8tsn"]
+[gd_scene load_steps=4 format=3 uid="uid://bgfeedcra8tsn"]
 
 [ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_u5cwg"]
 [ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="2_kysxv"]
 
 [node name="game_over" type="Node2D"]
@@ -12,6 +13,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_u5cwg")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 layout_mode = 1
