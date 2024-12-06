@@ -17,7 +17,7 @@ font_size = 100
 
 [node name="bg_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_g15ik")
-volume_db = -20.19
+volume_db = -53.206
 autoplay = true
 bus = &"Music"
 
@@ -124,10 +124,10 @@ script = ExtResource("6_uv6na")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions"]
 layout_mode = 0
-offset_left = -226.0
+offset_left = -211.0
 offset_top = -294.0
 offset_right = 300.0
-offset_bottom = -34.0
+offset_bottom = -222.0
 alignment = 1
 
 [node name="Label" type="Label" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
@@ -136,28 +136,6 @@ size_flags_vertical = 3
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/grabber_area_highlight = ExtResource("8_jdh14")
-value = 50.0
-
-[node name="Label2" type="Label" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "SFX"
-
-[node name="SFXSlider" type="HSlider" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/grabber_area_highlight = ExtResource("8_jdh14")
-value = 50.0
-
-[node name="Label3" type="Label" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Music"
-
-[node name="MusicSlider" type="HSlider" parent="Control/Options_menu/CenterContainer/VBoxContainer/AudioOptions/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/grabber_area_highlight = ExtResource("8_jdh14")
