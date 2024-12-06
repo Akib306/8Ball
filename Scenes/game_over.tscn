@@ -1,0 +1,160 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgfeedcra8tsn"]
+
+[ext_resource type="Texture2D" uid="uid://0i6wcjmjeo5x" path="res://Assets/game_over.jpg" id="1_gau7n"]
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_u5cwg"]
+[ext_resource type="Theme" uid="uid://cvd8n3fcx4vjb" path="res://Themes/button_theme.tres" id="2_kysxv"]
+
+[sub_resource type="Curve" id="Curve_qs64s"]
+min_value = 1.0
+max_value = 10.0
+_data = [Vector2(0.0101946, 10), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="game_over" type="Node2D"]
+
+[node name="red" type="CPUParticles2D" parent="."]
+position = Vector2(960, -10)
+amount = 16
+explosiveness = 0.6
+randomness = 0.01
+lifetime_randomness = 0.2
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(0, -1)
+direction = Vector2(1, 1)
+spread = 180.0
+initial_velocity_min = 455.2
+initial_velocity_max = 775.99
+angular_velocity_min = -27.01
+angular_velocity_max = 87.74
+linear_accel_min = 11.47
+linear_accel_max = 12.19
+angle_max = 720.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qs64s")
+color = Color(1, 0, 0, 1)
+
+[node name="yellow" type="CPUParticles2D" parent="."]
+position = Vector2(960, -10)
+amount = 16
+explosiveness = 0.6
+randomness = 0.01
+lifetime_randomness = 0.2
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(0, -1)
+direction = Vector2(1, 1)
+spread = 180.0
+initial_velocity_min = 455.2
+initial_velocity_max = 775.99
+angular_velocity_min = -27.01
+angular_velocity_max = 87.74
+linear_accel_min = 11.47
+linear_accel_max = 12.19
+angle_max = 720.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qs64s")
+color = Color(1, 0.620137, 0.253865, 1)
+
+[node name="blue" type="CPUParticles2D" parent="."]
+position = Vector2(960, -10)
+amount = 16
+explosiveness = 0.6
+randomness = 0.01
+lifetime_randomness = 0.2
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(0, -1)
+direction = Vector2(1, 1)
+spread = 180.0
+initial_velocity_min = 455.2
+initial_velocity_max = 775.99
+angular_velocity_min = -27.01
+angular_velocity_max = 87.74
+linear_accel_min = 11.47
+linear_accel_max = 12.19
+angle_max = 720.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qs64s")
+color = Color(0, 0.717647, 0.984314, 1)
+
+[node name="green" type="CPUParticles2D" parent="."]
+position = Vector2(960, -10)
+amount = 16
+explosiveness = 0.6
+randomness = 0.01
+lifetime_randomness = 0.2
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(0, -1)
+direction = Vector2(1, 1)
+spread = 180.0
+initial_velocity_min = 455.2
+initial_velocity_max = 775.99
+angular_velocity_min = -27.01
+angular_velocity_max = 87.74
+linear_accel_min = 11.47
+linear_accel_max = 12.19
+angle_max = 720.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_qs64s")
+color = Color(2.59906e-06, 0.783471, 0.529085, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u5cwg")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -280.0
+offset_right = 2220.0
+offset_bottom = 1320.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gau7n")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.5
+offset_top = -268.5
+offset_right = 234.5
+offset_bottom = -131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "YOU WIN!"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 146.5
+offset_right = 212.0
+offset_bottom = 253.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_kysxv")
+theme_override_font_sizes/font_size = 80
+text = "Main Menu"
