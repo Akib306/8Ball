@@ -53,15 +53,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	#get_tree().change_scene_to_file("res://Scenes/main.tscn")
-	#hide()
-	# Load the main scene as a new instance
-	var main_scene = load("res://Scenes/main.tscn").instantiate()
 	
-	# Add the main scene to the root node
-	get_tree().get_root().add_child(main_scene)
-	
-	# Change the tree to the new scene
-	get_tree().current_scene = main_scene
+	SceneManager.change_scene("res://Scenes/main.tscn")
 	hide()
 	
