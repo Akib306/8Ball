@@ -12,7 +12,7 @@ func _init():
 	effect_type = EffectType.TURN_BASED
 	icon = load("res://Assets/speed_ball_icon.png")  # Replace with actual icon path
 	defect = true
-
+	name = "Speed ball"
 # Activate the power-up
 func activate():
 	if not main_game:

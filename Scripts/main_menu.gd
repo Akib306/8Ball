@@ -3,13 +3,14 @@ extends Control
 @onready var mainMenu = $Main_menu
 @onready var optionsMenu = $Options_menu
 @onready var menu_buttons = %MenuButtons
-@onready var option_buttons = $"./Options_menu/CenterContainer/VBoxContainer/OptionButtons"
+@onready var option_buttons = %OptionButtons
 
 
 var state
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"../bg_music".play()
 	optionsMenu.visible = false
 	state = "Main"
 	focus_button()
@@ -53,6 +54,7 @@ func _on_quit_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	$"../bg_music".stop()
+	SceneManager.change_scene("res://Scenes/main.tscn")
 	hide()
 	
