@@ -17,7 +17,7 @@ font_size = 100
 
 [node name="bg_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_g15ik")
-volume_db = -53.206
+volume_db = -20.19
 autoplay = true
 bus = &"Music"
 
@@ -139,6 +139,7 @@ text = "Master"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/grabber_area_highlight = ExtResource("8_jdh14")
+step = 10.0
 value = 50.0
 
 [node name="OptionButtons" type="VBoxContainer" parent="Control/Options_menu/CenterContainer/VBoxContainer"]
