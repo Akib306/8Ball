@@ -334,11 +334,25 @@ func handle_ball_removal(body):
 		stripes.erase(body)
 
 func assign_player_ball_type(body):
+	
 	if solids.has(body):
+		if current_player == player1: 
+			player1_label.text = "Player 1 (Solids)"
+			player2_label.text = "Player 2 (Stripes)"
+		else:
+			player2_label.text = "Player 2 (Solids)"
+			player1_label.text = "Player 1 (Stripes)"
 		current_player.assign_type("solids")
 		(player1 if current_player == player2 else player2).assign_type("stripes")
 		print(current_player.name, " is now assigned solids.")
+	
 	elif stripes.has(body):
+		if current_player == player1: 
+			player1_label.text = "Player 1 (Stripes)"
+			player2_label.text = "Player 2 (Solid)"
+		else:
+			player2_label.text = "Player 2 (Stripes)"
+			player1_label.text = "Player 1 (Solids)"
 		current_player.assign_type("stripes")
 		(player1 if current_player == player2 else player2).assign_type("solids")
 		print(current_player.name, " is now assigned stripes.")
