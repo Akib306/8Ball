@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://yfcfr7i0n7ap"]
+[gd_scene load_steps=35 format=3 uid="uid://yfcfr7i0n7ap"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qawor"]
 [ext_resource type="PackedScene" uid="uid://d1urs3qxj7yf4" path="res://Scenes/pool_table.tscn" id="1_y5xig"]
@@ -9,12 +9,14 @@
 [ext_resource type="Script" path="res://Scripts/power_bar.gd" id="4_n04ic"]
 [ext_resource type="Script" path="res://Scripts/powerup_ui.gd" id="6_ql5pi"]
 [ext_resource type="Theme" uid="uid://bnmpgydbpmg6b" path="res://Themes/powerup_theme.tres" id="10_2stwm"]
+[ext_resource type="Texture2D" uid="uid://cs2acdlvoo6c4" path="res://Assets/test.png" id="11_7x57n"]
 [ext_resource type="Texture2D" uid="uid://c841l85tvi3ap" path="res://Assets/player_1_icon.png" id="11_qjtyc"]
 [ext_resource type="Theme" uid="uid://djcu7oroyq5sw" path="res://Themes/player_icon_theme.tres" id="11_sbvhy"]
 [ext_resource type="Script" path="res://Scenes/turn_timer.gd" id="11_v2jn0"]
 [ext_resource type="Texture2D" uid="uid://yfrxop3upy4j" path="res://Assets/player_2_icon.png" id="12_4si6d"]
 [ext_resource type="Texture2D" uid="uid://qmxlk77x0s4n" path="res://Assets/versus.png" id="12_pm2bj"]
 [ext_resource type="Theme" uid="uid://cfyuvdelv7on7" path="res://Themes/player2_icon_theme.tres" id="14_bw7fy"]
+[ext_resource type="Texture2D" uid="uid://7ebpqeue2x6m" path="res://Assets/test2.png" id="16_hjx5q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hexvr"]
 bg_color = Color(0, 0.464642, 0.469822, 1)
@@ -33,6 +35,67 @@ bg_color = Color(0.992157, 0.992157, 0.992157, 0.458824)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xqwk"]
 bg_color = Color(0.682353, 0.0588235, 0.0862745, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0aroi"]
+texture = ExtResource("16_hjx5q")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(128, 129, 31, 31)
+
+[sub_resource type="Theme" id="Theme_fbtli"]
+Panel/styles/panel = SubResource("StyleBoxTexture_0aroi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oy6t5"]
+texture = ExtResource("11_7x57n")
+region_rect = Rect2(66, 2, 10, 10)
+
+[sub_resource type="Theme" id="Theme_mu1hp"]
+Panel/styles/panel = SubResource("StyleBoxTexture_oy6t5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vfeo"]
+texture = ExtResource("11_7x57n")
+region_rect = Rect2(66, 20, 10, 10)
+
+[sub_resource type="Theme" id="Theme_3t6rg"]
+Panel/styles/panel = SubResource("StyleBoxTexture_4vfeo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1sio1"]
+texture = ExtResource("11_7x57n")
+region_rect = Rect2(84, 20, 10, 10)
+
+[sub_resource type="Theme" id="Theme_fpowa"]
+Panel/styles/panel = SubResource("StyleBoxTexture_1sio1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fahbm"]
+texture = ExtResource("11_7x57n")
+region_rect = Rect2(84, 2, 10, 10)
+
+[sub_resource type="Theme" id="Theme_32jcv"]
+Panel/styles/panel = SubResource("StyleBoxTexture_fahbm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hdy5"]
+texture = ExtResource("16_hjx5q")
+texture_margin_left = 17.0
+texture_margin_top = 6.0
+texture_margin_right = 22.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(288, 134, 64, 20)
+
+[sub_resource type="Theme" id="Theme_mn1u2"]
+Panel/styles/panel = SubResource("StyleBoxTexture_3hdy5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8sy4o"]
+texture = ExtResource("16_hjx5q")
+texture_margin_left = 56.0
+texture_margin_top = 2.0
+texture_margin_right = 54.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(287, 134, 65, 20)
+
+[sub_resource type="Theme" id="Theme_nk5m7"]
+Panel/styles/panel = SubResource("StyleBoxTexture_8sy4o")
 
 [node name="Main" type="Node2D"]
 position = Vector2(6, 0)
@@ -115,6 +178,66 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_ql5pi")
 
+[node name="background" type="Panel" parent="PowerupUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 466.0
+offset_top = 380.0
+offset_right = 936.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fbtli")
+
+[node name="top_left_corner" type="Panel" parent="PowerupUI/background"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 9.0
+theme = SubResource("Theme_mu1hp")
+
+[node name="bottom_left_corner" type="Panel" parent="PowerupUI/background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 16.0
+offset_bottom = 1.0
+grow_vertical = 0
+theme = SubResource("Theme_3t6rg")
+
+[node name="bottom_right_corner" type="Panel" parent="PowerupUI/background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_fpowa")
+
+[node name="top_right_corner" type="Panel" parent="PowerupUI/background"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 3.0
+offset_bottom = 10.0
+grow_horizontal = 0
+theme = SubResource("Theme_32jcv")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PowerupUI"]
 layout_mode = 1
 anchors_preset = -1
@@ -125,8 +248,24 @@ anchor_bottom = 15.4
 offset_bottom = -6.10352e-05
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="PowerupUI/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PowerupUI/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="PowerupUI/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme = SubResource("Theme_mn1u2")
+
+[node name="Label" type="Label" parent="PowerupUI/VBoxContainer/CenterContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Power Ups"
 horizontal_alignment = 1
@@ -185,13 +324,12 @@ stretch_mode = 5
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.494118, 0.745098, 1, 0.792157)
+color = Color(0, 0, 0, 0.792157)
 
 [node name="header_gui" type="Control" parent="."]
 layout_mode = 3
@@ -229,12 +367,25 @@ icon = ExtResource("11_qjtyc")
 icon_alignment = 1
 expand_icon = true
 
-[node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
+[node name="Panel" type="Panel" parent="header_gui/CenterContainer/player_profile/player_1_profile"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme = SubResource("Theme_nk5m7")
+
+[node name="CenterContainer" type="CenterContainer" parent="header_gui/CenterContainer/player_profile/player_1_profile/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_1_profile/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Player 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="versus_container" type="VBoxContainer" parent="header_gui/CenterContainer/player_profile"]
 custom_minimum_size = Vector2(150, 150)
@@ -267,12 +418,25 @@ icon = ExtResource("12_4si6d")
 icon_alignment = 1
 expand_icon = true
 
-[node name="player_tag" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
+[node name="Panel" type="Panel" parent="header_gui/CenterContainer/player_profile/player_2_profile"]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme = SubResource("Theme_nk5m7")
+
+[node name="CenterContainer" type="CenterContainer" parent="header_gui/CenterContainer/player_profile/player_2_profile/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player1" type="Label" parent="header_gui/CenterContainer/player_profile/player_2_profile/Panel/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
 text = "Player 2
 "
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="shoot" from="Cue" to="." method="_on_cue_shoot"]
