@@ -191,4 +191,5 @@ text = "Main Menu"
 
 [node name="bg_music" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 stream = ExtResource("4_aok1y")
+autoplay = true
 parameters/looping = true

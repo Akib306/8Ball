@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dv1w1e8i8djo1" path="res://Assets/Clouds 7/3.png" id="8_vn226"]
 [ext_resource type="Texture2D" uid="uid://bmncjx8xhyalq" path="res://Assets/Clouds 7/4.png" id="9_2kqda"]
 [ext_resource type="FontFile" uid="uid://5xpmc0do43kv" path="res://Fonts/Minecraft.ttf" id="9_3dqor"]
-[ext_resource type="Theme" uid="uid://c8j5xj8klade4" path="res://Themes/new_button_themes.tres" id="11_ql2od"]
+[ext_resource type="Theme" uid="uid://b36eg213tvr53" path="res://Themes/new_button_themes.tres" id="11_ql2od"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm1sm"]
 font_size = 100
