@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+/client/.godot/
+/client/android/
+
+
+.vscode
+*/vscode/
+
+*/node_modules
+.DS_Store
+
